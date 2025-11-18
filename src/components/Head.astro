@@ -1,0 +1,10 @@
+---
+const {
+    title = "Meshum",
+    description = "",
+    ...props
+} = Astro.props;
+---
+<link rel="sitemap" href="/sitemap-index.xml">
+<title>{title}</title>
+<meta name="description" content={description}>
