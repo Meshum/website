@@ -8,9 +8,23 @@ import CTA from "../components/CTA.astro";
 ---
 
 <Layout title="Meshum - Connect your knowledge. Unblock your teams.">
-	<Hero />
+	<Hero
+		title="Connect your knowledge."
+		highlight="Unblock your teams."
+		subtitle="A unified knowledge layer where every team keeps using the tools they already have—but everything becomes searchable and actionable through AI agents."
+		showCTA={true}
+	/>
 	<Problems />
-	<Features />
-	<UseCases />
-	<CTA />
+	<Features
+		title="Everything connected"
+		subtitle="Stop context-switching between tools. Meshum brings all your knowledge together."
+	/>
+	<UseCases
+		title="Built for software teams"
+		subtitle="Meshum helps your teams ship faster by removing knowledge bottlenecks."
+	/>
+	<CTA
+		title="Ready to unblock your teams?"
+		subtitle="Join the waitlist and be the first to experience a unified knowledge layer for your organization."
+	/>
 </Layout>

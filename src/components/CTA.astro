@@ -1,17 +1,10 @@
 ---
 interface Props {
-	title?: string;
-	subtitle?: string;
-	buttonText?: string;
-	buttonHref?: string;
+	title: string;
+	subtitle: string;
 }
 
-const {
-	title = "Ready to unblock your teams?",
-	subtitle = "Join the waitlist and be the first to experience a unified knowledge layer for your organization.",
-	buttonText = "Join the Waitlist",
-	buttonHref = "#waitlist",
-} = Astro.props;
+const { title, subtitle } = Astro.props;
 ---
 
 <section class="py-20 px-4 sm:px-6 lg:px-8" id="waitlist">
@@ -37,7 +30,7 @@ const {
 						class="flex-1 px-4 py-3 rounded-lg bg-bg-dark/50 border border-white/10 text-text-white placeholder:text-text-muted focus:outline-none focus:border-primary transition-colors"
 					/>
 					<button type="submit" class="btn-primary whitespace-nowrap">
-						{buttonText}
+						Join the Waitlist
 					</button>
 				</form>
 

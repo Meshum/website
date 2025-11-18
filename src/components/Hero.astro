@@ -1,17 +1,12 @@
 ---
 interface Props {
-	title?: string;
-	highlight?: string;
-	subtitle?: string;
+	title: string;
+	highlight: string;
+	subtitle: string;
 	showCTA?: boolean;
 }
 
-const {
-	title = "Connect your knowledge.",
-	highlight = "Unblock your teams.",
-	subtitle = "A unified knowledge layer where every team keeps using the tools they already have—but everything becomes searchable and actionable through AI agents.",
-	showCTA = true,
-} = Astro.props;
+const { title, highlight, subtitle, showCTA = true } = Astro.props;
 ---
 
 <section class="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">

@@ -1,9 +1,13 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
 	currentPath?: string;
 }
 
 const { currentPath = Astro.url.pathname } = Astro.props;
+
+import logo from '../../public/logo.svg';
 
 const navLinks = [
 	{ href: "/", label: "Home" },
@@ -15,7 +19,7 @@ const navLinks = [
 <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-bg-dark/80 border-b border-white/5">
 	<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
 		<a href="/" class="flex items-center gap-3 group">
-			<img src="/logo.svg" alt="Meshum" class="w-8 h-8 transition-transform group-hover:scale-110" />
+			<Image src={logo} loading="eager" alt="Meshum Logo" class="w-8 h-8 transition-transform group-hover:scale-110" />
 			<span class="text-xl font-semibold text-text-white">Meshum</span>
 		</a>
 

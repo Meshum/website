@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 const currentYear = new Date().getFullYear();
+import logo from '../../public/logo.svg';
 
 const footerLinks = {
 	product: [
@@ -24,7 +26,7 @@ const footerLinks = {
 			<!-- Brand -->
 			<div class="col-span-2 md:col-span-1">
 				<a href="/" class="flex items-center gap-3 mb-4">
-					<img src="/logo.svg" alt="Meshum" class="w-8 h-8" />
+					<Image src={logo} alt="Meshum" class="w-8 h-8" />
 					<span class="text-lg font-semibold text-text-white">Meshum</span>
 				</a>
 				<p class="text-sm text-text-gray leading-relaxed">

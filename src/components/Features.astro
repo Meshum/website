@@ -6,14 +6,14 @@ interface Feature {
 }
 
 interface Props {
-	title?: string;
-	subtitle?: string;
+	title: string;
+	subtitle: string;
 	features?: Feature[];
 }
 
 const {
-	title = "Everything connected",
-	subtitle = "Stop context-switching between tools. Meshum brings all your knowledge together.",
+	title,
+	subtitle,
 	features = [
 		{
 			icon: "graph",
