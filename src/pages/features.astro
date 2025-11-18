@@ -1,0 +1,120 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Features from "../components/Features.astro";
+import UseCases from "../components/UseCases.astro";
+import CTA from "../components/CTA.astro";
+
+const connectors = [
+	{ name: "GitHub", status: "primary", icon: "github" },
+	{ name: "Jira", status: "primary", icon: "jira" },
+	{ name: "Slack", status: "primary", icon: "slack" },
+	{ name: "Confluence", status: "secondary", icon: "confluence" },
+	{ name: "Notion", status: "secondary", icon: "notion" },
+	{ name: "Google Docs", status: "secondary", icon: "gdocs" },
+	{ name: "SharePoint", status: "secondary", icon: "sharepoint" },
+];
+---
+
+<Layout
+	title="Features - Meshum"
+	description="Explore Meshum's features: unified knowledge graph, AI team personas, multi-agent workflows, and more."
+>
+	<Hero
+		title="Powerful features for"
+		highlight="knowledge-driven teams"
+		subtitle="From unified search to AI agents that understand your domain, Meshum gives your teams the tools to move faster."
+		showCTA={false}
+	/>
+
+	<Features
+		title="Core capabilities"
+		subtitle="Every feature is designed to reduce friction and help your teams find answers faster."
+	/>
+
+	<!-- Connectors Section -->
+	<section class="py-20 px-4 sm:px-6 lg:px-8 bg-bg-darker">
+		<div class="max-w-6xl mx-auto">
+			<div class="text-center mb-16">
+				<h2 class="text-3xl sm:text-4xl font-bold text-text-white mb-4">Connect everything</h2>
+				<p class="text-lg text-text-gray max-w-2xl mx-auto">
+					Webhook-first connectors keep your knowledge graph fresh. Real-time updates where available, polling
+					fallback for everything else.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+				{
+					connectors.map((connector) => (
+						<div class="flex items-center gap-3 p-4 rounded-lg bg-white/[0.02] border border-white/5">
+							<div class="w-8 h-8 rounded bg-white/10 flex items-center justify-center">
+								<span class="text-xs font-medium text-text-gray">
+									{connector.name.substring(0, 2).toUpperCase()}
+								</span>
+							</div>
+							<div>
+								<div class="text-sm font-medium text-text-white">{connector.name}</div>
+								<div class="text-xs text-text-muted">
+									{connector.status === "primary" ? "Real-time" : "Polling"}
+								</div>
+							</div>
+						</div>
+					))
+				}
+				<div class="flex items-center gap-3 p-4 rounded-lg border border-dashed border-white/10">
+					<div class="w-8 h-8 rounded bg-primary/10 flex items-center justify-center">
+						<span class="text-xs font-medium text-primary">+</span>
+					</div>
+					<div>
+						<div class="text-sm font-medium text-text-gray">More coming</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Technical Architecture -->
+	<section class="py-20 px-4 sm:px-6 lg:px-8">
+		<div class="max-w-6xl mx-auto">
+			<div class="text-center mb-16">
+				<h2 class="text-3xl sm:text-4xl font-bold text-text-white mb-4">Built for enterprise</h2>
+				<p class="text-lg text-text-gray max-w-2xl mx-auto">
+					Security, scalability, and flexibility are built into the core.
+				</p>
+			</div>
+
+			<div class="grid md:grid-cols-3 gap-6">
+				<div class="p-6 rounded-xl bg-white/[0.02] border border-white/5">
+					<h3 class="text-lg font-semibold text-text-white mb-3">Data Isolation</h3>
+					<p class="text-sm text-text-gray leading-relaxed">
+						Customer data is isolated per namespace and never shared across tenants. Encrypted at rest by
+						default.
+					</p>
+				</div>
+				<div class="p-6 rounded-xl bg-white/[0.02] border border-white/5">
+					<h3 class="text-lg font-semibold text-text-white mb-3">Flexible Deployment</h3>
+					<p class="text-sm text-text-gray leading-relaxed">
+						Deploy as hosted SaaS or self-hosted in your own infrastructure. Same topology, same features.
+					</p>
+				</div>
+				<div class="p-6 rounded-xl bg-white/[0.02] border border-white/5">
+					<h3 class="text-lg font-semibold text-text-white mb-3">BYOK LLM Support</h3>
+					<p class="text-sm text-text-gray leading-relaxed">
+						Bring your own Azure OpenAI, Anthropic, or any provider. Your keys, your control, your
+						compliance.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<UseCases
+		title="Real-world applications"
+		subtitle="See how teams use Meshum to solve their knowledge challenges."
+	/>
+
+	<CTA
+		title="See Meshum in action"
+		subtitle="Join the waitlist for early access and be the first to experience unified knowledge."
+	/>
+</Layout>

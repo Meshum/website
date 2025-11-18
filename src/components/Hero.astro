@@ -1,0 +1,47 @@
+---
+interface Props {
+	title?: string;
+	highlight?: string;
+	subtitle?: string;
+	showCTA?: boolean;
+}
+
+const {
+	title = "Connect your knowledge.",
+	highlight = "Unblock your teams.",
+	subtitle = "A unified knowledge layer where every team keeps using the tools they already have—but everything becomes searchable and actionable through AI agents.",
+	showCTA = true,
+} = Astro.props;
+---
+
+<section class="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+	<!-- Background gradient -->
+	<div class="absolute inset-0 overflow-hidden">
+		<div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl"></div>
+		<div class="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl"></div>
+	</div>
+
+	<div class="relative max-w-4xl mx-auto text-center">
+		<h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
+			{title}
+			<span class="gradient-text block">{highlight}</span>
+		</h1>
+
+		<p class="text-lg sm:text-xl text-text-gray max-w-2xl mx-auto mb-10 leading-relaxed">
+			{subtitle}
+		</p>
+
+		{
+			showCTA && (
+				<div class="flex flex-col sm:flex-row gap-4 justify-center">
+					<a href="#waitlist" class="btn-primary text-base">
+						Join the Waitlist
+					</a>
+					<a href="/features" class="btn-secondary text-base">
+						Learn More
+					</a>
+				</div>
+			)
+		}
+	</div>
+</section>

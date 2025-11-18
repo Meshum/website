@@ -1,0 +1,76 @@
+---
+interface UseCase {
+	title: string;
+	description: string;
+	benefit: string;
+}
+
+interface Props {
+	title?: string;
+	subtitle?: string;
+	useCases?: UseCase[];
+}
+
+const {
+	title = "Built for software teams",
+	subtitle = "Meshum helps your teams ship faster by removing knowledge bottlenecks.",
+	useCases = [
+		{
+			title: "Architect PoC Planning",
+			description:
+				"Model proof-of-concepts and get feasibility answers instantly—without pulling engineers into meetings.",
+			benefit: "Hours saved per PoC",
+		},
+		{
+			title: "Meeting Prevention",
+			description: "Get domain-specific answers from AI personas that understand your team's context.",
+			benefit: "Fewer interruptions",
+		},
+		{
+			title: "Faster Onboarding",
+			description: "New hires get dynamic guides generated from your actual documentation and codebase.",
+			benefit: "~1 week saved per hire",
+		},
+		{
+			title: "Cross-Team Decisions",
+			description: "Orchestrate queries across multiple domains without waiting for async responses.",
+			benefit: "Unblocked decisions",
+		},
+		{
+			title: "Incident Response",
+			description: "Quickly surface relevant runbooks, past incidents, and code context during outages.",
+			benefit: "Faster resolution",
+		},
+		{
+			title: "Technical Debt",
+			description: "Identify patterns, deprecated dependencies, and improvement opportunities across codebases.",
+			benefit: "Proactive insights",
+		},
+	],
+} = Astro.props;
+---
+
+<section class="py-20 px-4 sm:px-6 lg:px-8" id="use-cases">
+	<div class="max-w-6xl mx-auto">
+		<div class="text-center mb-16">
+			<h2 class="text-3xl sm:text-4xl font-bold text-text-white mb-4">
+				{title}
+			</h2>
+			<p class="text-lg text-text-gray max-w-2xl mx-auto">
+				{subtitle}
+			</p>
+		</div>
+
+		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+			{
+				useCases.map((useCase) => (
+					<div class="p-6 rounded-xl border border-white/5 hover:border-primary/30 transition-colors">
+						<h3 class="text-lg font-semibold text-text-white mb-2">{useCase.title}</h3>
+						<p class="text-sm text-text-gray leading-relaxed mb-4">{useCase.description}</p>
+						<div class="text-xs font-medium text-primary">{useCase.benefit}</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>

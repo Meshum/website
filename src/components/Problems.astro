@@ -1,0 +1,61 @@
+---
+interface Problem {
+	stat: string;
+	label: string;
+	description: string;
+}
+
+interface Props {
+	title?: string;
+	problems?: Problem[];
+}
+
+const {
+	title = "The problems we solve",
+	problems = [
+		{
+			stat: "4+ hrs/week",
+			label: "in repetitive meetings",
+			description: "Developers waste hours answering the same questions instead of shipping code.",
+		},
+		{
+			stat: "3+ systems",
+			label: "for knowledge",
+			description:
+				"Expertise scattered across Confluence, Notion, GitHub, Jira—impossible to search holistically.",
+		},
+		{
+			stat: "4+ weeks",
+			label: "to productivity",
+			description: "New hires take too long ramping up because tribal knowledge isn't documented.",
+		},
+		{
+			stat: "Days blocked",
+			label: "waiting for input",
+			description: "Cross-team decisions stall because you're waiting for the right person to respond.",
+		},
+	],
+} = Astro.props;
+---
+
+<section class="py-20 px-4 sm:px-6 lg:px-8 bg-bg-darker">
+	<div class="max-w-6xl mx-auto">
+		<div class="text-center mb-16">
+			<h2 class="text-3xl sm:text-4xl font-bold text-text-white">
+				{title}
+			</h2>
+		</div>
+
+		<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+			{
+				problems.map((problem) => (
+					<div class="text-center p-6">
+						<div class="gradient-text text-3xl sm:text-4xl font-bold mb-1">{problem.stat}</div>
+						<div class="text-sm font-medium text-text-white mb-3">{problem.label}</div>
+						<p class="text-sm text-text-gray leading-relaxed">{problem.description}</p>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>

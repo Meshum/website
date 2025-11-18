@@ -1,1 +1,72 @@
 @import "tailwindcss";
+
+@theme {
+	/* Brand Colors - Meshum */
+	--color-primary: oklch(62% 0.25 310);
+	--color-accent: oklch(58% 0.24 200);
+	--color-bg-dark: oklch(15% 0.05 254);
+	--color-bg-darker: oklch(10% 0.04 254);
+	--color-text-white: oklch(95% 0.01 254);
+	--color-text-gray: oklch(70% 0.08 254);
+	--color-text-muted: oklch(55% 0.06 254);
+
+	/* Gradient */
+	--gradient-brand: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+
+	/* Fonts */
+	--font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		@apply bg-bg-dark text-text-white font-sans antialiased;
+	}
+
+	::selection {
+		background: oklch(62% 0.25 310 / 0.3);
+	}
+}
+
+@layer components {
+	.gradient-text {
+		@apply bg-clip-text text-transparent;
+		background-image: var(--gradient-brand);
+	}
+
+	.gradient-border {
+		position: relative;
+	}
+
+	.gradient-border::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		padding: 1px;
+		background: var(--gradient-brand);
+		-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+		mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+		-webkit-mask-composite: xor;
+		mask-composite: exclude;
+		border-radius: inherit;
+		pointer-events: none;
+	}
+
+	.btn-primary {
+		@apply px-6 py-3 rounded-lg font-medium transition-all duration-200;
+		background: var(--gradient-brand);
+	}
+
+	.btn-primary:hover {
+		@apply shadow-lg scale-105;
+		box-shadow: 0 10px 30px -10px oklch(62% 0.25 310 / 0.5);
+	}
+
+	.btn-secondary {
+		@apply px-6 py-3 rounded-lg font-medium border border-text-muted text-text-white;
+		@apply hover:border-primary hover:text-primary transition-all duration-200;
+	}
+}

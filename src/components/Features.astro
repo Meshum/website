@@ -1,0 +1,94 @@
+---
+interface Feature {
+	icon: string;
+	title: string;
+	description: string;
+}
+
+interface Props {
+	title?: string;
+	subtitle?: string;
+	features?: Feature[];
+}
+
+const {
+	title = "Everything connected",
+	subtitle = "Stop context-switching between tools. Meshum brings all your knowledge together.",
+	features = [
+		{
+			icon: "graph",
+			title: "Unified Knowledge Graph",
+			description:
+				"Connect Confluence, GitHub, Notion, Jira, Slack, and more into a single queryable structure that understands relationships.",
+		},
+		{
+			icon: "agents",
+			title: "AI Team Personas",
+			description:
+				"Auto-generated agents scoped to each team's domain provide focused, accurate answers without hallucination.",
+		},
+		{
+			icon: "workflow",
+			title: "Multi-Agent Workflows",
+			description: "Orchestrate cross-team queries that span multiple domains—without interrupting your engineers.",
+		},
+		{
+			icon: "sync",
+			title: "Real-Time Sync",
+			description: "Webhook-first connectors keep your knowledge graph fresh. Changes propagate instantly.",
+		},
+		{
+			icon: "onboard",
+			title: "Dynamic Onboarding",
+			description: "Living guides generated from existing documentation get new hires productive faster.",
+		},
+		{
+			icon: "llm",
+			title: "Bring Your Own LLM",
+			description: "Use Azure OpenAI, Anthropic, or any provider. Your data stays in your control.",
+		},
+	],
+} = Astro.props;
+
+const icons: Record<string, string> = {
+	graph: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />`,
+	agents: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />`,
+	workflow: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />`,
+	sync: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />`,
+	onboard: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />`,
+	llm: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />`,
+};
+---
+
+<section class="py-20 px-4 sm:px-6 lg:px-8" id="features">
+	<div class="max-w-6xl mx-auto">
+		<div class="text-center mb-16">
+			<h2 class="text-3xl sm:text-4xl font-bold text-text-white mb-4">
+				{title}
+			</h2>
+			<p class="text-lg text-text-gray max-w-2xl mx-auto">
+				{subtitle}
+			</p>
+		</div>
+
+		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+			{
+				features.map((feature) => (
+					<div class="group p-6 rounded-xl bg-white/[0.02] border border-white/5 hover:border-white/10 transition-all duration-300">
+						<div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+							<svg
+								class="w-6 h-6 text-primary"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+								set:html={icons[feature.icon]}
+							/>
+						</div>
+						<h3 class="text-lg font-semibold text-text-white mb-2">{feature.title}</h3>
+						<p class="text-sm text-text-gray leading-relaxed">{feature.description}</p>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>

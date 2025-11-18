@@ -1,0 +1,48 @@
+---
+interface Props {
+	title?: string;
+	subtitle?: string;
+	buttonText?: string;
+	buttonHref?: string;
+}
+
+const {
+	title = "Ready to unblock your teams?",
+	subtitle = "Join the waitlist and be the first to experience a unified knowledge layer for your organization.",
+	buttonText = "Join the Waitlist",
+	buttonHref = "#waitlist",
+} = Astro.props;
+---
+
+<section class="py-20 px-4 sm:px-6 lg:px-8" id="waitlist">
+	<div class="max-w-4xl mx-auto">
+		<div class="relative rounded-2xl p-8 sm:p-12 overflow-hidden">
+			<!-- Gradient background -->
+			<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10"></div>
+			<div class="absolute inset-0 border border-white/10 rounded-2xl"></div>
+
+			<div class="relative text-center">
+				<h2 class="text-2xl sm:text-3xl font-bold text-text-white mb-4">
+					{title}
+				</h2>
+				<p class="text-text-gray max-w-xl mx-auto mb-8">
+					{subtitle}
+				</p>
+
+				<form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+					<input
+						type="email"
+						placeholder="Enter your email"
+						required
+						class="flex-1 px-4 py-3 rounded-lg bg-bg-dark/50 border border-white/10 text-text-white placeholder:text-text-muted focus:outline-none focus:border-primary transition-colors"
+					/>
+					<button type="submit" class="btn-primary whitespace-nowrap">
+						{buttonText}
+					</button>
+				</form>
+
+				<p class="mt-4 text-xs text-text-muted">We respect your privacy. No spam, ever.</p>
+			</div>
+		</div>
+	</div>
+</section>
