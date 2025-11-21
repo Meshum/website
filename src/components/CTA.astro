@@ -22,19 +22,24 @@ const { title, subtitle } = Astro.props;
 					{subtitle}
 				</p>
 
-				<form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+				<form id="cta-form" action="https://formspree.io/f/manknzlv" method="POST" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
 					<input
+						name="Email"
 						type="email"
 						placeholder="Enter your email"
 						required
 						class="flex-1 px-4 py-3 rounded-lg bg-bg-dark/50 border border-white/10 text-text-white placeholder:text-text-muted focus:outline-none focus:border-primary transition-colors"
 					/>
+					<input type="text" name="_gotcha" style="display:none" />
 					<button type="submit" class="btn-primary whitespace-nowrap">
-						Join the Waitlist
+						Submit
 					</button>
 				</form>
 
-				<p class="mt-4 text-xs text-text-muted">We respect your privacy. No spam, ever.</p>
+				<p class="mt-4 text-xs text-text-muted">
+					We use <a href="https://formspree.io/">Formspree.io</a> to process waiting lists.
+					Check their privacy policy for how they process your data
+				</p>
 			</div>
 		</div>
 	</div>
