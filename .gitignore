@@ -22,3 +22,8 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Ignore local AI files
+.claude/settings.local.json
+.mcp.json
+
