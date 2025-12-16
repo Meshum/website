@@ -1,5 +1,4 @@
 ---
-import Tracking from "./Tracking.astro";
 interface Props {
 	title: string;
 	description: string;
@@ -40,4 +39,3 @@ const imageURL = new URL(image, Astro.site);
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={imageURL} />
-<Tracking />
