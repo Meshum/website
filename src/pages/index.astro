@@ -81,7 +81,7 @@ import Logo from '../../public/logo.svg';
 			<div class="text-center mb-16">
 				<!-- Label box (Design #2) -->
 				<div class="inline-block mb-8 fade-in">
-					<span class="px-4 py-2 rounded-full bg-surface/80 dark:bg-elevated/80 backdrop-blur-sm border border-border text-muted text-sm font-medium shadow-xl/20 shadow-primary">
+					<span class="px-4 py-2 rounded-full bg-elevated/80 backdrop-blur-sm border border-border text-muted text-sm font-medium shadow-xl/20 shadow-primary">
 						AI-Powered Knowledge Platform
 					</span>
 				</div>
@@ -215,7 +215,7 @@ import Logo from '../../public/logo.svg';
 	<!-- TL;DR Section (conversion boost idea) -->
 	<section class="py-16 bg-surface/50 backdrop-blur border-y border-border">
 		<div class="max-w-4xl mx-auto px-6">
-			<div class="flex items-start gap-4">
+			<div class="flex flex-col items-start gap-4">
 				<div class="flex-shrink-0">
 					<div class="px-3 py-1 rounded-lg bg-[color:var(--color-accent)]/10 border border-[color:var(--color-accent)]/20 font-heading font-bold text-sm text-[color:var(--color-accent)] uppercase tracking-wider">
 						TL;DR
@@ -245,9 +245,13 @@ import Logo from '../../public/logo.svg';
 						</span>
 					</div>
 
-					<h2 class="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-						"only Sarah knows how that works."
+					<h2 class="font-heading text-4xl md:text-5xl font-bold text-foreground leading-tight pb-2">
+						"Sarah's the only one who knows that…"
 					</h2>
+
+					<h3 class="font-bold text-2xl text-muted mb-6">
+						But Sarah's unavailable.
+					</h3>
 
 					<div class="space-y-4 text-lg text-foreground font-body leading-relaxed">
 						<p>
@@ -255,9 +259,6 @@ import Logo from '../../public/logo.svg';
 						</p>
 						<p>
 							Engineers waste <span class="font-semibold text-[color:var(--color-primary)]">2.4 hours every day</span> searching for answers that already exist. Asking around. Waiting for someone to get out of a meeting.
-						</p>
-						<p class="font-semibold text-foreground/90">
-							But Sarah's on PTO this week.
 						</p>
 					</div>
 				</div>
@@ -350,20 +351,20 @@ import Logo from '../../public/logo.svg';
 							</div>
 
 							<!-- Arrow -->
-							<svg class="w-8 h-8 text-[color:var(--color-primary)]/30 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<svg class="w-8 h-8 text-[color:var(--color-primary)]/60 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
 							</svg>
 
 							<!-- Meshum intelligence -->
 							<div class="relative group flex-shrink-0">
 								<div class="absolute inset-0 bg-gradient-to-br from-[color:var(--color-primary)] to-[color:var(--color-accent)] blur-xl opacity-40 group-hover:opacity-60 transition-opacity"></div>
-								<div class="relative w-24 h-24 rounded-2xl bg-surface flex items-center justify-center shadow-xl">
+								<div class="relative w-24 h-24 rounded-2xl bg-page flex items-center justify-center shadow-xl">
 									<Logo class="w-12 h-12 text-white" />
 								</div>
 							</div>
 
 							<!-- Arrow -->
-							<svg class="w-8 h-8 text-[color:var(--color-primary)]/30 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<svg class="w-8 h-8 text-[color:var(--color-primary)]/60 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
 							</svg>
 
@@ -408,7 +409,7 @@ import Logo from '../../public/logo.svg';
 					<!-- Key benefits with colored icons -->
 					<div class="grid grid-cols-2 gap-4">
 						<div class="flex items-start gap-3">
-							<div class="w-10 h-10 rounded-lg bg-[color:var(--color-benefit-1)]/10 flex items-center justify-center flex-shrink-0">
+							<div class="w-10 h-10 rounded-lg bg-page/60 flex items-center justify-center flex-shrink-0">
 								<svg class="w-5 h-5 text-[color:var(--color-benefit-1)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
 								</svg>
@@ -420,7 +421,7 @@ import Logo from '../../public/logo.svg';
 						</div>
 
 						<div class="flex items-start gap-3">
-							<div class="w-10 h-10 rounded-lg bg-[color:var(--color-benefit-2)]/10 flex items-center justify-center flex-shrink-0">
+							<div class="w-10 h-10 rounded-lg bg-page/60 flex items-center justify-center flex-shrink-0">
 								<svg class="w-5 h-5 text-[color:var(--color-benefit-2)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
 								</svg>
@@ -432,7 +433,7 @@ import Logo from '../../public/logo.svg';
 						</div>
 
 						<div class="flex items-start gap-3">
-							<div class="w-10 h-10 rounded-lg bg-[color:var(--color-benefit-3)]/10 flex items-center justify-center flex-shrink-0">
+							<div class="w-10 h-10 rounded-lg bg-page/60 flex items-center justify-center flex-shrink-0">
 								<svg class="w-5 h-5 text-[color:var(--color-benefit-3)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
 								</svg>
@@ -444,7 +445,7 @@ import Logo from '../../public/logo.svg';
 						</div>
 
 						<div class="flex items-start gap-3">
-							<div class="w-10 h-10 rounded-lg bg-[color:var(--color-benefit-4)]/10 flex items-center justify-center flex-shrink-0">
+							<div class="w-10 h-10 rounded-lg bg-page/60 flex items-center justify-center flex-shrink-0">
 								<svg class="w-5 h-5 text-[color:var(--color-benefit-4)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"/>
 								</svg>
@@ -507,7 +508,7 @@ import Logo from '../../public/logo.svg';
 		<div class="max-w-7xl mx-auto px-6">
 			<div class="text-center mb-16">
 				<h2 class="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6">
-					everything you need
+					What your company needs
 				</h2>
 			</div>
 
@@ -624,11 +625,9 @@ import Logo from '../../public/logo.svg';
 			</svg>
 		</div>
 
-		<div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+		<div class="max-w-5xl mx-auto px-6 text-center relative z-10">
 			<h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-				stop searching.
-				<br>
-				start knowing.
+				ready to stop wasting time?
 			</h2>
 
 			<p class="font-body text-xl text-white/95 mb-12 leading-relaxed max-w-2xl mx-auto">

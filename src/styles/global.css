@@ -31,9 +31,9 @@
 
 	/* === SOLUTION SECTION === */
 	/* Moderately saturated primary hue for visual emphasis */
-	--color-solution-bg-start: oklch(from var(--color-primary) 96% 0.035 h);
-	--color-solution-bg-end: oklch(from var(--color-primary) 94.5% 0.038 calc(h + 3));  /* Slight hue shift for gradient depth */
-	--color-solution-accent: oklch(from var(--color-primary) 60% 0.10 h);                /* Boosted chroma for punch */
+	--color-solution-bg-start: oklch(from var(--color-primary) 70% 0.035 h);
+	--color-solution-bg-end: oklch(from var(--color-primary) 64.5% 0.038 calc(h + 3));  /* Slight hue shift for gradient depth */
+	--color-solution-accent: oklch(from var(--color-primary) 20% 0.10 h);                /* Boosted chroma for punch */
 
 	/* === BENEFIT CARDS === */
 	/* Visual distinction through lightness/chroma variations while maintaining brand harmony */
