@@ -1,85 +1,63 @@
 @import "tailwindcss";
 
-/**
- * Meshum Brand Colors with Multi-Theme Support
- * Switch themes by setting data-theme="N" on <html> element
- *
- * Themes:
- * 0 = Current Purple/Cyan (baseline)
- * 1 = Forest Sage & Terracotta
- * 2 = Eucalyptus & Clay
- * 3 = Deep Moss & Charcoal
- * 4 = Olive & Amber
- * 5 = Pine & Sandstone
- */
-
 @theme {
-	/* === FONT VALUES === */
+	/* ============================================
+	   MESHUM BRAND DESIGN SYSTEM
+	   ============================================
+	   This file contains only generic, reusable
+	   branding tokens that can be shared across
+	   all Meshum web properties.
+
+	   Content-specific variables (hero gradients,
+	   section-specific colors, etc.) belong in
+	   global.css or other project-specific files.
+	   ============================================ */
+
+	/* === TYPOGRAPHY === */
 	--font-heading: "Syne", var(--font-serif);
 	--font-body: "Lexend", var(--font-sans);
 	--font-technical: "JetBrains Mono", var(--font-mono);
 
-	/* === DEFAULT THEME (0) - Current Purple/Cyan === */
-	/* Primary brand colors */
-	--color-primary: #4a9b7f;
+	/* === BRAND COLORS === */
+	/* Primary brand color - Used for CTAs, links, brand moments */
 	--color-primary: oklch(62% 0.08 165);
 
-	--color-accent: #3a4a52;
+	/* Accent color - Used for contrast, secondary elements */
 	--color-accent: oklch(32% 0.02 220);
 
-	/* Semantic colors for specific UI elements */
-	--color-hero-bg-start: oklch(98% 0.006 165);
-	--color-hero-bg-mid: oklch(99% 0.003 165);
-	--color-hero-bg-end: oklch(97.5% 0.004 220);
+	/* === SEMANTIC UI COLORS (Light Mode) === */
 
-	--color-solution-bg-start: oklch(96% 0.035 165);
-	--color-solution-bg-end: oklch(94.5% 0.038 168);
-	--color-solution-accent: oklch(60% 0.10 165);
-	--color-solution-accent-dark: oklch(68% 0.10 165);
+	/* Backgrounds - Layered from page → surface → elevated */
+	--color-page: oklch(98% 0.005 165);          /* Base page background */
+	--color-surface: oklch(100% 0 0);            /* Cards, panels */
+	--color-elevated: oklch(99% 0.003 165);      /* Modals, dropdowns */
 
-	--color-benefit-1: oklch(62% 0.08 165);
-	--color-benefit-2: oklch(32% 0.02 220);
-	--color-benefit-3: oklch(58% 0.10 168);
-	--color-benefit-4: oklch(35% 0.025 220);
+	/* Text - Hierarchical from foreground → muted → subtle */
+	--color-foreground: oklch(20% 0.02 220);     /* Primary text */
+	--color-muted: oklch(48% 0.02 220);          /* Secondary text */
+	--color-subtle: oklch(58% 0.025 220);        /* Tertiary text, captions */
+	--color-accent-text: oklch(62% 0.08 165);    /* Highlighted text using brand */
 
-	/* Tool logo colors */
-	--color-tool-github: #181717;
-	--color-tool-slack: #611f69;
-	--color-tool-confluence: #0052CC;
-
-	/* Light mode backgrounds */
-	--color-page: oklch(98% 0.005 165);
-	--color-surface: oklch(100% 0 0);
-	--color-elevated: oklch(99% 0.003 165);
-
-	/* Light mode text */
-	--color-foreground: oklch(20% 0.02 220);
-	--color-muted: oklch(48% 0.02 220);
-	--color-subtle: oklch(58% 0.025 220);
-	--color-accent-text: oklch(62% 0.08 165);
-
-	/* Light mode borders */
-	--color-border: oklch(90% 0.012 220);
-	--color-border-subtle: oklch(95% 0.006 220);
+	/* Borders - From prominent → subtle */
+	--color-border: oklch(90% 0.012 220);        /* Standard borders */
+	--color-border-subtle: oklch(95% 0.006 220); /* Subtle dividers */
 }
 
-/* === DARK MODE (for default theme) === */
+/* === DARK MODE === */
 @media (prefers-color-scheme: dark) {
 	:root {
-		--color-hero-bg-start-dark: oklch(19% 0.02 220);
-		--color-hero-bg-mid-dark: oklch(17% 0.025 220);
-		--color-hero-bg-end-dark: oklch(20% 0.018 165);
-		--color-solution-bg-start-dark: oklch(21% 0.03 165);
-		--color-solution-bg-end-dark: oklch(19% 0.035 168);
-		--color-solution-accent-dark: oklch(68% 0.10 165);
-
+		/* Backgrounds - Inverted hierarchy */
 		--color-page: oklch(19% 0.02 220);
 		--color-surface: oklch(15% 0.025 220);
 		--color-elevated: oklch(21% 0.022 220);
+
+		/* Text - Inverted for dark backgrounds */
 		--color-foreground: oklch(97% 0.005 165);
 		--color-muted: oklch(66% 0.025 220);
 		--color-subtle: oklch(76% 0.03 220);
 		--color-accent-text: oklch(70% 0.08 165);
+
+		/* Borders - Darker for dark mode */
 		--color-border: oklch(23% 0.025 220);
 		--color-border-subtle: oklch(17% 0.02 220);
 	}

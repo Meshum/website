@@ -1,6 +1,69 @@
 @import "tailwindcss";
 @import "./meshum.css";
 
+/* ============================================
+   CONTENT-SPECIFIC VARIABLES
+   ============================================
+   These variables are specific to this website's
+   content and should NOT be moved to meshum.css.
+
+   meshum.css = Generic branding (reusable)
+   global.css = Content-specific tokens (this site)
+   ============================================ */
+
+@theme {
+	/* ============================================
+	   COLOR DERIVATION SYSTEM
+	   ============================================
+	   All colors below derive from --color-primary
+	   and --color-accent in meshum.css using CSS
+	   relative color syntax.
+
+	   Change the brand colors → everything updates
+	   automatically while preserving relationships.
+	   ============================================ */
+
+	/* === HERO SECTION GRADIENTS === */
+	/* Ultra-desaturated washes of brand hues for subtle, atmospheric backgrounds */
+	--color-hero-bg-start: oklch(from var(--color-primary) 98% 0.006 h);
+	--color-hero-bg-mid: oklch(from var(--color-primary) 99% 0.003 h);
+	--color-hero-bg-end: oklch(from var(--color-accent) 97.5% 0.004 h);
+
+	/* === SOLUTION SECTION === */
+	/* Moderately saturated primary hue for visual emphasis */
+	--color-solution-bg-start: oklch(from var(--color-primary) 96% 0.035 h);
+	--color-solution-bg-end: oklch(from var(--color-primary) 94.5% 0.038 calc(h + 3));  /* Slight hue shift for gradient depth */
+	--color-solution-accent: oklch(from var(--color-primary) 60% 0.10 h);                /* Boosted chroma for punch */
+
+	/* === BENEFIT CARDS === */
+	/* Visual distinction through lightness/chroma variations while maintaining brand harmony */
+	--color-benefit-1: var(--color-primary);                                              /* Pure brand primary */
+	--color-benefit-2: var(--color-accent);                                               /* Pure brand accent */
+	--color-benefit-3: oklch(from var(--color-primary) calc(l - 0.04) 0.10 calc(h + 3)); /* Darker, saturated, hue-shifted */
+	--color-benefit-4: oklch(from var(--color-accent) calc(l + 0.03) 0.025 h);           /* Lighter, subtle saturation boost */
+
+	/* === INTEGRATION TOOL LOGOS === */
+	/* Official third-party brand colors - kept absolute as they represent external brands */
+	--color-tool-github: #181717;
+	--color-tool-slack: #611f69;
+	--color-tool-confluence: #0052CC;
+}
+
+/* === DARK MODE OVERRIDES === */
+@media (prefers-color-scheme: dark) {
+	:root {
+		/* Hero section - dark mode: inverted lightness, same brand hues */
+		--color-hero-bg-start-dark: oklch(from var(--color-accent) 19% 0.02 h);
+		--color-hero-bg-mid-dark: oklch(from var(--color-accent) 17% 0.025 h);
+		--color-hero-bg-end-dark: oklch(from var(--color-primary) 20% 0.018 h);
+
+		/* Solution section - dark mode: maintains relationships from light mode */
+		--color-solution-bg-start-dark: oklch(from var(--color-primary) 21% 0.03 h);
+		--color-solution-bg-end-dark: oklch(from var(--color-primary) 19% 0.035 calc(h + 3));  /* Same +3 hue shift */
+		--color-solution-accent-dark: oklch(from var(--color-primary) 68% 0.10 h);              /* Lighter for dark bg */
+	}
+}
+
 @layer base {
 	body {
 		@apply font-body bg-page text-foreground;
