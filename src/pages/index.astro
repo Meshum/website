@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Logo from '../../public/logo.svg';
 // Design #9: "Warm Editorial with Subtle Magic"
 //
 // Synthesizes the best elements from stakeholder favorites (#2 and #5) with successful
@@ -353,10 +354,8 @@ import Layout from "../layouts/Layout.astro";
 							<!-- Meshum intelligence -->
 							<div class="relative group flex-shrink-0">
 								<div class="absolute inset-0 bg-gradient-to-br from-[color:var(--color-primary)] to-[color:var(--color-accent)] blur-xl opacity-40 group-hover:opacity-60 transition-opacity"></div>
-								<div class="relative w-24 h-24 rounded-2xl bg-gradient-to-br from-[color:var(--color-primary)] to-[color:var(--color-accent)] flex items-center justify-center shadow-xl">
-									<svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-									</svg>
+								<div class="relative w-24 h-24 rounded-2xl bg-surface flex items-center justify-center shadow-xl">
+									<Logo class="w-12 h-12 text-white" />
 								</div>
 							</div>
 
@@ -596,7 +595,9 @@ import Layout from "../layouts/Layout.astro";
 								Knowledge Graph
 							</h3>
 							<p class="font-body text-sm text-muted leading-relaxed">
-								Understands relationships between code, docs, and decisions. Connects dots that humans miss to surface the most relevant context.
+								Understands relationships between code, docs, and decisions.
+								Connects dots that humans miss to surface the most relevant context.
+								Unleash the full potential of your existing knowledge and start shipping.
 							</p>
 						</div>
 					</div>
@@ -652,19 +653,19 @@ import Layout from "../layouts/Layout.astro";
 	</section>
 
 	<!-- Footer -->
-	<footer class="py-12 bg-foreground border-t border-border">
+	<footer class="py-12 bg-elevated border-t border-border">
 		<div class="max-w-7xl mx-auto px-6">
 			<div class="flex flex-col md:flex-row justify-between items-center gap-6">
 				<div>
-					<span class="font-heading font-bold text-2xl text-page">Meshum</span>
-					<p class="font-body text-sm text-page/70 mt-2">Knowledge intelligence for software teams.</p>
+					<span class="font-heading font-bold text-2xl text-foreground">Meshum</span>
+					<p class="font-body text-sm text-foreground/70 mt-2">Knowledge intelligence for software teams.</p>
 				</div>
 
 				<div class="flex gap-8 font-body text-sm">
-					<a href="#" class="text-page/70 hover:text-[color:var(--color-primary)] transition-colors">Privacy</a>
-					<a href="#" class="text-page/70 hover:text-[color:var(--color-primary)] transition-colors">Terms</a>
-					<a href="#" class="text-page/70 hover:text-[color:var(--color-primary)] transition-colors">Contact</a>
-					<a href="#" class="text-page/70 hover:text-[color:var(--color-primary)] transition-colors">Documentation</a>
+					<a href="#" class="text-foreground/70 hover:text-[color:var(--color-primary)] transition-colors">Privacy</a>
+					<a href="#" class="text-foreground/70 hover:text-[color:var(--color-primary)] transition-colors">Terms</a>
+					<a href="#" class="text-foreground/70 hover:text-[color:var(--color-primary)] transition-colors">Contact</a>
+					<a href="#" class="text-foreground/70 hover:text-[color:var(--color-primary)] transition-colors">Documentation</a>
 				</div>
 			</div>
 		</div>
