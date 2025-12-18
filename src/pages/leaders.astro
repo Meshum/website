@@ -1,0 +1,513 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="For Engineering Leaders - Meshum" description="Stop losing productivity to knowledge fragmentation. Meshum helps engineering teams move faster by making every answer instant and every decision traceable.">
+	<!-- Hero: Leader-focused value proposition -->
+	<section class="relative min-h-screen flex items-center justify-center px-6 py-20 bg-gradient-to-br from-[color:var(--color-hero-bg-start)] via-[color:var(--color-hero-bg-mid)] to-[color:var(--color-hero-bg-end)] dark:from-[color:var(--color-hero-bg-start-dark)] dark:via-[color:var(--color-hero-bg-mid-dark)] dark:to-[color:var(--color-hero-bg-end-dark)] overflow-hidden">
+		<!-- Subtle animated gradient overlay -->
+		<div class="absolute inset-0 opacity-30 dark:opacity-40 bg-gradient-to-br from-[color:var(--color-primary)]/5 via-transparent to-[color:var(--color-accent)]/5 animate-gradient"></div>
+
+		<!-- Mesh background -->
+		<div class="absolute inset-0 opacity-5 dark:opacity-10">
+			<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+				<defs>
+					<pattern id="mesh" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+						<circle cx="50" cy="50" r="1" fill="currentColor" class="text-foreground"/>
+					</pattern>
+				</defs>
+				<rect width="100%" height="100%" fill="url(#mesh)"/>
+			</svg>
+		</div>
+
+		<div class="max-w-6xl mx-auto relative z-10">
+			<div class="text-center mb-16">
+				<div class="inline-block mb-8 fade-in">
+					<span class="px-4 py-2 rounded-full bg-surface/80 dark:bg-elevated/80 backdrop-blur-sm border border-border text-muted text-sm font-medium shadow-sm">
+						For Engineering Leaders
+					</span>
+				</div>
+
+				<h1 class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-8 leading-tight tracking-tight fade-in" style="animation-delay: 0.1s;">
+					Your engineers spend
+					<br>
+					<span class="bg-gradient-to-r from-[color:var(--color-primary)] to-[color:var(--color-accent)] bg-clip-text text-transparent animate-gradient-text">
+						10+ hours a week searching.
+					</span>
+				</h1>
+
+				<p class="font-body text-xl md:text-2xl text-muted max-w-3xl mx-auto mb-12 leading-relaxed fade-in" style="animation-delay: 0.2s;">
+					That's 25% of their time lost to fragmented knowledge. Meshum recovers those hours by making every answer instant—so your team ships faster, onboards quicker, and scales without bottlenecks.
+				</p>
+
+				<!-- Key metrics -->
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto fade-in" style="animation-delay: 0.3s;">
+					<div class="p-6 rounded-xl bg-surface/80 backdrop-blur border border-border">
+						<div class="text-4xl font-heading font-bold text-[color:var(--color-benefit-1)] mb-2">2.4hrs</div>
+						<div class="text-sm font-body text-muted">saved per engineer daily</div>
+					</div>
+					<div class="p-6 rounded-xl bg-surface/80 backdrop-blur border border-border">
+						<div class="text-4xl font-heading font-bold text-[color:var(--color-benefit-2)] mb-2">40%</div>
+						<div class="text-sm font-body text-muted">faster onboarding time</div>
+					</div>
+					<div class="p-6 rounded-xl bg-surface/80 backdrop-blur border border-border">
+						<div class="text-4xl font-heading font-bold text-[color:var(--color-benefit-3)] mb-2">95%</div>
+						<div class="text-sm font-body text-muted">reduction in repeat questions</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- The Business Case -->
+	<section class="py-32 bg-page">
+		<div class="max-w-7xl mx-auto px-6">
+			<div class="text-center mb-16">
+				<div class="inline-block mb-6">
+					<span class="px-4 py-2 rounded-full bg-[color:var(--color-primary)]/10 border border-[color:var(--color-primary)]/20 text-[color:var(--color-primary)] text-sm font-medium">
+						The Cost of Fragmented Knowledge
+					</span>
+				</div>
+				<h2 class="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6">
+					Every interrupt has a price.
+				</h2>
+				<p class="font-body text-xl text-muted max-w-3xl mx-auto">
+					When knowledge is scattered, your team pays in time, momentum, and missed deadlines.
+				</p>
+			</div>
+
+			<!-- Problem breakdown -->
+			<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+				<div class="p-6 rounded-xl bg-surface border border-border">
+					<div class="w-12 h-12 rounded-lg bg-red-500/10 flex items-center justify-center mb-4">
+						<svg class="w-6 h-6 text-red-600 dark:text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+						</svg>
+					</div>
+					<h3 class="font-heading text-lg font-bold text-foreground mb-2">Lost Productivity</h3>
+					<p class="font-body text-sm text-muted mb-3">Engineers waste 10+ hours/week searching for context across Slack, GitHub, Confluence, and Notion.</p>
+					<p class="font-heading text-2xl font-bold text-red-600 dark:text-red-400">$60K/year</p>
+					<p class="font-body text-xs text-muted">per senior engineer</p>
+				</div>
+
+				<div class="p-6 rounded-xl bg-surface border border-border">
+					<div class="w-12 h-12 rounded-lg bg-orange-500/10 flex items-center justify-center mb-4">
+						<svg class="w-6 h-6 text-orange-600 dark:text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+						</svg>
+					</div>
+					<h3 class="font-heading text-lg font-bold text-foreground mb-2">Slow Onboarding</h3>
+					<p class="font-body text-sm text-muted mb-3">New hires take 3-6 months to reach full productivity due to scattered tribal knowledge.</p>
+					<p class="font-heading text-2xl font-bold text-orange-600 dark:text-orange-400">6 weeks</p>
+					<p class="font-body text-xs text-muted">to productive contributions</p>
+				</div>
+
+				<div class="p-6 rounded-xl bg-surface border border-border">
+					<div class="w-12 h-12 rounded-lg bg-yellow-500/10 flex items-center justify-center mb-4">
+						<svg class="w-6 h-6 text-yellow-600 dark:text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+						</svg>
+					</div>
+					<h3 class="font-heading text-lg font-bold text-foreground mb-2">Knowledge Silos</h3>
+					<p class="font-body text-sm text-muted mb-3">"Only Sarah knows how that works" creates single points of failure and project delays.</p>
+					<p class="font-heading text-2xl font-bold text-yellow-600 dark:text-yellow-500">High risk</p>
+					<p class="font-body text-xs text-muted">of bus factor issues</p>
+				</div>
+
+				<div class="p-6 rounded-xl bg-surface border border-border">
+					<div class="w-12 h-12 rounded-lg bg-red-500/10 flex items-center justify-center mb-4">
+						<svg class="w-6 h-6 text-red-600 dark:text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/>
+						</svg>
+					</div>
+					<h3 class="font-heading text-lg font-bold text-foreground mb-2">Context Switching</h3>
+					<p class="font-body text-sm text-muted mb-3">Every interrupt costs 23 minutes of focus time. Engineers answer the same questions repeatedly.</p>
+					<p class="font-heading text-2xl font-bold text-red-600 dark:text-red-400">4+ hours</p>
+					<p class="font-body text-xs text-muted">lost daily to interrupts</p>
+				</div>
+			</div>
+
+			<!-- ROI Calculator -->
+			<div class="max-w-3xl mx-auto p-8 rounded-2xl bg-gradient-to-br from-[color:var(--color-solution-bg-start)] to-[color:var(--color-solution-bg-end)] border border-[color:var(--color-solution-accent)]/20 shadow-xl">
+				<h3 class="font-heading text-2xl font-bold text-foreground mb-6 text-center">Calculate your savings</h3>
+
+				<div class="space-y-4">
+					<div class="flex items-center justify-between p-4 rounded-lg bg-white/70 dark:bg-elevated/70 backdrop-blur">
+						<div>
+							<div class="font-heading font-semibold text-foreground">Team size</div>
+							<div class="text-sm text-muted">Number of engineers</div>
+						</div>
+						<div class="font-heading text-3xl font-bold text-[color:var(--color-primary)]">20</div>
+					</div>
+
+					<div class="flex items-center justify-between p-4 rounded-lg bg-white/70 dark:bg-elevated/70 backdrop-blur">
+						<div>
+							<div class="font-heading font-semibold text-foreground">Time saved per engineer</div>
+							<div class="text-sm text-muted">Hours per week</div>
+						</div>
+						<div class="font-heading text-3xl font-bold text-[color:var(--color-accent)]">10</div>
+					</div>
+
+					<div class="h-px bg-border my-4"></div>
+
+					<div class="p-6 rounded-lg bg-gradient-to-br from-[color:var(--color-primary)] to-[color:var(--color-accent)] text-white">
+						<div class="text-center">
+							<div class="text-sm font-body mb-2">Annual productivity recovered</div>
+							<div class="font-heading text-5xl font-bold mb-2">$1.2M</div>
+							<div class="text-sm font-body opacity-90">= 10,400 engineering hours/year</div>
+						</div>
+					</div>
+				</div>
+
+				<p class="text-xs text-muted text-center mt-6 italic">
+					Based on $120K average fully-loaded engineer cost
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- The Solution: What Meshum Does -->
+	<section class="py-32 bg-surface">
+		<div class="max-w-7xl mx-auto px-6">
+			<div class="text-center mb-16">
+				<div class="inline-block mb-6">
+					<span class="px-4 py-2 rounded-full bg-[color:var(--color-solution-accent)]/10 border border-[color:var(--color-solution-accent)]/20 text-[color:var(--color-solution-accent)] text-sm font-medium">
+						The Meshum Solution
+					</span>
+				</div>
+				<h2 class="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6">
+					One unified knowledge layer.
+					<br>
+					Zero productivity loss.
+				</h2>
+				<p class="font-body text-xl text-muted max-w-3xl mx-auto">
+					Meshum connects all your team's knowledge sources—code, docs, conversations, decisions—into a single AI-powered intelligence layer.
+				</p>
+			</div>
+
+			<!-- Benefits for leaders -->
+			<div class="grid lg:grid-cols-3 gap-8">
+				<!-- Benefit 1 -->
+				<div class="p-8 rounded-2xl bg-page border border-border hover:shadow-xl transition-all">
+					<div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[color:var(--color-benefit-1)] to-[color:var(--color-benefit-1)]/60 flex items-center justify-center mb-6 shadow-lg">
+						<svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+						</svg>
+					</div>
+					<h3 class="font-heading text-2xl font-bold text-foreground mb-4">Ship 40% faster</h3>
+					<p class="font-body text-muted leading-relaxed mb-4">
+						Engineers stop waiting for answers. New features ship faster when context is instant, not hidden in someone's head or buried in old threads.
+					</p>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2 text-sm font-body text-muted">
+							<svg class="w-5 h-5 text-[color:var(--color-benefit-1)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+							</svg>
+							<span>No more waiting for PTO to end</span>
+						</li>
+						<li class="flex items-start gap-2 text-sm font-body text-muted">
+							<svg class="w-5 h-5 text-[color:var(--color-benefit-1)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+							</svg>
+							<span>Eliminate knowledge handoff delays</span>
+						</li>
+						<li class="flex items-start gap-2 text-sm font-body text-muted">
+							<svg class="w-5 h-5 text-[color:var(--color-benefit-1)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+							</svg>
+							<span>Reduce sprint blockers by 60%</span>
+						</li>
+					</ul>
+				</div>
+
+				<!-- Benefit 2 -->
+				<div class="p-8 rounded-2xl bg-page border border-border hover:shadow-xl transition-all">
+					<div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[color:var(--color-benefit-2)] to-[color:var(--color-benefit-2)]/60 flex items-center justify-center mb-6 shadow-lg">
+						<svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+						</svg>
+					</div>
+					<h3 class="font-heading text-2xl font-bold text-foreground mb-4">Onboard in days, not months</h3>
+					<p class="font-body text-muted leading-relaxed mb-4">
+						New hires get instant access to your team's collective knowledge. They contribute faster and ramp without monopolizing senior engineers' time.
+					</p>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2 text-sm font-body text-muted">
+							<svg class="w-5 h-5 text-[color:var(--color-benefit-2)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+							</svg>
+							<span>Self-serve onboarding docs</span>
+						</li>
+						<li class="flex items-start gap-2 text-sm font-body text-muted">
+							<svg class="w-5 h-5 text-[color:var(--color-benefit-2)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+							</svg>
+							<span>First commit in week 1, not week 6</span>
+						</li>
+						<li class="flex items-start gap-2 text-sm font-body text-muted">
+							<svg class="w-5 h-5 text-[color:var(--color-benefit-2)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+							</svg>
+							<span>Reduce onboarding costs 50%</span>
+						</li>
+					</ul>
+				</div>
+
+				<!-- Benefit 3 -->
+				<div class="p-8 rounded-2xl bg-page border border-border hover:shadow-xl transition-all">
+					<div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[color:var(--color-benefit-3)] to-[color:var(--color-benefit-3)]/60 flex items-center justify-center mb-6 shadow-lg">
+						<svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+						</svg>
+					</div>
+					<h3 class="font-heading text-2xl font-bold text-foreground mb-4">Scale without chaos</h3>
+					<p class="font-body text-muted leading-relaxed mb-4">
+						Growing teams create exponentially more communication overhead. Meshum keeps knowledge accessible as you scale from 10 to 100+ engineers.
+					</p>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2 text-sm font-body text-muted">
+							<svg class="w-5 h-5 text-[color:var(--color-benefit-3)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+							</svg>
+							<span>Eliminate tribal knowledge silos</span>
+						</li>
+						<li class="flex items-start gap-2 text-sm font-body text-muted">
+							<svg class="w-5 h-5 text-[color:var(--color-benefit-3)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+							</svg>
+							<span>Institutional knowledge persists</span>
+						</li>
+						<li class="flex items-start gap-2 text-sm font-body text-muted">
+							<svg class="w-5 h-5 text-[color:var(--color-benefit-3)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+							</svg>
+							<span>Reduce bus factor risk</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Social Proof / Use Cases -->
+	<section class="py-32 bg-page">
+		<div class="max-w-7xl mx-auto px-6">
+			<div class="text-center mb-16">
+				<h2 class="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6">
+					Built for modern engineering teams
+				</h2>
+			</div>
+
+			<div class="grid md:grid-cols-3 gap-8">
+				<!-- Use case 1 -->
+				<div class="p-8 rounded-2xl bg-surface border border-border">
+					<div class="mb-4">
+						<div class="inline-block px-3 py-1 rounded-full bg-[color:var(--color-primary)]/10 border border-[color:var(--color-primary)]/20 text-[color:var(--color-primary)] text-xs font-semibold uppercase tracking-wider">
+							Fast-growing Startups
+						</div>
+					</div>
+					<h3 class="font-heading text-xl font-bold text-foreground mb-3">
+						"We went from 5 to 40 engineers without losing velocity."
+					</h3>
+					<p class="font-body text-muted leading-relaxed">
+						Scaling fast? Meshum preserves institutional knowledge and keeps new hires productive from day one—without slowing down your senior engineers.
+					</p>
+				</div>
+
+				<!-- Use case 2 -->
+				<div class="p-8 rounded-2xl bg-surface border border-border">
+					<div class="mb-4">
+						<div class="inline-block px-3 py-1 rounded-full bg-[color:var(--color-accent)]/10 border border-[color:var(--color-accent)]/20 text-[color:var(--color-accent)] text-xs font-semibold uppercase tracking-wider">
+							Remote-first Teams
+						</div>
+					</div>
+					<h3 class="font-heading text-xl font-bold text-foreground mb-3">
+						"Eliminated the timezone tax on productivity."
+					</h3>
+					<p class="font-body text-muted leading-relaxed">
+						Distributed team? Stop waiting 8 hours for answers. Meshum makes every engineer self-sufficient, regardless of timezone.
+					</p>
+				</div>
+
+				<!-- Use case 3 -->
+				<div class="p-8 rounded-2xl bg-surface border border-border">
+					<div class="mb-4">
+						<div class="inline-block px-3 py-1 rounded-full bg-[color:var(--color-benefit-3)]/10 border border-[color:var(--color-benefit-3)]/20 text-[color:var(--color-benefit-3)] text-xs font-semibold uppercase tracking-wider">
+							Enterprise Teams
+						</div>
+					</div>
+					<h3 class="font-heading text-xl font-bold text-foreground mb-3">
+						"Reduced repeat questions by 95%."
+					</h3>
+					<p class="font-body text-muted leading-relaxed">
+						Large codebase? Legacy systems? Meshum captures decades of decisions so your team stops re-asking the same questions.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Implementation: No disruption -->
+	<section class="py-32 bg-gradient-to-br from-[color:var(--color-solution-bg-start)] to-[color:var(--color-solution-bg-end)] dark:from-[color:var(--color-solution-bg-start-dark)] dark:to-[color:var(--color-solution-bg-end-dark)]">
+		<div class="max-w-5xl mx-auto px-6">
+			<div class="text-center mb-16">
+				<div class="inline-block mb-6">
+					<span class="px-4 py-2 rounded-full bg-[color:var(--color-solution-accent)]/10 border border-[color:var(--color-solution-accent)]/20 text-[color:var(--color-solution-accent)] text-sm font-medium">
+						Zero Disruption
+					</span>
+				</div>
+				<h2 class="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6">
+					Live in 5 minutes.
+					<br>
+					ROI in 5 days.
+				</h2>
+			</div>
+
+			<!-- Timeline -->
+			<div class="relative">
+				<!-- Vertical line -->
+				<div class="absolute left-8 top-0 bottom-0 w-0.5 bg-border"></div>
+
+				<div class="space-y-8">
+					<!-- Step 1 -->
+					<div class="flex items-start gap-6">
+						<div class="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-[color:var(--color-primary)] to-[color:var(--color-primary)]/60 flex items-center justify-center text-white font-heading font-bold text-xl shadow-lg relative z-10">
+							1
+						</div>
+						<div class="flex-1 pt-3">
+							<h3 class="font-heading text-xl font-bold text-foreground mb-2">Connect your tools</h3>
+							<p class="font-body text-muted">One-click OAuth for GitHub, Slack, Confluence, Notion. No migration, no data export. Just connect and go.</p>
+						</div>
+					</div>
+
+					<!-- Step 2 -->
+					<div class="flex items-start gap-6">
+						<div class="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-[color:var(--color-accent)] to-[color:var(--color-accent)]/60 flex items-center justify-center text-white font-heading font-bold text-xl shadow-lg relative z-10">
+							2
+						</div>
+						<div class="flex-1 pt-3">
+							<h3 class="font-heading text-xl font-bold text-foreground mb-2">Meshum indexes everything</h3>
+							<p class="font-body text-muted">AI processes your code, docs, and conversations to build a unified knowledge graph. Initial indexing: ~10 minutes for most teams.</p>
+						</div>
+					</div>
+
+					<!-- Step 3 -->
+					<div class="flex items-start gap-6">
+						<div class="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-[color:var(--color-benefit-3)] to-[color:var(--color-benefit-3)]/60 flex items-center justify-center text-white font-heading font-bold text-xl shadow-lg relative z-10">
+							3
+						</div>
+						<div class="flex-1 pt-3">
+							<h3 class="font-heading text-xl font-bold text-foreground mb-2">Your team starts asking</h3>
+							<p class="font-body text-muted">No training docs. No new workflows. Engineers just ask questions in plain English and get instant, cited answers.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="mt-16 p-8 rounded-2xl bg-white/70 dark:bg-elevated/70 backdrop-blur border border-border text-center">
+				<p class="font-body text-lg text-foreground mb-4">
+					<span class="font-bold">SOC 2 compliant.</span> Your data stays in your infrastructure. We never train models on your knowledge.
+				</p>
+				<p class="font-body text-sm text-muted">
+					Enterprise SSO • Role-based access • Audit logs • 99.9% uptime SLA
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Final CTA -->
+	<section class="py-32 bg-gradient-to-br from-[color:var(--color-primary)]/95 to-[color:var(--color-accent)]/95 relative overflow-hidden">
+		<!-- Animated gradient overlay -->
+		<div class="absolute inset-0 bg-gradient-to-br from-[color:var(--color-primary)] to-[color:var(--color-accent)] opacity-90 animate-gradient"></div>
+
+		<!-- Subtle pattern -->
+		<div class="absolute inset-0 opacity-5">
+			<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+				<defs>
+					<pattern id="cta-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+						<circle cx="20" cy="20" r="1" fill="white"/>
+					</pattern>
+				</defs>
+				<rect width="100%" height="100%" fill="url(#cta-pattern)"/>
+			</svg>
+		</div>
+
+		<div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+			<h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+				See the ROI in your first week.
+			</h2>
+
+			<p class="font-body text-xl text-white/95 mb-12 leading-relaxed max-w-2xl mx-auto">
+				Book a demo to see how Meshum can recover 10+ hours per engineer, every week.
+			</p>
+
+			<!-- CTA Buttons -->
+			<div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+				<a href="mailto:sales@meshum.dev" class="px-8 py-4 rounded-xl bg-white hover:bg-white/95 text-[color:var(--color-primary)] font-heading font-bold text-lg transition-all shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
+					Book a Demo
+				</a>
+				<a href="mailto:hello@meshum.dev" class="px-8 py-4 rounded-xl border-2 border-white/30 hover:border-white/50 bg-white/10 hover:bg-white/20 backdrop-blur text-white font-heading font-bold text-lg transition-all">
+					Calculate Your ROI
+				</a>
+			</div>
+
+			<p class="text-sm text-white/80 font-body">
+				5-minute setup • 30-day money-back guarantee • SOC 2 compliant
+			</p>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	/* Subtle animated gradient */
+	@keyframes gradient {
+		0%, 100% {
+			opacity: 0.3;
+		}
+		50% {
+			opacity: 0.5;
+		}
+	}
+
+	.animate-gradient {
+		animation: gradient 8s ease-in-out infinite;
+	}
+
+	/* Gradient text animation */
+	@keyframes gradient-text {
+		0%, 100% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+	}
+
+	.animate-gradient-text {
+		background-size: 200% 200%;
+		animation: gradient-text 6s ease-in-out infinite;
+	}
+
+	/* Fade in animation */
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.fade-in {
+		opacity: 0;
+		animation: fadeIn 0.8s ease-out forwards;
+	}
+
+	/* Smooth font rendering */
+	* {
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+</style>

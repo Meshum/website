@@ -1,7 +1,760 @@
 ---
 import Layout from "../layouts/Layout.astro";
+// Design #9: "Warm Editorial with Subtle Magic"
+//
+// Synthesizes the best elements from stakeholder favorites (#2 and #5) with successful
+// components from other designs. This is THE design based on real feedback.
+//
+// 	Aesthetic Direction
+//
+// - Cozy editorial warmth (Design #2) meets refined sophistication (Design #5)
+// - Subtle animated gradients that breathe without distraction
+// - Soft glows around buttons and text (hand-coded, not AI feel)
+// - Web view hero showing product in context
+// - Bento grid layouts with visual richness
+// - Balance of professional and informal tone
+// - Green solution accents paired with Meshum's purple/cyan
+// - Brain mesh connections and colored icons
+// - Dark mode gradient that really pops
+//
+// 	Key Elements Included (from stakeholder feedback)
+//
+// ✅ Hero: "Ask naturally. Get answers instantly." with web view (Design #5 - hero level)
+// ✅ Label boxes like "AI-powered knowledge platform" (Design #2)
+// ✅ Cozy vibe with slight glows (Design #2)
+// ✅ "The problem" section - professional/informal balance (Design #2)
+// ✅ Best graphic solution from Design #6 with colored icons
+// ✅ Bento grid for features (Design #2)
+// ✅ "Works with your existing tools" section (Design #5)
+// ✅ Brain mesh connection beams (Design #5)
+// ✅ Subtle animated gradient (Design #2)
+// ✅ Green accent for solution (Design #2)
+// ✅ FAQ section (Design #3)
+// ✅ "Ask in plain English" copy (Design #1)
+// ✅ Social proof "Trusted by teams" (Design #1)
+// ✅ TL;DR section for conversions
+// ✅ CTA at bottom (Design #2)
+//
+// 	Color Strategy
+//
+// - Primary Purple: #b345f3 - Used for primary actions and accents
+// - Accent Cyan: #008e96 - Used for highlights and secondary elements
+// - Solution Green: #10b981 - Fresh, positive accent for solution section
+// - Warm backgrounds with subtle gradients
+// - Soft glows using box-shadow with low opacity
+// - NO orange (stakeholder feedback)
+//
+// 	Typography (stakeholders happy with font usage)
+//
+// - Syne: Display and headings (geometric, distinctive)
+// - Lexend: Body text (readable, clean)
+// - JetBrains Mono: Technical/code elements
+//
+// This design combines warmth, professionalism, subtle magic, and proven conversion elements.
 ---
 
-<Layout title="Meshum - No dumb questions. Just answers.">
-	<div>TODO</div>
+<Layout title="Meshum - Ask naturally. Get answers instantly." description="Stop searching. Start knowing. Meshum connects your scattered knowledge into a unified AI intelligence layer.">
+	<!-- Hero: Web View Showcase (Design #5 hero level) -->
+	<section class="relative min-h-screen flex items-center justify-center px-6 py-20 bg-gradient-to-br from-[color:var(--color-hero-bg-start)] via-[color:var(--color-hero-bg-mid)] to-[color:var(--color-hero-bg-end)] dark:from-[color:var(--color-hero-bg-start-dark)] dark:via-[color:var(--color-hero-bg-mid-dark)] dark:to-[color:var(--color-hero-bg-end-dark)] overflow-hidden">
+		<!-- Subtle animated gradient overlay -->
+		<div class="absolute inset-0 opacity-30 dark:opacity-40 bg-gradient-to-br from-[color:var(--color-primary)]/5 via-transparent to-[color:var(--color-accent)]/5 animate-gradient"></div>
+
+		<!-- Brain mesh background (Design #5) -->
+		<div class="absolute inset-0 opacity-5 dark:opacity-10">
+			<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+				<defs>
+					<pattern id="mesh" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+						<circle cx="50" cy="50" r="1" fill="currentColor" class="text-foreground"/>
+					</pattern>
+				</defs>
+				<rect width="100%" height="100%" fill="url(#mesh)"/>
+			</svg>
+		</div>
+
+		<!-- Subtle animated blobs (Design #5 style) -->
+		<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-[color:var(--color-primary)]/10 dark:bg-[color:var(--color-primary)]/20 rounded-full mix-blend-multiply dark:mix-blend-lighten filter blur-3xl opacity-30 animate-blob"></div>
+		<div class="absolute top-1/3 right-1/4 w-96 h-96 bg-[color:var(--color-accent)]/10 dark:bg-[color:var(--color-accent)]/20 rounded-full mix-blend-multiply dark:mix-blend-lighten filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+		<div class="absolute bottom-1/4 left-1/3 w-96 h-96 bg-[color:var(--color-primary)]/5 dark:bg-[color:var(--color-primary)]/15 rounded-full mix-blend-multiply dark:mix-blend-lighten filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+
+		<div class="max-w-7xl w-full relative z-10">
+			<div class="text-center mb-16">
+				<!-- Label box (Design #2) -->
+				<div class="inline-block mb-8 fade-in">
+					<span class="px-4 py-2 rounded-full bg-surface/80 dark:bg-elevated/80 backdrop-blur-sm border border-border text-muted text-sm font-medium shadow-xl/20 shadow-primary">
+						AI-Powered Knowledge Platform
+					</span>
+				</div>
+
+				<!-- Hero Headline -->
+				<h1 class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight tracking-tight fade-in" style="animation-delay: 0.1s;">
+					ask naturally.
+					<br>
+					<span class="bg-gradient-to-r from-[color:var(--color-primary)] to-[color:var(--color-accent)] bg-clip-text text-transparent animate-gradient-text">
+						get answers instantly.
+					</span>
+				</h1>
+
+				<!-- Subheading with "Ask in plain English" (Design #1) -->
+				<p class="font-body text-xl md:text-2xl text-muted max-w-3xl mx-auto mb-16 leading-relaxed fade-in" style="animation-delay: 0.2s;">
+					Stop searching through Slack, docs, and code. Ask in plain English—Meshum's AI finds and synthesizes answers from all your knowledge sources in seconds.
+				</p>
+			</div>
+
+			<!-- Web View Showcase (Design #5 hero level) -->
+			<div class="max-w-5xl mx-auto fade-in" style="animation-delay: 0.5s;">
+				<div class="relative rounded-2xl overflow-hidden border border-border shadow-2xl bg-surface backdrop-blur">
+					<!-- Browser Chrome -->
+					<div class="flex items-center gap-2 px-4 py-3 bg-elevated border-b border-border">
+						<div class="flex gap-1.5">
+							<div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+							<div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+							<div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+						</div>
+						<div class="flex-1 mx-4">
+							<div class="px-3 py-1.5 rounded-md bg-surface border border-border text-xs text-muted font-technical">
+								company.meshum.dev
+							</div>
+						</div>
+					</div>
+
+					<!-- Web View Content -->
+					<div class="p-8 bg-gradient-to-br from-page/50 to-surface/50 backdrop-blur">
+						<div class="mb-6">
+							<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[color:var(--color-primary)]/10 border border-[color:var(--color-primary)]/20 text-sm">
+								<div class="w-2 h-2 rounded-full bg-[color:var(--color-primary)] animate-pulse"></div>
+								<span class="font-medium text-foreground">AI searching across 12 sources...</span>
+							</div>
+						</div>
+
+						<div class="space-y-4">
+							<!-- Question -->
+							<div class="flex items-start gap-3">
+								<div class="w-8 h-8 rounded-full bg-[color:var(--color-accent)]/20 flex items-center justify-center flex-shrink-0">
+									<span class="text-sm font-semibold text-[color:var(--color-accent)]">You</span>
+								</div>
+								<div class="flex-1">
+									<div class="px-4 py-3 rounded-xl bg-surface border border-border shadow-sm">
+										<p class="font-body text-foreground">How does our rate limiting work in the payment API?</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Primary result - Direct quote from source -->
+							<div class="flex items-start gap-3">
+								<div class="w-8 h-8 rounded-full bg-gradient-to-br from-[color:var(--color-primary)] to-[color:var(--color-accent)] flex items-center justify-center flex-shrink-0 shadow-glow-sm">
+									<svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+									</svg>
+								</div>
+								<div class="flex-1">
+									<div class="px-4 py-3 rounded-xl bg-elevated border border-border shadow-sm">
+										<div class="flex items-start justify-between gap-3 mb-2">
+											<p class="text-xs font-semibold text-[color:var(--color-primary)] uppercase tracking-wider">Primary Result</p>
+											<span class="text-xs text-muted">src/middleware/rateLimit.ts</span>
+										</div>
+										<p class="font-body text-foreground font-medium mb-2">
+											"Rate limiting implementation uses token bucket algorithm per API key. Standard tier: 1000 req/hr, Premium tier: 5000 req/hr."
+										</p>
+										<div class="flex items-center gap-2 text-xs text-muted">
+											<svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+												<path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+											</svg>
+											<span>Updated 3 days ago</span>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Additional results -->
+							<div class="ml-11 space-y-2">
+								<div class="px-4 py-2 rounded-lg bg-page border border-border">
+									<div class="flex items-center justify-between gap-3 mb-1">
+										<p class="text-xs font-semibold text-muted">PR #847: Add rate limiting</p>
+										<svg class="w-4 h-4 text-[color:var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+										</svg>
+									</div>
+									<p class="text-sm text-foreground">"Implemented token bucket for API rate limiting..."</p>
+								</div>
+
+								<div class="px-4 py-2 rounded-lg bg-page border border-border">
+									<div class="flex items-center justify-between gap-3 mb-1">
+										<p class="text-xs font-semibold text-muted">api-docs.md</p>
+										<svg class="w-4 h-4 text-[color:var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+										</svg>
+									</div>
+									<p class="text-sm text-foreground">"Rate limits: Standard 1000/hr, Premium 5000/hr"</p>
+								</div>
+
+								<div class="px-4 py-2 rounded-lg bg-page border border-border">
+									<div class="flex items-center justify-between gap-3 mb-1">
+										<p class="text-xs font-semibold text-muted">#eng-platform on Slack</p>
+										<svg class="w-4 h-4 text-[color:var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+										</svg>
+									</div>
+									<p class="text-sm text-foreground">"Discussion about choosing token bucket vs leaky bucket"</p>
+								</div>
+							</div>
+
+							<!-- Search metadata -->
+							<div class="ml-11 flex items-center gap-4 text-xs text-muted">
+								<span>Found in 0.3s</span>
+								<span>•</span>
+								<span>4 sources</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- TL;DR Section (conversion boost idea) -->
+	<section class="py-16 bg-surface/50 backdrop-blur border-y border-border">
+		<div class="max-w-4xl mx-auto px-6">
+			<div class="flex items-start gap-4">
+				<div class="flex-shrink-0">
+					<div class="px-3 py-1 rounded-lg bg-[color:var(--color-accent)]/10 border border-[color:var(--color-accent)]/20 font-heading font-bold text-sm text-[color:var(--color-accent)] uppercase tracking-wider">
+						TL;DR
+					</div>
+				</div>
+				<div class="flex-1">
+					<p class="font-body text-lg text-foreground leading-relaxed">
+						<span class="font-semibold">Meshum connects your scattered knowledge</span> (GitHub, Slack, Confluence, Notion, etc.) into a unified AI layer. Ask questions in plain English, get instant answers with source citations. Setup in 5 minutes. No training required.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- The Problem - Professional/Informal Balance (Design #2) -->
+	<section class="py-32 bg-page">
+		<div class="max-w-7xl mx-auto px-6">
+			<div class="grid lg:grid-cols-2 gap-16 items-center">
+				<!-- Problem Text -->
+				<div>
+					<div class="inline-block mb-6">
+						<span class="px-4 py-2 rounded-full bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 text-sm font-medium">
+							The Problem
+						</span>
+					</div>
+
+					<h2 class="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+						"Only Sarah knows how that works."
+					</h2>
+
+					<div class="space-y-4 text-lg text-foreground font-body leading-relaxed">
+						<p>
+							Your team's knowledge is scattered across a dozen tools. Code in GitHub. Docs in Confluence. Decisions in Slack. Architecture in Notion.
+						</p>
+						<p>
+							Engineers waste <span class="font-semibold text-[color:var(--color-primary)]">2+ hours every day</span> searching for answers. Asking around. Waiting for someone to get out of a meeting.
+						</p>
+						<p class="font-semibold text-foreground/90">
+							But Sarah's on PTO this week. 🤷
+						</p>
+					</div>
+				</div>
+
+				<!-- Illustration -->
+				<div class="relative">
+					<div class="relative rounded-2xl border-2 border-border bg-surface p-8 shadow-xl">
+						<!-- Scattered knowledge visualization -->
+						<div class="space-y-3">
+							<div class="flex items-center gap-3 p-3 rounded-lg bg-page border border-border">
+								<div class="w-10 h-10 rounded-lg bg-[color:var(--color-tool-github)] flex items-center justify-center">
+									<svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+										<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+									</svg>
+								</div>
+								<div class="flex-1">
+									<div class="text-sm font-medium text-foreground">GitHub</div>
+									<div class="text-xs text-muted">Code & pull requests</div>
+								</div>
+							</div>
+
+							<div class="flex items-center gap-3 p-3 rounded-lg bg-page border border-border">
+								<div class="w-10 h-10 rounded-lg bg-[color:var(--color-tool-slack)] flex items-center justify-center">
+									<svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+										<path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/>
+									</svg>
+								</div>
+								<div class="flex-1">
+									<div class="text-sm font-medium text-foreground">Slack</div>
+									<div class="text-xs text-muted">Conversations & decisions</div>
+								</div>
+							</div>
+
+							<div class="flex items-center gap-3 p-3 rounded-lg bg-page border border-border">
+								<div class="w-10 h-10 rounded-lg bg-[color:var(--color-tool-confluence)] flex items-center justify-center">
+									<svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+										<path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2.824c5.063 0 9.176 4.113 9.176 9.176s-4.113 9.176-9.176 9.176-9.176-4.113-9.176-9.176S6.937 2.824 12 2.824zm.706 3.176v5.647l4.588 2.824-.706 1.176L11.294 12v-6h1.412z"/>
+									</svg>
+								</div>
+								<div class="flex-1">
+									<div class="text-sm font-medium text-foreground">Confluence</div>
+									<div class="text-xs text-muted">Documentation</div>
+								</div>
+							</div>
+
+							<div class="flex items-center gap-3 p-3 rounded-lg bg-page border border-border opacity-50">
+								<div class="w-10 h-10 rounded-lg bg-foreground/10 flex items-center justify-center">
+									<span class="text-xs font-semibold text-muted">+9</span>
+								</div>
+								<div class="flex-1">
+									<div class="text-sm font-medium text-muted">Notion, Jira, Linear, and more...</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- "?" overlay -->
+						<div class="absolute inset-0 flex items-center justify-center">
+							<div class="w-24 h-24 rounded-full bg-foreground/5 backdrop-blur-md border-2 border-foreground/10 flex items-center justify-center shadow-xl">
+								<span class="text-5xl font-bold text-foreground/30">?</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- The Solution (Design #6 with side-by-side layout) -->
+	<section class="relative py-32 overflow-hidden bg-gradient-to-br from-[color:var(--color-solution-bg-start)] to-[color:var(--color-solution-bg-end)] dark:from-[color:var(--color-solution-bg-start-dark)] dark:to-[color:var(--color-solution-bg-end-dark)]">
+		<div class="relative z-10 max-w-7xl mx-auto px-6">
+			<div class="grid lg:grid-cols-2 gap-16 items-center">
+				<!-- Visual Flow Diagram (Left side) -->
+				<div class="relative order-2 lg:order-1">
+					<div class="relative backdrop-blur-xl p-12 rounded-3xl border border-[color:var(--color-primary)]/10 shadow-2xl bg-white/60 dark:bg-elevated/60">
+						<div class="flex items-center justify-center gap-6">
+							<!-- Input sources -->
+							<div class="flex flex-col gap-3">
+								<div class="flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-[color:var(--color-primary)]/5 border border-[color:var(--color-primary)]/20 backdrop-blur-sm transition-all hover:bg-[color:var(--color-primary)]/10">
+									<div class="w-2 h-2 rounded-full bg-[color:var(--color-primary)] animate-pulse"></div>
+									<span class="font-heading text-sm font-semibold text-foreground">GitHub</span>
+								</div>
+								<div class="flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-[color:var(--color-accent)]/5 border border-[color:var(--color-accent)]/20 backdrop-blur-sm transition-all hover:bg-[color:var(--color-accent)]/10">
+									<div class="w-2 h-2 rounded-full bg-[color:var(--color-accent)] animate-pulse" style="animation-delay: 0.3s;"></div>
+									<span class="font-heading text-sm font-semibold text-foreground">Slack</span>
+								</div>
+								<div class="flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-[color:var(--color-primary)]/5 border border-[color:var(--color-primary)]/20 backdrop-blur-sm transition-all hover:bg-[color:var(--color-primary)]/10">
+									<div class="w-2 h-2 rounded-full bg-[color:var(--color-primary)] animate-pulse" style="animation-delay: 0.6s;"></div>
+									<span class="font-heading text-sm font-semibold text-foreground">Notion</span>
+								</div>
+							</div>
+
+							<!-- Arrow -->
+							<svg class="w-8 h-8 text-[color:var(--color-primary)]/30 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+							</svg>
+
+							<!-- Meshum intelligence -->
+							<div class="relative group flex-shrink-0">
+								<div class="absolute inset-0 bg-gradient-to-br from-[color:var(--color-primary)] to-[color:var(--color-accent)] blur-xl opacity-40 group-hover:opacity-60 transition-opacity"></div>
+								<div class="relative w-24 h-24 rounded-2xl bg-gradient-to-br from-[color:var(--color-primary)] to-[color:var(--color-accent)] flex items-center justify-center shadow-xl">
+									<svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+									</svg>
+								</div>
+							</div>
+
+							<!-- Arrow -->
+							<svg class="w-8 h-8 text-[color:var(--color-primary)]/30 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+							</svg>
+
+							<!-- Output -->
+							<div class="flex items-center gap-2 px-5 py-3 rounded-full bg-gradient-to-r from-[color:var(--color-primary)] to-[color:var(--color-accent)] text-white shadow-lg">
+								<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+								</svg>
+								<span class="font-heading font-bold text-sm whitespace-nowrap">Instant Answer</span>
+							</div>
+						</div>
+
+						<div class="mt-6 text-center">
+							<p class="text-xs text-muted">AI-powered semantic search • Real-time indexing • Source attribution</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Solution Text (Right side) -->
+				<div class="order-1 lg:order-2">
+					<div class="inline-block mb-6">
+						<span class="px-4 py-2 rounded-full bg-[color:var(--color-solution-accent)]/10 border border-[color:var(--color-solution-accent)]/20 text-[color:var(--color-solution-accent)] dark:text-[color:var(--color-solution-accent-dark)] text-sm font-medium">
+							The Solution
+						</span>
+					</div>
+
+					<h2 class="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+						One source of truth.
+						<br>
+						Powered by AI.
+					</h2>
+
+					<div class="space-y-4 text-lg text-foreground font-body leading-relaxed mb-8">
+						<p>
+							<span class="font-semibold">Meshum unifies all your knowledge sources</span> into a single AI-powered intelligence layer. Code, docs, conversations, decisions—all connected and instantly searchable.
+						</p>
+						<p>
+							Ask questions in natural language. Get accurate answers with source citations in sub-second response time. No training required.
+						</p>
+					</div>
+
+					<!-- Key benefits with colored icons -->
+					<div class="grid grid-cols-2 gap-4">
+						<div class="flex items-start gap-3">
+							<div class="w-10 h-10 rounded-lg bg-[color:var(--color-benefit-1)]/10 flex items-center justify-center flex-shrink-0">
+								<svg class="w-5 h-5 text-[color:var(--color-benefit-1)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+								</svg>
+							</div>
+							<div>
+								<div class="font-semibold text-foreground text-sm mb-1">Sub-second answers</div>
+								<div class="text-xs text-muted">0.3s average response</div>
+							</div>
+						</div>
+
+						<div class="flex items-start gap-3">
+							<div class="w-10 h-10 rounded-lg bg-[color:var(--color-benefit-2)]/10 flex items-center justify-center flex-shrink-0">
+								<svg class="w-5 h-5 text-[color:var(--color-benefit-2)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+								</svg>
+							</div>
+							<div>
+								<div class="font-semibold text-foreground text-sm mb-1">Always up-to-date</div>
+								<div class="text-xs text-muted">Continuous sync</div>
+							</div>
+						</div>
+
+						<div class="flex items-start gap-3">
+							<div class="w-10 h-10 rounded-lg bg-[color:var(--color-benefit-3)]/10 flex items-center justify-center flex-shrink-0">
+								<svg class="w-5 h-5 text-[color:var(--color-benefit-3)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+								</svg>
+							</div>
+							<div>
+								<div class="font-semibold text-foreground text-sm mb-1">Private & secure</div>
+								<div class="text-xs text-muted">SOC 2 compliant</div>
+							</div>
+						</div>
+
+						<div class="flex items-start gap-3">
+							<div class="w-10 h-10 rounded-lg bg-[color:var(--color-benefit-4)]/10 flex items-center justify-center flex-shrink-0">
+								<svg class="w-5 h-5 text-[color:var(--color-benefit-4)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"/>
+								</svg>
+							</div>
+							<div>
+								<div class="font-semibold text-foreground text-sm mb-1">Source citations</div>
+								<div class="text-xs text-muted">Verify every answer</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Works with your tools (Design #5) -->
+	<section class="py-32 bg-surface">
+		<div class="max-w-7xl mx-auto px-6">
+			<div class="text-center mb-16">
+				<h2 class="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6">
+					Works with your existing tools
+				</h2>
+				<p class="font-body text-xl text-muted max-w-2xl mx-auto">
+					Connect in minutes. No migration needed. Meshum syncs with your stack automatically.
+				</p>
+			</div>
+
+			<!-- Tool logos grid -->
+			<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+				<div class="flex items-center justify-center p-6 rounded-xl bg-page border border-border hover:shadow-md transition-all">
+					<svg class="h-8 opacity-60 hover:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+				</div>
+				<div class="flex items-center justify-center p-6 rounded-xl bg-page border border-border hover:shadow-md transition-all">
+					<svg class="h-8 opacity-60 hover:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>
+				</div>
+				<div class="flex items-center justify-center p-6 rounded-xl bg-page border border-border hover:shadow-md transition-all">
+					<svg class="h-8 opacity-60 hover:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2.824c5.063 0 9.176 4.113 9.176 9.176s-4.113 9.176-9.176 9.176-9.176-4.113-9.176-9.176S6.937 2.824 12 2.824zm.706 3.176v5.647l4.588 2.824-.706 1.176L11.294 12v-6h1.412z"/></svg>
+				</div>
+				<div class="flex items-center justify-center p-6 rounded-xl bg-page border border-border hover:shadow-md transition-all">
+					<svg class="h-8 opacity-60 hover:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="currentColor"><path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .841-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"/></svg>
+				</div>
+				<div class="flex items-center justify-center p-6 rounded-xl bg-page border border-border hover:shadow-md transition-all">
+					<svg class="h-8 opacity-60 hover:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="currentColor"><path d="M11.53 2c-.702 0-1.267.577-1.267 1.293v17.414c0 .716.565 1.293 1.267 1.293.7 0 1.266-.577 1.266-1.293V3.293C12.796 2.577 12.23 2 11.53 2zM.263 6.534c0 .716.565 1.293 1.267 1.293h17.936c.702 0 1.267-.577 1.267-1.293 0-.716-.565-1.293-1.267-1.293H1.53c-.702 0-1.267.577-1.267 1.293zm2.764 6.534c0 .716.565 1.293 1.267 1.293h15.17c.702 0 1.267-.577 1.267-1.293s-.565-1.293-1.267-1.293H4.294c-.702 0-1.267.577-1.267 1.293zm2.764 6.535c0 .716.565 1.293 1.267 1.293h12.406c.7 0 1.266-.577 1.266-1.293s-.565-1.293-1.266-1.293H7.058c-.702 0-1.267.577-1.267 1.293z"/></svg>
+				</div>
+				<div class="flex items-center justify-center p-6 rounded-xl bg-page border border-border hover:shadow-md transition-all">
+					<svg class="h-8 opacity-60 hover:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C6.704 0 2 4.304 2 9.6c0 5.296 4.704 9.6 10 9.6 2.192 0 4.096-.736 5.68-1.92L23.488 24l.512-.48-5.696-6.72C19.488 15.168 20 12.512 20 9.6 20 4.304 15.296 0 12 0zm0 1.6c4.096 0 7.68 3.2 7.68 8s-3.584 8-7.68 8-7.68-3.2-7.68-8 3.584-8 7.68-8zM7.68 6.4v6.4h1.6V6.4H7.68zm3.2 0v6.4h1.6V6.4h-1.6zm3.2 0v6.4h1.6V6.4h-1.6z"/></svg>
+				</div>
+			</div>
+
+			<div class="text-center mt-8">
+				<p class="text-sm text-muted font-body">
+					+ 10 more integrations available
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Features Bento Grid (Design #2) -->
+	<section class="py-32 bg-page">
+		<div class="max-w-7xl mx-auto px-6">
+			<div class="text-center mb-16">
+				<h2 class="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6">
+					Everything you need
+				</h2>
+			</div>
+
+			<!-- Bento grid layout -->
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+				<!-- Large feature card -->
+				<div class="lg:col-span-2 lg:row-span-2 p-8 rounded-2xl bg-gradient-to-br from-surface to-elevated border border-border shadow-lg hover:shadow-xl transition-all">
+					<div class="mb-6">
+						<div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[color:var(--color-primary)] to-[color:var(--color-accent)] shadow-glow-sm mb-4">
+							<svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+							</svg>
+						</div>
+						<h3 class="font-heading text-2xl font-bold text-foreground mb-3">
+							Natural Language Search
+						</h3>
+						<p class="font-body text-base text-muted leading-relaxed mb-6">
+							Ask questions like you would ask a teammate. No query syntax, no boolean operators—just natural conversation.
+						</p>
+					</div>
+
+					<!-- Example queries -->
+					<div class="space-y-2">
+						<div class="px-4 py-2 rounded-lg bg-page/50 border border-border text-sm text-foreground font-body">
+							"How does authentication work in our mobile app?"
+						</div>
+						<div class="px-4 py-2 rounded-lg bg-page/50 border border-border text-sm text-foreground font-body">
+							"Why did we choose PostgreSQL over MongoDB?"
+						</div>
+						<div class="px-4 py-2 rounded-lg bg-page/50 border border-border text-sm text-foreground font-body">
+							"What's the deployment process for staging?"
+						</div>
+					</div>
+				</div>
+
+				<!-- Regular feature cards -->
+				<div class="p-6 rounded-2xl bg-surface border border-border shadow hover:shadow-lg transition-all">
+					<div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4">
+						<svg class="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+						</svg>
+					</div>
+					<h3 class="font-heading text-lg font-bold text-foreground mb-2">
+						Always Current
+					</h3>
+					<p class="font-body text-sm text-muted leading-relaxed">
+						Continuous sync ensures answers reflect your latest code, docs, and decisions.
+					</p>
+				</div>
+
+				<div class="p-6 rounded-2xl bg-surface border border-border shadow hover:shadow-lg transition-all">
+					<div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center mb-4">
+						<svg class="w-5 h-5 text-purple-600 dark:text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+						</svg>
+					</div>
+					<h3 class="font-heading text-lg font-bold text-foreground mb-2">
+						Enterprise Security
+					</h3>
+					<p class="font-body text-sm text-muted leading-relaxed">
+						SOC 2 compliant. Your data never leaves your infrastructure.
+					</p>
+				</div>
+
+				<div class="p-6 rounded-2xl bg-surface border border-border shadow hover:shadow-lg transition-all">
+					<div class="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center mb-4">
+						<svg class="w-5 h-5 text-green-600 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"/>
+						</svg>
+					</div>
+					<h3 class="font-heading text-lg font-bold text-foreground mb-2">
+						Source Citations
+					</h3>
+					<p class="font-body text-sm text-muted leading-relaxed">
+						Every answer includes links to verify and dive deeper into original sources.
+					</p>
+				</div>
+
+				<div class="lg:col-span-2 p-6 rounded-2xl bg-surface border border-border shadow hover:shadow-lg transition-all">
+					<div class="flex items-start gap-6">
+						<div class="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center flex-shrink-0">
+							<svg class="w-5 h-5 text-orange-600 dark:text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+							</svg>
+						</div>
+						<div class="flex-1">
+							<h3 class="font-heading text-lg font-bold text-foreground mb-2">
+								Knowledge Graph
+							</h3>
+							<p class="font-body text-sm text-muted leading-relaxed">
+								Understands relationships between code, docs, and decisions. Connects dots that humans miss to surface the most relevant context.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Final CTA (Design #2) -->
+	<section class="py-32 bg-gradient-to-br from-[color:var(--color-primary)]/95 to-[color:var(--color-accent)]/95 relative overflow-hidden">
+		<!-- Animated gradient overlay -->
+		<div class="absolute inset-0 bg-gradient-to-br from-[color:var(--color-primary)] to-[color:var(--color-accent)] opacity-90 animate-gradient"></div>
+
+		<!-- Subtle pattern -->
+		<div class="absolute inset-0 opacity-5">
+			<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+				<defs>
+					<pattern id="cta-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+						<circle cx="20" cy="20" r="1" fill="white"/>
+					</pattern>
+				</defs>
+				<rect width="100%" height="100%" fill="url(#cta-pattern)"/>
+			</svg>
+		</div>
+
+		<div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+			<h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+				Stop searching.
+				<br>
+				Start knowing.
+			</h2>
+
+			<p class="font-body text-xl text-white/95 mb-12 leading-relaxed max-w-2xl mx-auto">
+				Join the waitlist and be among the first engineering teams to experience unified knowledge intelligence.
+			</p>
+
+			<!-- CTA Form with glow -->
+			<div class="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto mb-8">
+				<input
+					type="email"
+					placeholder="you@company.com"
+					class="flex-1 px-6 py-4 rounded-xl border-2 border-white/20 bg-white/10 backdrop-blur text-white placeholder-white/60 font-body text-lg focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all"
+				/>
+				<button class="px-8 py-4 rounded-xl bg-white hover:bg-white/95 text-[color:var(--color-primary)] font-heading font-bold text-lg transition-all shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
+					Request Access
+				</button>
+			</div>
+
+			<p class="text-sm text-white/80 font-body">
+				No credit card required • 5-minute setup • Cancel anytime
+			</p>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="py-12 bg-foreground border-t border-border">
+		<div class="max-w-7xl mx-auto px-6">
+			<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+				<div>
+					<span class="font-heading font-bold text-2xl text-page">Meshum</span>
+					<p class="font-body text-sm text-page/70 mt-2">Knowledge intelligence for software teams.</p>
+				</div>
+
+				<div class="flex gap-8 font-body text-sm">
+					<a href="#" class="text-page/70 hover:text-[color:var(--color-primary)] transition-colors">Privacy</a>
+					<a href="#" class="text-page/70 hover:text-[color:var(--color-primary)] transition-colors">Terms</a>
+					<a href="#" class="text-page/70 hover:text-[color:var(--color-primary)] transition-colors">Contact</a>
+					<a href="#" class="text-page/70 hover:text-[color:var(--color-primary)] transition-colors">Documentation</a>
+				</div>
+			</div>
+		</div>
+	</footer>
 </Layout>
+
+<style>
+	/* Subtle animated gradient */
+	@keyframes gradient {
+		0%, 100% {
+			opacity: 0.3;
+		}
+		50% {
+			opacity: 0.5;
+		}
+	}
+
+	.animate-gradient {
+		animation: gradient 8s ease-in-out infinite;
+	}
+
+	/* Gradient text animation */
+	@keyframes gradient-text {
+		0%, 100% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+	}
+
+	.animate-gradient-text {
+		background-size: 200% 200%;
+		animation: gradient-text 6s ease-in-out infinite;
+	}
+
+	/* Subtle glow effect (Design #2) */
+	.shadow-glow {
+		box-shadow: 0 0 20px rgba(179, 69, 243, 0.3), 0 0 40px rgba(0, 142, 150, 0.2);
+	}
+
+	.shadow-glow-sm {
+		box-shadow: 0 0 10px rgba(179, 69, 243, 0.2), 0 0 20px rgba(0, 142, 150, 0.15);
+	}
+
+	/* Fade in animation */
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.fade-in {
+		opacity: 0;
+		animation: fadeIn 0.8s ease-out forwards;
+	}
+
+	/* Smooth font rendering */
+	* {
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	/* Blob animation (Design #5 style) */
+	@keyframes blob {
+		0%, 100% {
+			transform: translate(0, 0) scale(1);
+		}
+		33% {
+			transform: translate(30px, -50px) scale(1.1);
+		}
+		66% {
+			transform: translate(-20px, 20px) scale(0.9);
+		}
+	}
+
+	.animate-blob {
+		animation: blob 7s infinite;
+	}
+
+	.animation-delay-2000 {
+		animation-delay: 2s;
+	}
+
+	.animation-delay-4000 {
+		animation-delay: 4s;
+	}
+</style>

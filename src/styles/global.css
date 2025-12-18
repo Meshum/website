@@ -1,1 +1,8 @@
 @import "tailwindcss";
+@import "./meshum.css";
+
+@layer base {
+	body {
+		@apply font-body bg-page text-foreground;
+	}
+}
