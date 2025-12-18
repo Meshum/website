@@ -46,10 +46,10 @@
 /* === DARK MODE === */
 @media (prefers-color-scheme: dark) {
 	:root {
-		/* Backgrounds - Inverted hierarchy */
-		--color-page: oklch(19% 0.02 220);
-		--color-surface: oklch(15% 0.025 220);
-		--color-elevated: oklch(21% 0.022 220);
+		/* Backgrounds - Subtle elevation hierarchy matching light mode's 2% range */
+		--color-page: oklch(19% 0.02 220);       /* Base layer */
+		--color-surface: oklch(21% 0.022 220);   /* Cards elevated +2% (matches light mode delta) */
+		--color-elevated: oklch(20% 0.021 220);  /* Modals elevated +1% (matches light mode delta) */
 
 		/* Text - Inverted for dark backgrounds */
 		--color-foreground: oklch(97% 0.005 165);
