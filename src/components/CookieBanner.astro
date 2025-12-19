@@ -1,30 +1,32 @@
 ---
 ---
 
-<div id="cookie-banner" class="cookie-banner hidden">
+<script type="text/javascript">
+	(function(c,l,a,r,i,t,y){
+		c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+		t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+		y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+	})(window, document, "clarity", "script", "uo5x4zjccp");
+</script>
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-999 m-4 max-w-100vw overflow-x-hidden hidden">
 	<div class="cookie-banner-content">
 		<div class="cookie-banner-inner">
 			<!-- Gradient background -->
-			<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl"></div>
-			<div class="absolute inset-0 border border-white/10 rounded-2xl"></div>
+			<div class="absolute inset-0 bg-linear-to-br from-primary/10 to-accent/10 rounded-2xl"></div>
+			<div class="absolute inset-0 border border-border rounded-2xl"></div>
 
 			<div class="relative flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between">
 				<div class="flex-1">
-					<h3 class="text-lg font-semibold text-text-white mb-2">We value your privacy</h3>
-					<p class="text-sm text-text-gray">
-						Hey! We use analytics on this website to see what you guys (dis)like, by continuing to use
-						this website you consent to us doing this. We don't do anything but generate pretty graphs
-						with this information, promise!
-						<a href="/privacy" class="text-primary hover:text-primary/80 underline">
-							Read our privacy policy
-						</a>
+					<h3 class="text-lg font-semibold text-foreground mb-2">We value your privacy</h3>
+					<p class="text-sm text-muted">
+						This website uses Microsoft Clarity to understand how visitors interact with our site through anonymous usage analytics. By accepting, you consent to the collection of this data. We do not collect personally identifiable information or share your data with third parties beyond Microsoft's analytics service. You can decline and still use the website normally.
 					</p>
 				</div>
 				<div class="flex gap-3 shrink-0">
-					<button id="cookie-decline" class="btn-secondary whitespace-nowrap px-6 py-2 rounded-lg font-medium transition-colors">
+					<button id="cookie-decline" class="bg-accent text-elevated whitespace-nowrap px-6 py-2 rounded-lg font-medium transition-colors">
 						Decline
 					</button>
-					<button id="cookie-accept" class="btn-primary whitespace-nowrap px-6 py-2 rounded-lg font-medium">
+					<button id="cookie-accept" class="bg-primary whitespace-nowrap px-6 py-2 rounded-lg font-medium">
 						Accept
 					</button>
 				</div>
@@ -34,43 +36,32 @@
 </div>
 
 <style>
-	.cookie-banner {
-		position: fixed;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		z-index: 9999;
-		padding: 1rem;
-		animation: slideUp 0.3s ease-out;
-	}
-
-	.cookie-banner.hidden {
-		display: none;
+	@media (prefers-reduced-motion: no-preference) {
+		#cookie-banner {
+			animation: slideUp 0.3s ease-out;
+		}
 	}
 
 	.cookie-banner-content {
 		max-width: 1200px;
 		margin: 0 auto;
+		width: 100%;
 	}
 
 	.cookie-banner-inner {
 		position: relative;
 		padding: 1.5rem;
 		backdrop-filter: blur(12px);
-		background: rgba(17, 24, 39, 0.95);
+		background: rgba(255, 255, 255, 0.95);
 		border-radius: 1rem;
-		box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+		box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
 	}
 
-	.btn-secondary {
-		background: transparent;
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		color: var(--text-gray);
-	}
-
-	.btn-secondary:hover {
-		background: rgba(255, 255, 255, 0.05);
-		color: var(--text-white);
+	@media (prefers-color-scheme: dark) {
+		.cookie-banner-inner {
+			background: rgba(17, 24, 39, 0.95);
+			box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+		}
 	}
 
 	@keyframes slideUp {
@@ -91,57 +82,34 @@
 	}
 </style>
 
-<script>
-	// Check if user has already made a choice
-	const CONSENT_KEY = 'meshum-cookie-consent';
+<script is:inline>
+	const CONSENT_KEY = 'cookie-consent';
+	const consent = localStorage.getItem(CONSENT_KEY);
 
-	function getCookieConsent() {
-		return localStorage.getItem(CONSENT_KEY);
+	if (consent === 'approved') {
+		window.clarity('consentv2', {
+			ad_Storage: "granted",
+			analytics_Storage: "granted"
+		});
+	} else if (consent === 'declined') {
+		window.clarity('consentv2', {
+			ad_Storage: "denied",
+			analytics_Storage: "denied"
+		});
+	} else if (consent === null) {
+		document.getElementById('cookie-banner')?.classList.remove('hidden');
+
+		document.getElementById('cookie-decline')?.addEventListener('click', () => {
+			localStorage.setItem(CONSENT_KEY, 'declined');
+
+			location.reload();
+		});
+
+		document.getElementById('cookie-accept')?.addEventListener('click', () => {
+			localStorage.setItem(CONSENT_KEY, 'approved');
+
+			location.reload();
+		});
 	}
-
-	function setCookieConsent(value: 'accepted' | 'declined') {
-		localStorage.setItem(CONSENT_KEY, value);
-		window.dispatchEvent(new CustomEvent('cookieConsentChange', { detail: { consent: value } }));
-	}
-
-	function showBanner() {
-		const banner = document.getElementById('cookie-banner');
-		if (banner) {
-			banner.classList.remove('hidden');
-		}
-	}
-
-	function hideBanner() {
-		const banner = document.getElementById('cookie-banner');
-		if (banner) {
-			banner.classList.add('hidden');
-		}
-	}
-
-	// Show banner if no consent has been given
-	const consent = getCookieConsent();
-	if (!consent) {
-		showBanner();
-	}
-
-	// Handle accept button
-	const acceptBtn = document.getElementById('cookie-accept');
-	acceptBtn?.addEventListener('click', () => {
-		setCookieConsent('accepted');
-		hideBanner();
-		// Reload to activate tracking scripts
-		window.location.reload();
-	});
-
-	// Handle decline button
-	const declineBtn = document.getElementById('cookie-decline');
-	declineBtn?.addEventListener('click', () => {
-		setCookieConsent('declined');
-		hideBanner();
-	});
-
-	// Export function for other scripts to check consent
-	(window as any).hasAnalyticsConsent = function() {
-		return getCookieConsent() === 'accepted';
-	};
 </script>
+

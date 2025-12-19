@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+	/* ============================================
+	   MESHUM BRAND DESIGN SYSTEM
+	   ============================================
+	   This file contains only generic, reusable
+	   branding tokens that can be shared across
+	   all Meshum web properties.
+
+	   Content-specific variables (hero gradients,
+	   section-specific colors, etc.) belong in
+	   global.css or other project-specific files.
+	   ============================================ */
+
+	/* === TYPOGRAPHY === */
+	--font-heading: "Syne", var(--font-serif);
+	--font-body: "Lexend", var(--font-sans);
+	--font-technical: "JetBrains Mono", var(--font-mono);
+
+	/* === BRAND COLORS === */
+	/* Primary brand color - Used for CTAs, links, brand moments */
+	--color-primary: oklch(62% 0.08 165);
+
+	/* Accent color - Used for contrast, secondary elements */
+	--color-accent: oklch(32% 0.02 220);
+
+	/* === SEMANTIC UI COLORS (Light Mode) === */
+
+	/* Backgrounds - Layered from page → surface → elevated (increased contrast) */
+	--color-page: oklch(96% 0.008 165); /* Base page background */
+	--color-surface: oklch(100% 0 0); /* Cards, panels */
+	--color-elevated: oklch(98.5% 0.004 165); /* Modals, dropdowns */
+
+	/* Text - Hierarchical from foreground → muted → subtle */
+	--color-foreground: oklch(20% 0.02 220); /* Primary text */
+	--color-muted: oklch(48% 0.02 220); /* Secondary text */
+	--color-subtle: oklch(58% 0.025 220); /* Tertiary text, captions */
+	--color-accent-text: oklch(62% 0.08 165); /* Highlighted text using brand */
+
+	/* Borders - From prominent → subtle */
+	--color-border: oklch(90% 0.012 220); /* Standard borders */
+	--color-border-subtle: oklch(95% 0.006 220); /* Subtle dividers */
+}
+
+/* === DARK MODE === */
+@media (prefers-color-scheme: dark) {
+	:root {
+		/* Backgrounds - Subtle elevation hierarchy matching light mode's 2% range */
+		--color-page: oklch(19% 0.02 220); /* Base layer */
+		--color-surface: oklch(
+			21% 0.022 220
+		); /* Cards elevated +2% (matches light mode delta) */
+		--color-elevated: oklch(
+			20% 0.021 220
+		); /* Modals elevated +1% (matches light mode delta) */
+
+		/* Text - Inverted for dark backgrounds */
+		--color-foreground: oklch(97% 0.005 165);
+		--color-muted: oklch(66% 0.025 220);
+		--color-subtle: oklch(76% 0.03 220);
+		--color-accent-text: oklch(70% 0.08 165);
+
+		/* Borders - Darker for dark mode */
+		--color-border: oklch(23% 0.025 220);
+		--color-border-subtle: oklch(17% 0.02 220);
+	}
+}

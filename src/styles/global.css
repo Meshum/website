@@ -1,72 +1,88 @@
 @import "tailwindcss";
+@import "./meshum.css";
+
+/* ============================================
+   CONTENT-SPECIFIC VARIABLES
+   ============================================
+   These variables are specific to this website's
+   content and should NOT be moved to meshum.css.
+
+   meshum.css = Generic branding (reusable)
+   global.css = Content-specific tokens (this site)
+   ============================================ */
 
 @theme {
-	/* Brand Colors - Meshum */
-	--color-primary: oklch(62% 0.25 310);
-	--color-accent: oklch(58% 0.24 200);
-	--color-bg-dark: oklch(15% 0.05 254);
-	--color-bg-darker: oklch(10% 0.04 254);
-	--color-text-white: oklch(95% 0.01 254);
-	--color-text-gray: oklch(70% 0.08 254);
-	--color-text-muted: oklch(55% 0.06 254);
+	/* ============================================
+	   COLOR DERIVATION SYSTEM
+	   ============================================
+	   All colors below derive from --color-primary
+	   and --color-accent in meshum.css using CSS
+	   relative color syntax.
 
-	/* Gradient */
-	--gradient-brand: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+	   Change the brand colors → everything updates
+	   automatically while preserving relationships.
+	   ============================================ */
 
-	/* Fonts */
-	--font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+	/* === HERO SECTION GRADIENTS === */
+	/* Ultra-desaturated washes of brand hues for subtle, atmospheric backgrounds */
+	--color-hero-bg-start: oklch(from var(--color-primary) 98% 0.006 h);
+	--color-hero-bg-mid: oklch(from var(--color-primary) 99% 0.003 h);
+	--color-hero-bg-end: oklch(from var(--color-accent) 97.5% 0.004 h);
+
+	/* === SOLUTION SECTION === */
+	/* Moderately saturated primary hue for visual emphasis */
+	--color-solution-bg-start: oklch(from var(--color-primary) 95% 0.015 h);
+	--color-solution-bg-end: oklch(
+		from var(--color-primary) 92% 0.018 calc(h + 3)
+	); /* Slight hue shift for gradient depth */
+	--color-solution-accent: oklch(
+		from var(--color-primary) 38% 0.09 h
+	); /* Darker for better contrast (WCAG AA) */
+	--color-solution-pill-bg: oklch(
+		from var(--color-primary) 97% 0.008 h
+	); /* Lighter background for pill */
+
+	/* === BENEFIT CARDS === */
+	/* All icons using green shade for consistency */
+	--color-benefit-green: oklch(
+		55% 0.12 155
+	); /* Rich green for all benefit icons */
+	--color-benefit-1: var(--color-benefit-green);
+	--color-benefit-2: var(--color-benefit-green);
+	--color-benefit-3: var(--color-benefit-green);
+	--color-benefit-4: var(--color-benefit-green);
+
+	/* === INTEGRATION TOOL LOGOS === */
+	/* Official third-party brand colors - kept absolute as they represent external brands */
+	--color-tool-github: #181717;
+	--color-tool-slack: #611f69;
+	--color-tool-confluence: #0052cc;
+}
+
+/* === DARK MODE OVERRIDES === */
+@media (prefers-color-scheme: dark) {
+	:root {
+		/* Hero section - dark mode: inverted lightness, same brand hues */
+		--color-hero-bg-start: oklch(from var(--color-accent) 19% 0.02 h);
+		--color-hero-bg-mid: oklch(from var(--color-accent) 17% 0.025 h);
+		--color-hero-bg-end: oklch(from var(--color-primary) 20% 0.018 h);
+
+		/* Solution section - dark mode: maintains relationships from light mode */
+		--color-solution-bg-start: oklch(from var(--color-primary) 22% 0.025 h);
+		--color-solution-bg-end: oklch(
+			from var(--color-primary) 20% 0.028 calc(h + 3)
+		); /* Same +3 hue shift */
+		--color-solution-accent: oklch(
+			from var(--color-primary) 70% 0.09 h
+		); /* Lighter for dark bg, increased chroma */
+		--color-solution-pill-bg: oklch(
+			from var(--color-primary) 18% 0.02 h
+		); /* Darker background for pill */
+	}
 }
 
 @layer base {
-	html {
-		scroll-behavior: smooth;
-	}
-
 	body {
-		@apply bg-bg-dark text-text-white font-sans antialiased;
-	}
-
-	::selection {
-		background: oklch(62% 0.25 310 / 0.3);
-	}
-}
-
-@layer components {
-	.gradient-text {
-		@apply bg-clip-text text-transparent;
-		background-image: var(--gradient-brand);
-	}
-
-	.gradient-border {
-		position: relative;
-	}
-
-	.gradient-border::before {
-		content: '';
-		position: absolute;
-		inset: 0;
-		padding: 1px;
-		background: var(--gradient-brand);
-		-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-		mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-		-webkit-mask-composite: xor;
-		mask-composite: exclude;
-		border-radius: inherit;
-		pointer-events: none;
-	}
-
-	.btn-primary {
-		@apply px-6 py-3 rounded-lg font-medium transition-all duration-200;
-		background: var(--gradient-brand);
-	}
-
-	.btn-primary:hover {
-		@apply shadow-lg scale-105;
-		box-shadow: 0 10px 30px -10px oklch(62% 0.25 310 / 0.5);
-	}
-
-	.btn-secondary {
-		@apply px-6 py-3 rounded-lg font-medium border border-text-muted text-text-white;
-		@apply hover:border-primary hover:text-primary transition-all duration-200;
+		@apply font-body bg-page text-foreground;
 	}
 }

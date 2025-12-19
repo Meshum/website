@@ -1,95 +1,191 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
-const lastUpdated = "November 2025";
-const domain = Astro.site?.hostname ?? "meshum.dev";
-const privacyEmail = `privacy@${domain}`;
 ---
 
-<Layout
-	title="Privacy Policy - Meshum"
-	description="Privacy Policy for Meshum. Learn how we collect, use, and protect your data."
->
-	<section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-		<div class="max-w-3xl mx-auto">
-			<h1 class="text-4xl font-bold text-text-white mb-4">Privacy Policy</h1>
-			<p class="text-text-muted mb-12">Last updated: {lastUpdated}</p>
+<Layout title="Privacy Policy - Meshum" description="How Meshum handles your data and protects your privacy.">
+	<div class="min-h-screen bg-page py-32">
+		<div class="max-w-4xl mx-auto px-6">
+			<!-- Header -->
+			<div class="mb-16">
+				<h1 class="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6">
+					Privacy Policy
+				</h1>
+				<p class="font-body text-lg text-muted">
+					Last updated: December 19, 2024
+				</p>
+			</div>
 
-			<div class="prose prose-invert max-w-none space-y-8">
-				<section>
-					<h2 class="text-2xl font-semibold text-text-white mb-4">Overview</h2>
-					<p class="text-text-gray leading-relaxed">
-						Meshum ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our services.
-					</p>
-				</section>
+			<!-- Content -->
+			<div class="prose prose-lg max-w-none">
+				<div class="space-y-12">
+					<!-- What We Collect -->
+					<section>
+						<h2 class="font-heading text-2xl font-bold text-foreground mb-4">
+							What we collect
+						</h2>
+						<div class="font-body text-foreground leading-relaxed space-y-4">
+							<p>
+								We collect only what's required to run the service:
+							</p>
+							<p>
+								<strong>Account information:</strong> Name, email, company name when you sign up.
+							</p>
+							<p>
+								<strong>Content you give us access to:</strong> We index content from the tools you connect (GitHub, Slack, Confluence, etc.) to provide search functionality. We only access what you explicitly authorize.
+							</p>
+							<p>
+								<strong>Usage data:</strong> Search queries and feature usage to provide the service. We don't track you across the web or collect unnecessary analytics.
+							</p>
+						</div>
+					</section>
 
-				<section>
-					<h2 class="text-2xl font-semibold text-text-white mb-4">Information We Collect</h2>
-					<div class="space-y-4 text-text-gray leading-relaxed">
-						<p><strong class="text-text-white">Account Information:</strong> When you sign up, we collect your email address and organization details.</p>
-						<p><strong class="text-text-white">Connected Data Sources:</strong> We access data from services you connect (GitHub, Confluence, Jira, etc.) to build your knowledge graph. This data is processed to provide our services and is isolated per customer.</p>
-						<p><strong class="text-text-white">Usage Data:</strong> We collect information about how you interact with our services to improve functionality and user experience.</p>
-					</div>
-				</section>
+					<!-- How We Use It -->
+					<section>
+						<h2 class="font-heading text-2xl font-bold text-foreground mb-4">
+							How we use your data
+						</h2>
+						<div class="font-body text-foreground leading-relaxed space-y-4">
+							<p>
+								<strong>To provide the service:</strong> We use your connected content to power search and answer questions.
+							</p>
+							<p>
+								<strong>To improve Meshum:</strong> We analyze usage patterns to make the product better. All analysis is done in aggregate—we're not reading your individual queries.
+							</p>
+							<p>
+								<strong>To communicate with you:</strong> Product updates, security notices, and responses to your support requests.
+							</p>
+						</div>
+					</section>
 
-				<section>
-					<h2 class="text-2xl font-semibold text-text-white mb-4">How We Use Your Information</h2>
-					<ul class="list-disc list-inside space-y-2 text-text-gray">
-						<li>To provide and maintain our services</li>
-						<li>To build and query your knowledge graph</li>
-						<li>To generate AI team personas specific to your organization</li>
-						<li>To communicate with you about your account and our services</li>
-						<li>To improve and develop new features</li>
-					</ul>
-				</section>
+					<!-- Privacy & Security -->
+					<section>
+						<h2 class="font-heading text-2xl font-bold text-foreground mb-4">
+							Privacy & security
+						</h2>
+						<div class="font-body text-foreground leading-relaxed space-y-4">
+							<p>
+								<strong>Privacy first:</strong> We believe in collecting only what we need and being transparent about how we use it.
+							</p>
+							<p>
+								<strong>Self-hosted deployments:</strong> If you run Meshum on your own infrastructure, we don't store any of your content. It stays entirely on your servers. We only receive basic usage telemetry (if enabled) to help improve the product.
+							</p>
+							<p>
+								<strong>Cloud deployments:</strong> For cloud-hosted instances, your data is stored on secure infrastructure with automatic backups and redundancy.
+							</p>
+							<p>
+								<strong>Encryption:</strong> Your data is encrypted in transit using industry-standard TLS.
+							</p>
+							<p>
+								<strong>Access control:</strong> Access to data is restricted to authorized personnel who need it to provide support or maintain the service.
+							</p>
+						</div>
+					</section>
 
-				<section>
-					<h2 class="text-2xl font-semibold text-text-white mb-4">Data Isolation & Security</h2>
-					<div class="space-y-4 text-text-gray leading-relaxed">
-						<p>Your data is isolated per customer namespace and never shared across tenants. We implement industry-standard security measures including:</p>
-						<ul class="list-disc list-inside space-y-2">
-							<li>Encryption at rest for all stored data</li>
-							<li>Tenant isolation at the infrastructure level</li>
-							<li>Regular security audits and monitoring</li>
-						</ul>
-					</div>
-				</section>
+					<!-- What We Don't Do -->
+					<section>
+						<h2 class="font-heading text-2xl font-bold text-foreground mb-4">
+							What we don't do
+						</h2>
+						<div class="font-body text-foreground leading-relaxed space-y-4">
+							<p>
+								<strong>We don't sell your data.</strong> Ever. Your company's knowledge is yours, not a product we monetize.
+							</p>
+							<p>
+								<strong>We don't train AI models on your data.</strong> Your content stays yours and isn't used to train public models.
+							</p>
+							<p>
+								<strong>We don't share with third parties</strong> except for essential service providers (hosting, analytics) who are contractually bound to protect your data.
+							</p>
+						</div>
+					</section>
 
-				<section>
-					<h2 class="text-2xl font-semibold text-text-white mb-4">Third-Party LLM Providers</h2>
-					<p class="text-text-gray leading-relaxed">
-						If you use our managed LLM models, queries may be processed by third-party AI providers. You can bring your own LLM endpoint (Azure OpenAI, Anthropic, etc.) to keep all processing within your control.
-					</p>
-				</section>
+					<!-- Your Rights -->
+					<section>
+						<h2 class="font-heading text-2xl font-bold text-foreground mb-4">
+							Your rights
+						</h2>
+						<div class="font-body text-foreground leading-relaxed space-y-4">
+							<p>
+								<strong>Access:</strong> You can request a copy of your data at any time.
+							</p>
+							<p>
+								<strong>Deletion:</strong> You can delete your account and all associated data. When you disconnect an integration, we delete that indexed content.
+							</p>
+							<p>
+								<strong>Portability:</strong> You can export your data in standard formats.
+							</p>
+							<p>
+								<strong>Correction:</strong> You can update or correct your account information anytime.
+							</p>
+						</div>
+					</section>
 
-				<section>
-					<h2 class="text-2xl font-semibold text-text-white mb-4">Data Retention</h2>
-					<p class="text-text-gray leading-relaxed">
-						We retain your data for as long as your account is active or as needed to provide services. You can request deletion of your data at any time by contacting us.
-					</p>
-				</section>
+					<!-- Cookies & Tracking -->
+					<section>
+						<h2 class="font-heading text-2xl font-bold text-foreground mb-4">
+							Cookies & tracking
+						</h2>
+						<div class="font-body text-foreground leading-relaxed space-y-4">
+							<p>
+								<strong>On this website:</strong> We use Microsoft Clarity to understand how visitors use our marketing site. Clarity aligns with our privacy-first approach and doesn't sell your data or use it for advertising.
+							</p>
+							<p>
+								<strong>In the Meshum product:</strong> We use essential cookies to keep you logged in and remember your preferences. No tracking, no analytics scripts, no third-party cookies.
+							</p>
+							<p>
+								We don't sell your browsing data or use invasive tracking anywhere.
+							</p>
+						</div>
+					</section>
 
-				<section>
-					<h2 class="text-2xl font-semibold text-text-white mb-4">Your Rights</h2>
-					<p class="text-text-gray leading-relaxed mb-4">
-						Depending on your location, you may have the right to:
-					</p>
-					<ul class="list-disc list-inside space-y-2 text-text-gray">
-						<li>Access and receive a copy of your data</li>
-						<li>Rectify inaccurate data</li>
-						<li>Request deletion of your data</li>
-						<li>Object to or restrict processing</li>
-						<li>Data portability</li>
-					</ul>
-				</section>
+					<!-- Data Retention -->
+					<section>
+						<h2 class="font-heading text-2xl font-bold text-foreground mb-4">
+							Data retention
+						</h2>
+						<div class="font-body text-foreground leading-relaxed space-y-4">
+							<p>
+								We keep your data as long as your account is active or as needed to provide services.
+							</p>
+							<p>
+								After you delete your account, we remove your data within 30 days, except where we're legally required to retain it (like financial records).
+							</p>
+						</div>
+					</section>
 
-				<section>
-					<h2 class="text-2xl font-semibold text-text-white mb-4">Contact Us</h2>
-					<p class="text-text-gray leading-relaxed">
-						If you have questions about this Privacy Policy, please contact us at <a href={`mailto:${privacyEmail}`} class="text-primary hover:underline">{privacyEmail}</a>.
-					</p>
-				</section>
+					<!-- Changes to This Policy -->
+					<section>
+						<h2 class="font-heading text-2xl font-bold text-foreground mb-4">
+							Changes to this policy
+						</h2>
+						<div class="font-body text-foreground leading-relaxed space-y-4">
+							<p>
+								We'll update this policy as needed. If we make significant changes, we'll notify you via email or through the product.
+							</p>
+						</div>
+					</section>
+
+					<!-- Contact -->
+					<section>
+						<h2 class="font-heading text-2xl font-bold text-foreground mb-4">
+							Questions?
+						</h2>
+						<div class="font-body text-foreground leading-relaxed">
+							<p>
+								If you have questions about this privacy policy or how we handle your data, <a href="/contact" class="text-primary hover:text-accent underline">contact us</a>.
+							</p>
+						</div>
+					</section>
+				</div>
 			</div>
 		</div>
-	</section>
+	</div>
 </Layout>
+
+<style>
+	/* Smooth font rendering */
+	* {
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+</style>
