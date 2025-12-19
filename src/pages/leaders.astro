@@ -1,70 +1,42 @@
 ---
+import CTA from "../components/CTA.astro";
+import Hero from "../components/Hero.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="For Engineering Leaders - Meshum" description="Stop losing productivity to knowledge fragmentation. Meshum helps engineering teams move faster by making every answer instant and every decision traceable.">
-	<!-- Hero: Leader-focused value proposition -->
-	<section class="relative min-h-screen flex items-center justify-center px-6 py-20 bg-gradient-to-br from-[color:var(--color-hero-bg-start)] via-[color:var(--color-hero-bg-mid)] to-[color:var(--color-hero-bg-end)] dark:from-[color:var(--color-hero-bg-start-dark)] dark:via-[color:var(--color-hero-bg-mid-dark)] dark:to-[color:var(--color-hero-bg-end-dark)] overflow-hidden">
-		<!-- Subtle animated gradient overlay -->
-		<div class="absolute inset-0 opacity-30 dark:opacity-40 bg-gradient-to-br from-[color:var(--color-primary)]/5 via-transparent to-[color:var(--color-accent)]/5 animate-gradient"></div>
-
-		<!-- Mesh background -->
-		<div class="absolute inset-0 opacity-5 dark:opacity-10">
-			<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-				<defs>
-					<pattern id="mesh" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-						<circle cx="50" cy="50" r="1" fill="currentColor" class="text-foreground"/>
-					</pattern>
-				</defs>
-				<rect width="100%" height="100%" fill="url(#mesh)"/>
-			</svg>
-		</div>
-
-		<div class="max-w-6xl mx-auto relative z-10">
-			<div class="text-center mb-16">
-				<div class="inline-block mb-8 fade-in">
-					<span class="px-4 py-2 rounded-full bg-surface/80 dark:bg-elevated/80 backdrop-blur-sm border border-border text-muted text-sm font-medium shadow-sm">
-						For Engineering Leaders
-					</span>
-				</div>
-
-				<h1 class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-8 leading-tight tracking-tight fade-in" style="animation-delay: 0.1s;">
-					Your engineers spend
-					<br>
-					<span class="bg-gradient-to-r from-[color:var(--color-primary)] to-[color:var(--color-accent)] bg-clip-text text-transparent animate-gradient-text">
-						10 hours a week searching.
-					</span>
-				</h1>
-
-				<p class="font-body text-xl md:text-2xl text-muted max-w-3xl mx-auto mb-12 leading-relaxed fade-in" style="animation-delay: 0.2s;">
-					That's 25% of your engineering budget spent hunting for answers that already exist. Meshum gives those hours back—so your team ships faster, onboards in days not months, and scales without chaos.
-				</p>
-
-				<!-- Key metrics -->
-				<div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto fade-in" style="animation-delay: 0.3s;">
-					<div class="p-6 rounded-xl bg-surface/80 backdrop-blur border border-border">
-						<div class="text-4xl font-heading font-bold text-[color:var(--color-benefit-1)] mb-2">2.4hrs</div>
-						<div class="text-sm font-body text-muted">saved per engineer daily</div>
-					</div>
-					<div class="p-6 rounded-xl bg-surface/80 backdrop-blur border border-border">
-						<div class="text-4xl font-heading font-bold text-[color:var(--color-benefit-2)] mb-2">40%</div>
-						<div class="text-sm font-body text-muted">faster onboarding time</div>
-					</div>
-					<div class="p-6 rounded-xl bg-surface/80 backdrop-blur border border-border">
-						<div class="text-4xl font-heading font-bold text-[color:var(--color-benefit-3)] mb-2">95%</div>
-						<div class="text-sm font-body text-muted">reduction in repeat questions</div>
-					</div>
-				</div>
+	<!-- Hero section with metrics -->
+	<Hero
+		label="For Engineering Leaders"
+		heading="Your engineers spend"
+		gradientText="10 hours a week searching."
+		subheading="That's 25% of your engineering budget spent hunting for answers that already exist. Meshum gives those hours back—so your team ships faster, onboards in days not months, and scales without chaos."
+		variant="full-screen"
+		maxWidth="6xl"
+	>
+		<!-- Key metrics -->
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+			<div class="p-6 rounded-xl bg-surface/80 backdrop-blur border border-border">
+				<div class="text-4xl font-heading font-bold text-benefit-1 mb-2">2.4hrs</div>
+				<div class="text-sm font-body text-muted">saved per engineer daily</div>
+			</div>
+			<div class="p-6 rounded-xl bg-surface/80 backdrop-blur border border-border">
+				<div class="text-4xl font-heading font-bold text-benefit-2 mb-2">40%</div>
+				<div class="text-sm font-body text-muted">faster onboarding time</div>
+			</div>
+			<div class="p-6 rounded-xl bg-surface/80 backdrop-blur border border-border">
+				<div class="text-4xl font-heading font-bold text-benefit-3 mb-2">95%</div>
+				<div class="text-sm font-body text-muted">reduction in repeat questions</div>
 			</div>
 		</div>
-	</section>
+	</Hero>
 
 	<!-- The Business Case -->
 	<section class="py-32 bg-page">
 		<div class="max-w-7xl mx-auto px-6">
 			<div class="text-center mb-16">
 				<div class="inline-block mb-6">
-					<span class="px-4 py-2 rounded-full bg-[color:var(--color-primary)]/10 border border-[color:var(--color-primary)]/20 text-[color:var(--color-primary)] text-sm font-medium">
+					<span class="px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium">
 						The Cost of Fragmented Knowledge
 					</span>
 				</div>
@@ -128,7 +100,7 @@ import Layout from "../layouts/Layout.astro";
 			</div>
 
 			<!-- ROI Calculator -->
-			<div class="max-w-3xl mx-auto p-8 rounded-2xl bg-gradient-to-br from-[color:var(--color-solution-bg-start)] to-[color:var(--color-solution-bg-end)] border border-[color:var(--color-solution-accent)]/20 shadow-xl">
+			<div class="max-w-3xl mx-auto p-8 rounded-2xl bg-gradient-to-br from-solution-bg-start to-solution-bg-end border border-solution-accent/20 shadow-xl">
 				<h3 class="font-heading text-2xl font-bold text-foreground mb-6 text-center">Calculate your savings</h3>
 
 				<div class="space-y-4">
@@ -137,7 +109,7 @@ import Layout from "../layouts/Layout.astro";
 							<div class="font-heading font-semibold text-foreground">Team size</div>
 							<div class="text-sm text-muted">Number of engineers</div>
 						</div>
-						<div class="font-heading text-3xl font-bold text-[color:var(--color-primary)]">20</div>
+						<div class="font-heading text-3xl font-bold text-primary">20</div>
 					</div>
 
 					<div class="flex items-center justify-between p-4 rounded-lg bg-white/70 dark:bg-elevated/70 backdrop-blur">
@@ -145,12 +117,12 @@ import Layout from "../layouts/Layout.astro";
 							<div class="font-heading font-semibold text-foreground">Time saved per engineer</div>
 							<div class="text-sm text-muted">Hours per week</div>
 						</div>
-						<div class="font-heading text-3xl font-bold text-[color:var(--color-accent)]">10</div>
+						<div class="font-heading text-3xl font-bold text-accent">10</div>
 					</div>
 
 					<div class="h-px bg-border my-4"></div>
 
-					<div class="p-6 rounded-lg bg-gradient-to-br from-[color:var(--color-primary)] to-[color:var(--color-accent)] text-white">
+					<div class="p-6 rounded-lg bg-gradient-to-br from-primary to-accent text-white">
 						<div class="text-center">
 							<div class="text-sm font-body mb-2">Annual productivity recovered</div>
 							<div class="font-heading text-5xl font-bold mb-2">$1.2M</div>
@@ -171,7 +143,7 @@ import Layout from "../layouts/Layout.astro";
 		<div class="max-w-7xl mx-auto px-6">
 			<div class="text-center mb-16">
 				<div class="inline-block mb-6">
-					<span class="px-4 py-2 rounded-full bg-[color:var(--color-solution-accent)]/10 border border-[color:var(--color-solution-accent)]/20 text-[color:var(--color-solution-accent)] text-sm font-medium">
+					<span class="px-4 py-2 rounded-full bg-solution-accent/10 border border-solution-accent/20 text-solution-accent text-sm font-medium">
 						The Meshum Solution
 					</span>
 				</div>
@@ -189,7 +161,7 @@ import Layout from "../layouts/Layout.astro";
 			<div class="grid lg:grid-cols-3 gap-8">
 				<!-- Benefit 1 -->
 				<div class="p-8 rounded-2xl bg-page border border-border hover:shadow-xl transition-all">
-					<div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[color:var(--color-benefit-1)] to-[color:var(--color-benefit-1)]/60 flex items-center justify-center mb-6 shadow-lg">
+					<div class="w-14 h-14 rounded-xl bg-gradient-to-br from-benefit-1 to-benefit-1/60 flex items-center justify-center mb-6 shadow-lg">
 						<svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
 						</svg>
@@ -200,19 +172,19 @@ import Layout from "../layouts/Layout.astro";
 					</p>
 					<ul class="space-y-2">
 						<li class="flex items-start gap-2 text-sm font-body text-muted">
-							<svg class="w-5 h-5 text-[color:var(--color-benefit-1)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<svg class="w-5 h-5 text-benefit-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
 							</svg>
 							<span>Work doesn't stop when people take PTO</span>
 						</li>
 						<li class="flex items-start gap-2 text-sm font-body text-muted">
-							<svg class="w-5 h-5 text-[color:var(--color-benefit-1)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<svg class="w-5 h-5 text-benefit-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
 							</svg>
 							<span>No more handoff delays between teams</span>
 						</li>
 						<li class="flex items-start gap-2 text-sm font-body text-muted">
-							<svg class="w-5 h-5 text-[color:var(--color-benefit-1)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<svg class="w-5 h-5 text-benefit-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
 							</svg>
 							<span>Sprint blockers drop by 60%</span>
@@ -222,7 +194,7 @@ import Layout from "../layouts/Layout.astro";
 
 				<!-- Benefit 2 -->
 				<div class="p-8 rounded-2xl bg-page border border-border hover:shadow-xl transition-all">
-					<div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[color:var(--color-benefit-2)] to-[color:var(--color-benefit-2)]/60 flex items-center justify-center mb-6 shadow-lg">
+					<div class="w-14 h-14 rounded-xl bg-gradient-to-br from-benefit-2 to-benefit-2/60 flex items-center justify-center mb-6 shadow-lg">
 						<svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
 						</svg>
@@ -233,19 +205,19 @@ import Layout from "../layouts/Layout.astro";
 					</p>
 					<ul class="space-y-2">
 						<li class="flex items-start gap-2 text-sm font-body text-muted">
-							<svg class="w-5 h-5 text-[color:var(--color-benefit-2)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<svg class="w-5 h-5 text-benefit-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
 							</svg>
 							<span>Find answers without bothering teammates</span>
 						</li>
 						<li class="flex items-start gap-2 text-sm font-body text-muted">
-							<svg class="w-5 h-5 text-[color:var(--color-benefit-2)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<svg class="w-5 h-5 text-benefit-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
 							</svg>
 							<span>Ship first feature in week 1, not month 2</span>
 						</li>
 						<li class="flex items-start gap-2 text-sm font-body text-muted">
-							<svg class="w-5 h-5 text-[color:var(--color-benefit-2)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<svg class="w-5 h-5 text-benefit-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
 							</svg>
 							<span>Cut onboarding costs in half</span>
@@ -255,7 +227,7 @@ import Layout from "../layouts/Layout.astro";
 
 				<!-- Benefit 3 -->
 				<div class="p-8 rounded-2xl bg-page border border-border hover:shadow-xl transition-all">
-					<div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[color:var(--color-benefit-3)] to-[color:var(--color-benefit-3)]/60 flex items-center justify-center mb-6 shadow-lg">
+					<div class="w-14 h-14 rounded-xl bg-gradient-to-br from-benefit-3 to-benefit-3/60 flex items-center justify-center mb-6 shadow-lg">
 						<svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
 						</svg>
@@ -266,19 +238,19 @@ import Layout from "../layouts/Layout.astro";
 					</p>
 					<ul class="space-y-2">
 						<li class="flex items-start gap-2 text-sm font-body text-muted">
-							<svg class="w-5 h-5 text-[color:var(--color-benefit-3)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<svg class="w-5 h-5 text-benefit-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
 							</svg>
 							<span>Break down knowledge silos automatically</span>
 						</li>
 						<li class="flex items-start gap-2 text-sm font-body text-muted">
-							<svg class="w-5 h-5 text-[color:var(--color-benefit-3)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<svg class="w-5 h-5 text-benefit-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
 							</svg>
 							<span>Context survives when people leave</span>
 						</li>
 						<li class="flex items-start gap-2 text-sm font-body text-muted">
-							<svg class="w-5 h-5 text-[color:var(--color-benefit-3)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<svg class="w-5 h-5 text-benefit-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
 							</svg>
 							<span>Reduce single points of failure</span>
@@ -302,7 +274,7 @@ import Layout from "../layouts/Layout.astro";
 				<!-- Use case 1 -->
 				<div class="p-8 rounded-2xl bg-surface border border-border">
 					<div class="mb-4">
-						<div class="inline-block px-3 py-1 rounded-full bg-[color:var(--color-primary)]/10 border border-[color:var(--color-primary)]/20 text-[color:var(--color-primary)] text-xs font-semibold uppercase tracking-wider">
+						<div class="inline-block px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-wider">
 							Fast-growing Startups
 						</div>
 					</div>
@@ -317,7 +289,7 @@ import Layout from "../layouts/Layout.astro";
 				<!-- Use case 2 -->
 				<div class="p-8 rounded-2xl bg-surface border border-border">
 					<div class="mb-4">
-						<div class="inline-block px-3 py-1 rounded-full bg-[color:var(--color-accent)]/10 border border-[color:var(--color-accent)]/20 text-[color:var(--color-accent)] text-xs font-semibold uppercase tracking-wider">
+						<div class="inline-block px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-semibold uppercase tracking-wider">
 							Remote-first Teams
 						</div>
 					</div>
@@ -332,7 +304,7 @@ import Layout from "../layouts/Layout.astro";
 				<!-- Use case 3 -->
 				<div class="p-8 rounded-2xl bg-surface border border-border">
 					<div class="mb-4">
-						<div class="inline-block px-3 py-1 rounded-full bg-[color:var(--color-benefit-3)]/10 border border-[color:var(--color-benefit-3)]/20 text-[color:var(--color-benefit-3)] text-xs font-semibold uppercase tracking-wider">
+						<div class="inline-block px-3 py-1 rounded-full bg-benefit-3/10 border border-benefit-3/20 text-benefit-3 text-xs font-semibold uppercase tracking-wider">
 							Enterprise Teams
 						</div>
 					</div>
@@ -348,11 +320,11 @@ import Layout from "../layouts/Layout.astro";
 	</section>
 
 	<!-- Implementation: No disruption -->
-	<section class="py-32 bg-gradient-to-br from-[color:var(--color-solution-bg-start)] to-[color:var(--color-solution-bg-end)] dark:from-[color:var(--color-solution-bg-start-dark)] dark:to-[color:var(--color-solution-bg-end-dark)]">
+	<section class="py-32 bg-gradient-to-br from-solution-bg-start to-solution-bg-end dark:from-solution-bg-start-dark dark:to-solution-bg-end-dark">
 		<div class="max-w-5xl mx-auto px-6">
 			<div class="text-center mb-16">
 				<div class="inline-block mb-6">
-					<span class="px-4 py-2 rounded-full bg-[color:var(--color-solution-accent)]/10 border border-[color:var(--color-solution-accent)]/20 text-[color:var(--color-solution-accent)] text-sm font-medium">
+					<span class="px-4 py-2 rounded-full bg-solution-accent/10 border border-solution-accent/20 text-solution-accent text-sm font-medium">
 						Zero Disruption
 					</span>
 				</div>
@@ -371,7 +343,7 @@ import Layout from "../layouts/Layout.astro";
 				<div class="space-y-8">
 					<!-- Step 1 -->
 					<div class="flex items-start gap-6">
-						<div class="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-[color:var(--color-primary)] to-[color:var(--color-primary)]/60 flex items-center justify-center text-white font-heading font-bold text-xl shadow-lg relative z-10">
+						<div class="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center text-white font-heading font-bold text-xl shadow-lg relative z-10">
 							1
 						</div>
 						<div class="flex-1 pt-3">
@@ -382,7 +354,7 @@ import Layout from "../layouts/Layout.astro";
 
 					<!-- Step 2 -->
 					<div class="flex items-start gap-6">
-						<div class="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-[color:var(--color-accent)] to-[color:var(--color-accent)]/60 flex items-center justify-center text-white font-heading font-bold text-xl shadow-lg relative z-10">
+						<div class="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-accent to-accent/60 flex items-center justify-center text-white font-heading font-bold text-xl shadow-lg relative z-10">
 							2
 						</div>
 						<div class="flex-1 pt-3">
@@ -393,7 +365,7 @@ import Layout from "../layouts/Layout.astro";
 
 					<!-- Step 3 -->
 					<div class="flex items-start gap-6">
-						<div class="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-[color:var(--color-benefit-3)] to-[color:var(--color-benefit-3)]/60 flex items-center justify-center text-white font-heading font-bold text-xl shadow-lg relative z-10">
+						<div class="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-benefit-3 to-benefit-3/60 flex items-center justify-center text-white font-heading font-bold text-xl shadow-lg relative z-10">
 							3
 						</div>
 						<div class="flex-1 pt-3">
@@ -415,47 +387,14 @@ import Layout from "../layouts/Layout.astro";
 		</div>
 	</section>
 
-	<!-- Final CTA -->
-	<section class="py-32 bg-gradient-to-br from-[color:var(--color-primary)]/95 to-[color:var(--color-accent)]/95 relative overflow-hidden">
-		<!-- Animated gradient overlay -->
-		<div class="absolute inset-0 bg-gradient-to-br from-[color:var(--color-primary)] to-[color:var(--color-accent)] opacity-90 animate-gradient"></div>
-
-		<!-- Subtle pattern -->
-		<div class="absolute inset-0 opacity-5">
-			<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-				<defs>
-					<pattern id="cta-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-						<circle cx="20" cy="20" r="1" fill="white"/>
-					</pattern>
-				</defs>
-				<rect width="100%" height="100%" fill="url(#cta-pattern)"/>
-			</svg>
-		</div>
-
-		<div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-			<h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-				see the ROI in week one
-			</h2>
-
-			<p class="font-body text-xl text-white/95 mb-12 leading-relaxed max-w-2xl mx-auto">
-				Book a demo to see how Meshum recovers 10 hours per engineer, every week.
-			</p>
-
-			<!-- CTA Buttons -->
-			<div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-				<a href="mailto:sales@meshum.dev" class="px-8 py-4 rounded-xl bg-white hover:bg-white/95 text-[color:var(--color-primary)] font-heading font-bold text-lg transition-all shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
-					Book a Demo
-				</a>
-				<a href="mailto:hello@meshum.dev" class="px-8 py-4 rounded-xl border-2 border-white/30 hover:border-white/50 bg-white/10 hover:bg-white/20 backdrop-blur text-white font-heading font-bold text-lg transition-all">
-					Calculate Your ROI
-				</a>
-			</div>
-
-			<p class="text-sm text-white/80 font-body">
-				5-minute setup • 30-day money-back guarantee • Enterprise-ready
-			</p>
-		</div>
-	</section>
+	<!-- Call to action section -->
+	<CTA
+		heading="see the ROI in week one"
+		subheading="Book a demo to see how Meshum recovers 10 hours per engineer, every week."
+		buttonText="Book a Demo"
+		footerText="5-minute setup • 30-day money-back guarantee • Enterprise-ready"
+		maxWidth="4xl"
+	/>
 </Layout>
 
 <style>

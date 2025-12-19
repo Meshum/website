@@ -1,45 +1,18 @@
 ---
+import CTA from "../components/CTA.astro";
+import Hero from "../components/Hero.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="About Us - Meshum" description="We're building the unified knowledge layer that software teams deserve. Learn about our mission, values, and the problem we're solving.">
-	<!-- Hero: Mission Statement -->
-	<section class="relative min-h-[70vh] flex items-center justify-center px-6 py-20 bg-gradient-to-br from-[color:var(--color-hero-bg-start)] via-[color:var(--color-hero-bg-mid)] to-[color:var(--color-hero-bg-end)] dark:from-[color:var(--color-hero-bg-start-dark)] dark:via-[color:var(--color-hero-bg-mid-dark)] dark:to-[color:var(--color-hero-bg-end-dark)] overflow-hidden">
-		<!-- Subtle animated gradient overlay -->
-		<div class="absolute inset-0 opacity-30 dark:opacity-40 bg-gradient-to-br from-[color:var(--color-primary)]/5 via-transparent to-[color:var(--color-accent)]/5 animate-gradient"></div>
-
-		<!-- Mesh background -->
-		<div class="absolute inset-0 opacity-5 dark:opacity-10">
-			<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-				<defs>
-					<pattern id="mesh" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-						<circle cx="50" cy="50" r="1" fill="currentColor" class="text-foreground"/>
-					</pattern>
-				</defs>
-				<rect width="100%" height="100%" fill="url(#mesh)"/>
-			</svg>
-		</div>
-
-		<div class="max-w-5xl mx-auto text-center relative z-10">
-			<div class="inline-block mb-8 fade-in">
-				<span class="px-4 py-2 rounded-full bg-surface/80 dark:bg-elevated/80 backdrop-blur-sm border border-border text-muted text-sm font-medium shadow-sm">
-					About Meshum
-				</span>
-			</div>
-
-			<h1 class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-8 leading-tight tracking-tight fade-in" style="animation-delay: 0.1s;">
-				Knowledge should flow,
-				<br>
-				<span class="bg-gradient-to-r from-[color:var(--color-primary)] to-[color:var(--color-accent)] bg-clip-text text-transparent animate-gradient-text">
-					not hide in silos.
-				</span>
-			</h1>
-
-			<p class="font-body text-xl md:text-2xl text-muted max-w-3xl mx-auto leading-relaxed fade-in" style="animation-delay: 0.2s;">
-				We're building the intelligent knowledge layer that connects everything your team knows—so nobody has to search, wait, or interrupt each other to get answers.
-			</p>
-		</div>
-	</section>
+	<!-- Hero section -->
+	<Hero
+		label="About Meshum"
+		heading="Knowledge should flow,"
+		gradientText="not hide in silos."
+		subheading="We're building the intelligent knowledge layer that connects everything your team knows—so nobody has to search, wait, or interrupt each other to get answers."
+		variant="tall"
+	/>
 
 	<!-- The Story: Why We Exist -->
 	<section class="py-32 bg-page">
@@ -48,7 +21,7 @@ import Layout from "../layouts/Layout.astro";
 				<!-- Story Text -->
 				<div>
 					<div class="inline-block mb-6">
-						<span class="px-4 py-2 rounded-full bg-[color:var(--color-primary)]/10 border border-[color:var(--color-primary)]/20 text-[color:var(--color-primary)] text-sm font-medium">
+						<span class="px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium">
 							Origin Story
 						</span>
 					</div>
@@ -67,7 +40,7 @@ import Layout from "../layouts/Layout.astro";
 						<p>
 							This shouldn't be normal. Your team's collective intelligence is vast—but it's fragmented across tools that were never designed to work together.
 						</p>
-						<p class="font-semibold text-[color:var(--color-primary)]">
+						<p class="font-semibold text-primary">
 							Meshum exists to fix that.
 						</p>
 					</div>
@@ -78,7 +51,7 @@ import Layout from "../layouts/Layout.astro";
 					<div class="space-y-6">
 						<!-- Timeline item 1 -->
 						<div class="flex items-start gap-4 group">
-							<div class="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[color:var(--color-benefit-1)] to-[color:var(--color-benefit-1)]/60 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+							<div class="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-benefit-1 to-benefit-1/60 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
 								<svg class="w-6 h-6 text-white/90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
 								</svg>
@@ -93,7 +66,7 @@ import Layout from "../layouts/Layout.astro";
 
 						<!-- Timeline item 2 -->
 						<div class="flex items-start gap-4 ml-8 group">
-							<div class="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[color:var(--color-benefit-2)] to-[color:var(--color-benefit-2)]/60 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+							<div class="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-benefit-2 to-benefit-2/60 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
 								<svg class="w-6 h-6 text-white/90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
 								</svg>
@@ -108,13 +81,13 @@ import Layout from "../layouts/Layout.astro";
 
 						<!-- Timeline item 3 -->
 						<div class="flex items-start gap-4 ml-16 group">
-							<div class="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[color:var(--color-benefit-3)] to-[color:var(--color-benefit-3)]/60 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+							<div class="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-benefit-3 to-benefit-3/60 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
 								<svg class="w-6 h-6 text-white/90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
 								</svg>
 							</div>
 							<div class="flex-1">
-								<div class="px-5 py-4 rounded-xl bg-gradient-to-br from-[color:var(--color-solution-bg-start)] to-[color:var(--color-solution-bg-end)] border border-[color:var(--color-solution-accent)]/20 shadow-lg">
+								<div class="px-5 py-4 rounded-xl bg-gradient-to-br from-solution-bg-start to-solution-bg-end border border-solution-accent/20 shadow-lg">
 									<h3 class="font-heading font-bold text-foreground mb-2">The Solution</h3>
 									<p class="text-sm text-muted font-body">A unified knowledge layer that makes every answer instant, accurate, and traceable.</p>
 								</div>
@@ -127,11 +100,11 @@ import Layout from "../layouts/Layout.astro";
 	</section>
 
 	<!-- Values Section -->
-	<section class="py-32 bg-gradient-to-br from-[color:var(--color-solution-bg-start)] to-[color:var(--color-solution-bg-end)] dark:from-[color:var(--color-solution-bg-start-dark)] dark:to-[color:var(--color-solution-bg-end-dark)]">
+	<section class="py-32 bg-gradient-to-br from-solution-bg-start to-solution-bg-end dark:from-solution-bg-start-dark dark:to-solution-bg-end-dark">
 		<div class="max-w-7xl mx-auto px-6">
 			<div class="text-center mb-16">
 				<div class="inline-block mb-6">
-					<span class="px-4 py-2 rounded-full bg-[color:var(--color-solution-accent)]/10 border border-[color:var(--color-solution-accent)]/20 text-[color:var(--color-solution-accent)] text-sm font-medium">
+					<span class="px-4 py-2 rounded-full bg-solution-accent/10 border border-solution-accent/20 text-solution-accent text-sm font-medium">
 						Our Values
 					</span>
 				</div>
@@ -148,8 +121,8 @@ import Layout from "../layouts/Layout.astro";
 				<!-- Value 1 -->
 				<div class="group">
 					<div class="p-8 rounded-2xl bg-white/70 dark:bg-elevated/70 backdrop-blur border border-border shadow-lg hover:shadow-xl transition-all h-full">
-						<div class="w-14 h-14 rounded-xl bg-[color:var(--color-benefit-1)]/10 flex items-center justify-center mb-6 group-hover:bg-[color:var(--color-benefit-1)]/20 transition-colors">
-							<svg class="w-7 h-7 text-[color:var(--color-benefit-1)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<div class="w-14 h-14 rounded-xl bg-benefit-1/10 flex items-center justify-center mb-6 group-hover:bg-benefit-1/20 transition-colors">
+							<svg class="w-7 h-7 text-benefit-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
 							</svg>
 						</div>
@@ -165,8 +138,8 @@ import Layout from "../layouts/Layout.astro";
 				<!-- Value 2 -->
 				<div class="group">
 					<div class="p-8 rounded-2xl bg-white/70 dark:bg-elevated/70 backdrop-blur border border-border shadow-lg hover:shadow-xl transition-all h-full">
-						<div class="w-14 h-14 rounded-xl bg-[color:var(--color-benefit-2)]/10 flex items-center justify-center mb-6 group-hover:bg-[color:var(--color-benefit-2)]/20 transition-colors">
-							<svg class="w-7 h-7 text-[color:var(--color-benefit-2)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<div class="w-14 h-14 rounded-xl bg-benefit-2/10 flex items-center justify-center mb-6 group-hover:bg-benefit-2/20 transition-colors">
+							<svg class="w-7 h-7 text-benefit-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
 							</svg>
 						</div>
@@ -182,8 +155,8 @@ import Layout from "../layouts/Layout.astro";
 				<!-- Value 3 -->
 				<div class="group">
 					<div class="p-8 rounded-2xl bg-white/70 dark:bg-elevated/70 backdrop-blur border border-border shadow-lg hover:shadow-xl transition-all h-full">
-						<div class="w-14 h-14 rounded-xl bg-[color:var(--color-benefit-3)]/10 flex items-center justify-center mb-6 group-hover:bg-[color:var(--color-benefit-3)]/20 transition-colors">
-							<svg class="w-7 h-7 text-[color:var(--color-benefit-3)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<div class="w-14 h-14 rounded-xl bg-benefit-3/10 flex items-center justify-center mb-6 group-hover:bg-benefit-3/20 transition-colors">
+							<svg class="w-7 h-7 text-benefit-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
 							</svg>
 						</div>
@@ -199,8 +172,8 @@ import Layout from "../layouts/Layout.astro";
 				<!-- Value 4 -->
 				<div class="group">
 					<div class="p-8 rounded-2xl bg-white/70 dark:bg-elevated/70 backdrop-blur border border-border shadow-lg hover:shadow-xl transition-all h-full">
-						<div class="w-14 h-14 rounded-xl bg-[color:var(--color-benefit-4)]/10 flex items-center justify-center mb-6 group-hover:bg-[color:var(--color-benefit-4)]/20 transition-colors">
-							<svg class="w-7 h-7 text-[color:var(--color-benefit-4)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<div class="w-14 h-14 rounded-xl bg-benefit-4/10 flex items-center justify-center mb-6 group-hover:bg-benefit-4/20 transition-colors">
+							<svg class="w-7 h-7 text-benefit-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
 							</svg>
 						</div>
@@ -216,8 +189,8 @@ import Layout from "../layouts/Layout.astro";
 				<!-- Value 5 -->
 				<div class="group">
 					<div class="p-8 rounded-2xl bg-white/70 dark:bg-elevated/70 backdrop-blur border border-border shadow-lg hover:shadow-xl transition-all h-full">
-						<div class="w-14 h-14 rounded-xl bg-[color:var(--color-primary)]/10 flex items-center justify-center mb-6 group-hover:bg-[color:var(--color-primary)]/20 transition-colors">
-							<svg class="w-7 h-7 text-[color:var(--color-primary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+							<svg class="w-7 h-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
 							</svg>
 						</div>
@@ -233,8 +206,8 @@ import Layout from "../layouts/Layout.astro";
 				<!-- Value 6 -->
 				<div class="group">
 					<div class="p-8 rounded-2xl bg-white/70 dark:bg-elevated/70 backdrop-blur border border-border shadow-lg hover:shadow-xl transition-all h-full">
-						<div class="w-14 h-14 rounded-xl bg-[color:var(--color-accent)]/10 flex items-center justify-center mb-6 group-hover:bg-[color:var(--color-accent)]/20 transition-colors">
-							<svg class="w-7 h-7 text-[color:var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<div class="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
+							<svg class="w-7 h-7 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
 							</svg>
 						</div>
@@ -255,7 +228,7 @@ import Layout from "../layouts/Layout.astro";
 		<div class="max-w-6xl mx-auto px-6">
 			<div class="text-center mb-16">
 				<div class="inline-block mb-6">
-					<span class="px-4 py-2 rounded-full bg-[color:var(--color-accent)]/10 border border-[color:var(--color-accent)]/20 text-[color:var(--color-accent)] text-sm font-medium">
+					<span class="px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium">
 						Our Approach
 					</span>
 				</div>
@@ -268,8 +241,8 @@ import Layout from "../layouts/Layout.astro";
 				<!-- Left: Principles -->
 				<div class="space-y-6">
 					<div class="flex items-start gap-4">
-						<div class="flex-shrink-0 w-10 h-10 rounded-lg bg-[color:var(--color-primary)]/10 flex items-center justify-center">
-							<span class="font-heading font-bold text-[color:var(--color-primary)]">01</span>
+						<div class="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+							<span class="font-heading font-bold text-primary">01</span>
 						</div>
 						<div>
 							<h3 class="font-heading text-xl font-bold text-foreground mb-2">Ship fast, iterate faster</h3>
@@ -280,8 +253,8 @@ import Layout from "../layouts/Layout.astro";
 					</div>
 
 					<div class="flex items-start gap-4">
-						<div class="flex-shrink-0 w-10 h-10 rounded-lg bg-[color:var(--color-accent)]/10 flex items-center justify-center">
-							<span class="font-heading font-bold text-[color:var(--color-accent)]">02</span>
+						<div class="flex-shrink-0 w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+							<span class="font-heading font-bold text-accent">02</span>
 						</div>
 						<div>
 							<h3 class="font-heading text-xl font-bold text-foreground mb-2">People first, always</h3>
@@ -292,8 +265,8 @@ import Layout from "../layouts/Layout.astro";
 					</div>
 
 					<div class="flex items-start gap-4">
-						<div class="flex-shrink-0 w-10 h-10 rounded-lg bg-[color:var(--color-benefit-3)]/10 flex items-center justify-center">
-							<span class="font-heading font-bold text-[color:var(--color-benefit-3)]">03</span>
+						<div class="flex-shrink-0 w-10 h-10 rounded-lg bg-benefit-3/10 flex items-center justify-center">
+							<span class="font-heading font-bold text-benefit-3">03</span>
 						</div>
 						<div>
 							<h3 class="font-heading text-xl font-bold text-foreground mb-2">Open communication</h3>
@@ -306,7 +279,7 @@ import Layout from "../layouts/Layout.astro";
 
 				<!-- Right: Stats/Impact -->
 				<div class="relative">
-					<div class="p-10 rounded-2xl bg-gradient-to-br from-[color:var(--color-primary)]/5 to-[color:var(--color-accent)]/5 border border-border">
+					<div class="p-10 rounded-2xl bg-gradient-to-br from-primary/5 to-accent/5 border border-border">
 						<h3 class="font-heading text-2xl font-bold text-foreground mb-8">Impact so far</h3>
 
 						<div class="space-y-8">
@@ -316,7 +289,7 @@ import Layout from "../layouts/Layout.astro";
 									<span class="font-body text-lg text-muted">saved per engineer daily</span>
 								</div>
 								<div class="h-2 bg-surface rounded-full overflow-hidden">
-									<div class="h-full bg-gradient-to-r from-[color:var(--color-primary)] to-[color:var(--color-accent)] rounded-full" style="width: 85%"></div>
+									<div class="h-full bg-gradient-to-r from-primary to-accent rounded-full" style="width: 85%"></div>
 								</div>
 							</div>
 
@@ -326,7 +299,7 @@ import Layout from "../layouts/Layout.astro";
 									<span class="font-body text-lg text-muted">average answer time</span>
 								</div>
 								<div class="h-2 bg-surface rounded-full overflow-hidden">
-									<div class="h-full bg-gradient-to-r from-[color:var(--color-benefit-1)] to-[color:var(--color-benefit-2)] rounded-full" style="width: 95%"></div>
+									<div class="h-full bg-gradient-to-r from-benefit-1 to-benefit-2 rounded-full" style="width: 95%"></div>
 								</div>
 							</div>
 
@@ -336,7 +309,7 @@ import Layout from "../layouts/Layout.astro";
 									<span class="font-body text-lg text-muted">answer accuracy</span>
 								</div>
 								<div class="h-2 bg-surface rounded-full overflow-hidden">
-									<div class="h-full bg-gradient-to-r from-[color:var(--color-benefit-3)] to-[color:var(--color-benefit-4)] rounded-full" style="width: 98%"></div>
+									<div class="h-full bg-gradient-to-r from-benefit-3 to-benefit-4 rounded-full" style="width: 98%"></div>
 								</div>
 							</div>
 						</div>
@@ -350,49 +323,14 @@ import Layout from "../layouts/Layout.astro";
 		</div>
 	</section>
 
-	<!-- Final CTA -->
-	<section class="py-32 bg-gradient-to-br from-[color:var(--color-primary)]/95 to-[color:var(--color-accent)]/95 relative overflow-hidden">
-		<!-- Animated gradient overlay -->
-		<div class="absolute inset-0 bg-gradient-to-br from-[color:var(--color-primary)] to-[color:var(--color-accent)] opacity-90 animate-gradient"></div>
-
-		<!-- Subtle pattern -->
-		<div class="absolute inset-0 opacity-5">
-			<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-				<defs>
-					<pattern id="cta-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-						<circle cx="20" cy="20" r="1" fill="white"/>
-					</pattern>
-				</defs>
-				<rect width="100%" height="100%" fill="url(#cta-pattern)"/>
-			</svg>
-		</div>
-
-		<div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-			<h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-				Ready to unify your knowledge?
-			</h2>
-
-			<p class="font-body text-xl text-white/95 mb-12 leading-relaxed max-w-2xl mx-auto">
-				Join engineering teams who've stopped searching and started knowing.
-			</p>
-
-			<!-- CTA Form -->
-			<div class="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto mb-8">
-				<input
-					type="email"
-					placeholder="you@company.com"
-					class="flex-1 px-6 py-4 rounded-xl border-2 border-white/20 bg-white/10 backdrop-blur text-white placeholder-white/60 font-body text-lg focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all"
-				/>
-				<button class="px-8 py-4 rounded-xl bg-white hover:bg-white/95 text-[color:var(--color-primary)] font-heading font-bold text-lg transition-all shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
-					Request Access
-				</button>
-			</div>
-
-			<p class="text-sm text-white/80 font-body">
-				5-minute setup • No credit card required • SOC 2 compliant
-			</p>
-		</div>
-	</section>
+	<!-- Call to action section -->
+	<CTA
+		heading="Ready to unify your knowledge?"
+		subheading="Join engineering teams who've stopped searching and started knowing."
+		buttonText="Request Access"
+		footerText="5-minute setup • No credit card required • SOC 2 compliant"
+		maxWidth="4xl"
+	/>
 </Layout>
 
 <style>
