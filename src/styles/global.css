@@ -31,16 +31,18 @@
 
 	/* === SOLUTION SECTION === */
 	/* Moderately saturated primary hue for visual emphasis */
-	--color-solution-bg-start: oklch(from var(--color-primary) 70% 0.035 h);
-	--color-solution-bg-end: oklch(from var(--color-primary) 64.5% 0.038 calc(h + 3));  /* Slight hue shift for gradient depth */
-	--color-solution-accent: oklch(from var(--color-primary) 20% 0.10 h);                /* Boosted chroma for punch */
+	--color-solution-bg-start: oklch(from var(--color-primary) 95% 0.015 h);
+	--color-solution-bg-end: oklch(from var(--color-primary) 92% 0.018 calc(h + 3));  /* Slight hue shift for gradient depth */
+	--color-solution-accent: oklch(from var(--color-primary) 38% 0.09 h);            /* Darker for better contrast (WCAG AA) */
+	--color-solution-pill-bg: oklch(from var(--color-primary) 97% 0.008 h);          /* Lighter background for pill */
 
 	/* === BENEFIT CARDS === */
-	/* Visual distinction through lightness/chroma variations while maintaining brand harmony */
-	--color-benefit-1: var(--color-primary);                                              /* Pure brand primary */
-	--color-benefit-2: var(--color-accent);                                               /* Pure brand accent */
-	--color-benefit-3: oklch(from var(--color-primary) calc(l - 0.04) 0.10 calc(h + 3)); /* Darker, saturated, hue-shifted */
-	--color-benefit-4: oklch(from var(--color-accent) calc(l + 0.03) 0.025 h);           /* Lighter, subtle saturation boost */
+	/* All icons using green shade for consistency */
+	--color-benefit-green: oklch(55% 0.12 155);                                           /* Rich green for all benefit icons */
+	--color-benefit-1: var(--color-benefit-green);
+	--color-benefit-2: var(--color-benefit-green);
+	--color-benefit-3: var(--color-benefit-green);
+	--color-benefit-4: var(--color-benefit-green);
 
 	/* === INTEGRATION TOOL LOGOS === */
 	/* Official third-party brand colors - kept absolute as they represent external brands */
@@ -58,9 +60,10 @@
 		--color-hero-bg-end-dark: oklch(from var(--color-primary) 20% 0.018 h);
 
 		/* Solution section - dark mode: maintains relationships from light mode */
-		--color-solution-bg-start-dark: oklch(from var(--color-primary) 21% 0.03 h);
-		--color-solution-bg-end-dark: oklch(from var(--color-primary) 19% 0.035 calc(h + 3));  /* Same +3 hue shift */
-		--color-solution-accent-dark: oklch(from var(--color-primary) 68% 0.10 h);              /* Lighter for dark bg */
+		--color-solution-bg-start-dark: oklch(from var(--color-primary) 22% 0.025 h);
+		--color-solution-bg-end-dark: oklch(from var(--color-primary) 20% 0.028 calc(h + 3));  /* Same +3 hue shift */
+		--color-solution-accent-dark: oklch(from var(--color-primary) 70% 0.09 h);              /* Lighter for dark bg, increased chroma */
+		--color-solution-pill-bg-dark: oklch(from var(--color-primary) 18% 0.02 h);            /* Darker background for pill */
 	}
 }
 

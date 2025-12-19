@@ -81,7 +81,6 @@ const isActive = (path: string) => {
 
 	.nav-link:hover {
 		color: var(--color-primary);
-		text-shadow: 0 0 15px color-mix(in srgb, var(--color-primary) 20%, transparent);
 	}
 
 	/* Animated underline on hover and active states */
@@ -103,18 +102,21 @@ const isActive = (path: string) => {
 		transform: scaleX(1);
 	}
 
-	/* Active page styling */
+	/* Active page styling - more elegant and subtle */
 	.nav-link.active {
 		font-weight: 600;
-		color: var(--color-primary);
-		text-shadow: 0 0 12px color-mix(in srgb, var(--color-primary) 18%, transparent);
+		color: var(--color-foreground);
 	}
 
-	/* Focus states for accessibility */
+	/* Focus states for accessibility - subtle, not green ring */
 	.nav-link:focus {
-		outline: none;
-		box-shadow: 0 0 0 2px var(--color-primary), 0 0 0 4px transparent;
+		outline: 2px solid var(--color-foreground);
+		outline-offset: 4px;
 		border-radius: 4px;
+	}
+
+	.nav-link:focus:not(:focus-visible) {
+		outline: none;
 	}
 
 	/* Mobile menu container */
