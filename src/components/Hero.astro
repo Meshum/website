@@ -31,7 +31,7 @@ const containerClass = maxWidth === "6xl"
 	: "max-w-5xl";
 ---
 
-<section class={`relative ${sizeClass} flex items-center justify-center px-6 py-20 bg-linear-to-br from-hero-bg-start via-hero-bg-mid to-hero-bg-end dark:from-hero-bg-start-dark dark:via-hero-bg-mid-dark dark:to-hero-bg-end-dark overflow-hidden`}>
+<section class={`relative ${sizeClass} flex items-center justify-center px-6 py-20 bg-linear-to-br from-hero-bg-start via-hero-bg-mid to-hero-bg-end overflow-hidden`}>
 	<!-- Animated gradient overlay -->
 	<div class="absolute inset-0 opacity-30 dark:opacity-40 bg-linear-to-br from-primary/5 via-transparent to-accent/5 animate-gradient"></div>
 
@@ -50,7 +50,7 @@ const containerClass = maxWidth === "6xl"
 	<div class={`${containerClass} mx-auto relative z-10 text-center`}>
 		<!-- Label badge -->
 		<div class="inline-block mb-8 fade-in">
-			<span class="px-4 py-2 rounded-full bg-surface/80 dark:bg-elevated/80 backdrop-blur-sm border border-border text-muted text-sm font-medium shadow-sm">
+			<span class="px-4 py-2 rounded-full bg-surface/80 backdrop-blur-sm border border-border text-muted text-sm font-medium shadow-sm">
 				{label}
 			</span>
 		</div>
