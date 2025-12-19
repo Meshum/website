@@ -124,8 +124,23 @@ const containerClass = maxWidth === "6xl"
 		}
 	}
 
+	@keyframes fadeInNoMotion {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
 	.fade-in {
 		opacity: 0;
 		animation: fadeIn 0.8s ease-out forwards;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.fade-in {
+			animation: fadeInNoMotion 0.8s ease-out forwards !important;
+		}
 	}
 </style>
