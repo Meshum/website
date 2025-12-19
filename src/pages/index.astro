@@ -82,7 +82,7 @@ import Logo from '../../public/logo.svg';
 				<!-- Label box (Design #2) -->
 				<div class="inline-block mb-8 fade-in">
 					<span class="px-4 py-2 rounded-full bg-elevated/80 backdrop-blur-sm border border-border text-muted text-sm font-medium shadow-xl/20 shadow-primary">
-						AI-Powered Knowledge Platform
+						Your Company's Brain
 					</span>
 				</div>
 
@@ -208,31 +208,65 @@ import Logo from '../../public/logo.svg';
 				</div>
 			</div>
 		</div>
+
+		<!-- Scroll indicator arrow -->
+		<div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+			<div class="flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity cursor-pointer" onclick="document.querySelector('#tldr-section').scrollIntoView({behavior: 'smooth'})">
+				<span class="text-xs text-foreground/70 font-medium uppercase tracking-wider">Scroll</span>
+				<svg class="w-6 h-6 text-foreground/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+				</svg>
+			</div>
+		</div>
 	</section>
 
 	<!-- TL;DR Section (conversion boost idea) -->
-	<section class="py-16 bg-surface/50 backdrop-blur border-y border-border">
-		<div class="max-w-4xl mx-auto px-6">
-			<div class="flex flex-col items-start gap-4">
-				<div class="flex-shrink-0">
-					<div class="px-3 py-1 rounded-lg bg-[color:var(--color-accent)]/10 border border-[color:var(--color-accent)]/20 font-heading font-bold text-sm text-[color:var(--color-accent)] uppercase tracking-wider">
-						TL;DR
+	<section id="tldr-section" class="py-16 bg-surface/50 backdrop-blur border-y border-border scroll-fade-in">
+		<div class="max-w-7xl mx-auto px-6">
+			<div class="grid md:grid-cols-2 gap-12 items-center">
+				<!-- Left: TL;DR content -->
+				<div class="flex flex-col items-start gap-4">
+					<div class="flex-shrink-0">
+						<div class="px-3 py-1 rounded-lg bg-[color:var(--color-accent)]/10 border border-[color:var(--color-accent)]/20 font-heading font-bold text-sm text-[color:var(--color-accent)] uppercase tracking-wider">
+							TL;DR
+						</div>
+					</div>
+					<div class="flex-1">
+						<ul class="font-body text-lg text-foreground leading-relaxed space-y-2">
+							<li><span class="font-semibold">Connects</span> GitHub, Slack, Confluence, Notion into one AI layer</li>
+							<li><span class="font-semibold">Ask</span> questions in plain English, get cited answers instantly</li>
+							<li><span class="font-semibold">Save</span> 2.4 hours per engineer, per day</li>
+							<li><span class="font-semibold">Setup</span> in 5 minutes, zero training required</li>
+						</ul>
 					</div>
 				</div>
-				<div class="flex-1">
-					<ul class="font-body text-lg text-foreground leading-relaxed space-y-2">
-						<li><span class="font-semibold">Connects</span> GitHub, Slack, Confluence, Notion into one AI layer</li>
-						<li><span class="font-semibold">Ask</span> questions in plain English, get cited answers instantly</li>
-						<li><span class="font-semibold">Save</span> 2.4 hours per engineer, per day</li>
-						<li><span class="font-semibold">Setup</span> in 5 minutes, zero training required</li>
-					</ul>
+
+				<!-- Right: Quick stats visualization -->
+				<div class="relative">
+					<div class="rounded-2xl border-2 border-border bg-surface p-8 shadow-xl">
+						<h3 class="font-heading text-2xl font-bold text-foreground mb-6">by the numbers</h3>
+						<div class="space-y-6">
+							<div class="flex items-end gap-4">
+								<div class="text-5xl font-heading font-bold bg-gradient-to-r from-[color:var(--color-primary)] to-[color:var(--color-accent)] bg-clip-text text-transparent">2.4hrs</div>
+								<div class="pb-2 text-sm text-muted font-body">saved per engineer daily</div>
+							</div>
+							<div class="flex items-end gap-4">
+								<div class="text-5xl font-heading font-bold bg-gradient-to-r from-[color:var(--color-primary)] to-[color:var(--color-accent)] bg-clip-text text-transparent">0.3s</div>
+								<div class="pb-2 text-sm text-muted font-body">average answer time</div>
+							</div>
+							<div class="flex items-end gap-4">
+								<div class="text-5xl font-heading font-bold bg-gradient-to-r from-[color:var(--color-primary)] to-[color:var(--color-accent)] bg-clip-text text-transparent">5min</div>
+								<div class="pb-2 text-sm text-muted font-body">setup time</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
 	<!-- The Problem - Professional/Informal Balance (Design #2) -->
-	<section class="py-32 bg-page">
+	<section class="py-32 bg-page scroll-fade-in">
 		<div class="max-w-7xl mx-auto px-6">
 			<div class="grid lg:grid-cols-2 gap-16 items-center">
 				<!-- Problem Text -->
@@ -248,7 +282,7 @@ import Logo from '../../public/logo.svg';
 					</h2>
 
 					<h3 class="font-bold text-2xl text-muted mb-6">
-						and she's on PTO.
+						and she's not working today
 					</h3>
 
 					<div class="space-y-4 text-lg text-foreground font-body leading-relaxed">
@@ -256,7 +290,7 @@ import Logo from '../../public/logo.svg';
 							Your team's knowledge lives in a dozen different tools. Code in GitHub. Decisions buried in Slack threads. That one critical doc someone wrote in Notion six months ago.
 						</p>
 						<p>
-							You waste <span class="font-semibold text-[color:var(--color-primary)]">2+ hours daily</span> searching for context that already exists somewhere. Grepping codebases. Reading old PRs. Waiting for the one person who knows to respond.
+							You waste <a href="https://myhours.com/articles/meeting-statistics-2025" target="_blank" rel="noopener noreferrer" class="font-semibold text-[color:var(--color-primary)] underline decoration-[color:var(--color-primary)]/30 hover:decoration-[color:var(--color-primary)] transition-colors">2+ hours daily</a> searching for context that already exists somewhere. Grepping codebases. Reading old PRs. Waiting for the one person who knows to respond.
 						</p>
 					</div>
 				</div>
@@ -325,12 +359,12 @@ import Logo from '../../public/logo.svg';
 	</section>
 
 	<!-- The Solution (Design #6 with side-by-side layout) -->
-	<section class="relative py-32 overflow-hidden bg-gradient-to-br from-[color:var(--color-solution-bg-start)] to-[color:var(--color-solution-bg-end)] dark:from-[color:var(--color-solution-bg-start-dark)] dark:to-[color:var(--color-solution-bg-end-dark)]">
+	<section class="relative py-32 overflow-hidden bg-gradient-to-br from-[color:var(--color-solution-bg-start)] to-[color:var(--color-solution-bg-end)] dark:from-[color:var(--color-solution-bg-start-dark)] dark:to-[color:var(--color-solution-bg-end-dark)] scroll-fade-in">
 		<div class="relative z-10 max-w-7xl mx-auto px-6">
 			<div class="grid lg:grid-cols-2 gap-16 items-center">
 				<!-- Visual Flow Diagram (Left side) -->
 				<div class="relative order-2 lg:order-1">
-					<div class="relative backdrop-blur-xl p-12 rounded-3xl border border-[color:var(--color-primary)]/10 shadow-2xl bg-white/60 dark:bg-elevated/60">
+					<div class="relative backdrop-blur-xl p-12 rounded-3xl border border-[color:var(--color-primary)]/10 shadow-2xl bg-[color:var(--color-solution-pill-bg)] dark:bg-[color:var(--color-solution-pill-bg-dark)]">
 						<div class="flex items-center justify-center gap-6">
 							<!-- Input sources -->
 							<div class="flex flex-col gap-3">
@@ -460,7 +494,7 @@ import Logo from '../../public/logo.svg';
 	</section>
 
 	<!-- Works with your tools (Design #5) -->
-	<section class="py-32 bg-surface">
+	<section class="py-32 bg-surface scroll-fade-in">
 		<div class="max-w-7xl mx-auto px-6">
 			<div class="text-center mb-16">
 				<h2 class="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6">
@@ -473,23 +507,23 @@ import Logo from '../../public/logo.svg';
 
 			<!-- Tool logos grid -->
 			<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
-				<div class="flex items-center justify-center p-6 rounded-xl bg-page border border-border hover:shadow-md transition-all">
-					<svg class="h-8 opacity-60 hover:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+				<div class="flex items-center justify-center p-6 rounded-xl bg-foreground/5 dark:bg-page border border-border hover:shadow-md transition-all">
+					<svg class="h-8 text-foreground dark:text-[color:var(--color-benefit-green)] opacity-70 hover:opacity-100 transition-all" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
 				</div>
-				<div class="flex items-center justify-center p-6 rounded-xl bg-page border border-border hover:shadow-md transition-all">
-					<svg class="h-8 opacity-60 hover:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>
+				<div class="flex items-center justify-center p-6 rounded-xl bg-foreground/5 dark:bg-page border border-border hover:shadow-md transition-all">
+					<svg class="h-8 text-foreground dark:text-[color:var(--color-benefit-green)] opacity-70 hover:opacity-100 transition-all" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>
 				</div>
-				<div class="flex items-center justify-center p-6 rounded-xl bg-page border border-border hover:shadow-md transition-all">
-					<svg class="h-8 opacity-60 hover:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2.824c5.063 0 9.176 4.113 9.176 9.176s-4.113 9.176-9.176 9.176-9.176-4.113-9.176-9.176S6.937 2.824 12 2.824zm.706 3.176v5.647l4.588 2.824-.706 1.176L11.294 12v-6h1.412z"/></svg>
+				<div class="flex items-center justify-center p-6 rounded-xl bg-foreground/5 dark:bg-page border border-border hover:shadow-md transition-all">
+					<svg class="h-8 text-foreground dark:text-[color:var(--color-benefit-green)] opacity-70 hover:opacity-100 transition-all" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2.824c5.063 0 9.176 4.113 9.176 9.176s-4.113 9.176-9.176 9.176-9.176-4.113-9.176-9.176S6.937 2.824 12 2.824zm.706 3.176v5.647l4.588 2.824-.706 1.176L11.294 12v-6h1.412z"/></svg>
 				</div>
-				<div class="flex items-center justify-center p-6 rounded-xl bg-page border border-border hover:shadow-md transition-all">
-					<svg class="h-8 opacity-60 hover:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="currentColor"><path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .841-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"/></svg>
+				<div class="flex items-center justify-center p-6 rounded-xl bg-foreground/5 dark:bg-page border border-border hover:shadow-md transition-all">
+					<svg class="h-8 text-foreground dark:text-[color:var(--color-benefit-green)] opacity-70 hover:opacity-100 transition-all" viewBox="0 0 24 24" fill="currentColor"><path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .841-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"/></svg>
 				</div>
-				<div class="flex items-center justify-center p-6 rounded-xl bg-page border border-border hover:shadow-md transition-all">
-					<svg class="h-8 opacity-60 hover:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="currentColor"><path d="M11.53 2c-.702 0-1.267.577-1.267 1.293v17.414c0 .716.565 1.293 1.267 1.293.7 0 1.266-.577 1.266-1.293V3.293C12.796 2.577 12.23 2 11.53 2zM.263 6.534c0 .716.565 1.293 1.267 1.293h17.936c.702 0 1.267-.577 1.267-1.293 0-.716-.565-1.293-1.267-1.293H1.53c-.702 0-1.267.577-1.267 1.293zm2.764 6.534c0 .716.565 1.293 1.267 1.293h15.17c.702 0 1.267-.577 1.267-1.293s-.565-1.293-1.267-1.293H4.294c-.702 0-1.267.577-1.267 1.293zm2.764 6.535c0 .716.565 1.293 1.267 1.293h12.406c.7 0 1.266-.577 1.266-1.293s-.565-1.293-1.266-1.293H7.058c-.702 0-1.267.577-1.267 1.293z"/></svg>
+				<div class="flex items-center justify-center p-6 rounded-xl bg-foreground/5 dark:bg-page border border-border hover:shadow-md transition-all">
+					<svg class="h-8 text-foreground dark:text-[color:var(--color-benefit-green)] opacity-70 hover:opacity-100 transition-all" viewBox="0 0 24 24" fill="currentColor"><path d="M11.53 2c-.702 0-1.267.577-1.267 1.293v17.414c0 .716.565 1.293 1.267 1.293.7 0 1.266-.577 1.266-1.293V3.293C12.796 2.577 12.23 2 11.53 2zM.263 6.534c0 .716.565 1.293 1.267 1.293h17.936c.702 0 1.267-.577 1.267-1.293 0-.716-.565-1.293-1.267-1.293H1.53c-.702 0-1.267.577-1.267 1.293zm2.764 6.534c0 .716.565 1.293 1.267 1.293h15.17c.702 0 1.267-.577 1.267-1.293s-.565-1.293-1.267-1.293H4.294c-.702 0-1.267.577-1.267 1.293zm2.764 6.535c0 .716.565 1.293 1.267 1.293h12.406c.7 0 1.266-.577 1.266-1.293s-.565-1.293-1.266-1.293H7.058c-.702 0-1.267.577-1.267 1.293z"/></svg>
 				</div>
-				<div class="flex items-center justify-center p-6 rounded-xl bg-page border border-border hover:shadow-md transition-all">
-					<svg class="h-8 opacity-60 hover:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C6.704 0 2 4.304 2 9.6c0 5.296 4.704 9.6 10 9.6 2.192 0 4.096-.736 5.68-1.92L23.488 24l.512-.48-5.696-6.72C19.488 15.168 20 12.512 20 9.6 20 4.304 15.296 0 12 0zm0 1.6c4.096 0 7.68 3.2 7.68 8s-3.584 8-7.68 8-7.68-3.2-7.68-8 3.584-8 7.68-8zM7.68 6.4v6.4h1.6V6.4H7.68zm3.2 0v6.4h1.6V6.4h-1.6zm3.2 0v6.4h1.6V6.4h-1.6z"/></svg>
+				<div class="flex items-center justify-center p-6 rounded-xl bg-foreground/5 dark:bg-page border border-border hover:shadow-md transition-all">
+					<svg class="h-8 text-foreground dark:text-[color:var(--color-benefit-green)] opacity-70 hover:opacity-100 transition-all" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C6.704 0 2 4.304 2 9.6c0 5.296 4.704 9.6 10 9.6 2.192 0 4.096-.736 5.68-1.92L23.488 24l.512-.48-5.696-6.72C19.488 15.168 20 12.512 20 9.6 20 4.304 15.296 0 12 0zm0 1.6c4.096 0 7.68 3.2 7.68 8s-3.584 8-7.68 8-7.68-3.2-7.68-8 3.584-8 7.68-8zM7.68 6.4v6.4h1.6V6.4H7.68zm3.2 0v6.4h1.6V6.4h-1.6zm3.2 0v6.4h1.6V6.4h-1.6z"/></svg>
 				</div>
 			</div>
 
@@ -502,18 +536,18 @@ import Logo from '../../public/logo.svg';
 	</section>
 
 	<!-- Features Bento Grid (Design #2) -->
-	<section class="py-32 bg-page">
+	<section class="py-32 bg-page scroll-fade-in">
 		<div class="max-w-7xl mx-auto px-6">
 			<div class="text-center mb-16">
 				<h2 class="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6">
-					What your company needs
+					Your Company's Brain
 				</h2>
 			</div>
 
 			<!-- Bento grid layout -->
 			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 				<!-- Large feature card -->
-				<div class="lg:col-span-2 lg:row-span-2 p-8 rounded-2xl bg-gradient-to-br from-surface to-elevated border border-border shadow-lg hover:shadow-xl transition-all">
+				<div class="lg:col-span-2 lg:row-span-2 p-8 rounded-2xl bg-gradient-to-br from-surface to-elevated border border-border shadow-lg transition-all">
 					<div class="mb-6">
 						<div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[color:var(--color-primary)] to-[color:var(--color-accent)] shadow-glow-sm mb-4">
 							<svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -543,7 +577,7 @@ import Logo from '../../public/logo.svg';
 				</div>
 
 				<!-- Regular feature cards -->
-				<div class="p-6 rounded-2xl bg-surface border border-border shadow hover:shadow-lg transition-all">
+				<div class="p-6 rounded-2xl bg-surface border border-border shadow transition-all">
 					<div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4">
 						<svg class="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -557,7 +591,7 @@ import Logo from '../../public/logo.svg';
 					</p>
 				</div>
 
-				<div class="p-6 rounded-2xl bg-surface border border-border shadow hover:shadow-lg transition-all">
+				<div class="p-6 rounded-2xl bg-surface border border-border shadow transition-all">
 					<div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center mb-4">
 						<svg class="w-5 h-5 text-purple-600 dark:text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
@@ -571,7 +605,7 @@ import Logo from '../../public/logo.svg';
 					</p>
 				</div>
 
-				<div class="p-6 rounded-2xl bg-surface border border-border shadow hover:shadow-lg transition-all">
+				<div class="p-6 rounded-2xl bg-surface border border-border shadow transition-all">
 					<div class="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center mb-4">
 						<svg class="w-5 h-5 text-green-600 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"/>
@@ -585,7 +619,7 @@ import Logo from '../../public/logo.svg';
 					</p>
 				</div>
 
-				<div class="lg:col-span-2 p-6 rounded-2xl bg-surface border border-border shadow hover:shadow-lg transition-all">
+				<div class="lg:col-span-2 p-6 rounded-2xl bg-surface border border-border shadow transition-all">
 					<div class="flex items-start gap-6">
 						<div class="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center flex-shrink-0">
 							<svg class="w-5 h-5 text-orange-600 dark:text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -596,9 +630,15 @@ import Logo from '../../public/logo.svg';
 							<h3 class="font-heading text-lg font-bold text-foreground mb-2">
 								knowledge graph
 							</h3>
-							<p class="font-body text-sm text-muted leading-relaxed">
+							<p class="font-body text-sm text-muted leading-relaxed mb-4">
 								Understands relationships between code, docs, and decisions. Connects dots humans miss to surface the most relevant context.
 							</p>
+							<div class="flex flex-wrap gap-2">
+								<span class="px-3 py-1 rounded-full bg-page border border-border text-xs font-medium text-muted">code → docs</span>
+								<span class="px-3 py-1 rounded-full bg-page border border-border text-xs font-medium text-muted">PRs → decisions</span>
+								<span class="px-3 py-1 rounded-full bg-page border border-border text-xs font-medium text-muted">Slack → context</span>
+								<span class="px-3 py-1 rounded-full bg-page border border-border text-xs font-medium text-muted">commits → why</span>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -607,7 +647,7 @@ import Logo from '../../public/logo.svg';
 	</section>
 
 	<!-- Final CTA (Design #2) -->
-	<section class="py-32 bg-gradient-to-br from-[color:var(--color-primary)]/95 to-[color:var(--color-accent)]/95 relative overflow-hidden">
+	<section class="py-32 bg-gradient-to-br from-[color:var(--color-primary)]/95 to-[color:var(--color-accent)]/95 relative overflow-hidden scroll-fade-in">
 		<!-- Animated gradient overlay -->
 		<div class="absolute inset-0 bg-gradient-to-br from-[color:var(--color-primary)] to-[color:var(--color-accent)] opacity-90 animate-gradient"></div>
 
@@ -625,11 +665,11 @@ import Logo from '../../public/logo.svg';
 
 		<div class="max-w-5xl mx-auto px-6 text-center relative z-10">
 			<h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-				get those 2 hours back
+				stop wasting time
 			</h2>
 
 			<p class="font-body text-xl text-white/95 mb-12 leading-relaxed max-w-2xl mx-auto">
-				Join engineering teams who stopped searching and started shipping.
+				Join engineering teams saving 2+ hours per day. Get those hours back.
 			</p>
 
 			<!-- CTA Form with glow -->
@@ -654,9 +694,12 @@ import Logo from '../../public/logo.svg';
 	<footer class="py-12 bg-elevated border-t border-border">
 		<div class="max-w-7xl mx-auto px-6">
 			<div class="flex flex-col md:flex-row justify-between items-center gap-6">
-				<div>
-					<span class="font-heading font-bold text-2xl text-foreground">Meshum</span>
-					<p class="font-body text-sm text-foreground/70 mt-2">unified knowledge for engineering teams</p>
+				<div class="flex items-center gap-4">
+					<Logo class="w-10 h-8" />
+					<div>
+						<span class="font-heading font-bold text-2xl text-foreground">Meshum</span>
+						<p class="font-body text-sm text-foreground/70 mt-1">Stop searching. Start shipping.</p>
+					</div>
 				</div>
 
 				<div class="flex gap-8 font-body text-sm">
@@ -756,4 +799,38 @@ import Logo from '../../public/logo.svg';
 	.animation-delay-4000 {
 		animation-delay: 4s;
 	}
+
+	/* Scroll-triggered fade-in animations */
+	.scroll-fade-in {
+		opacity: 0;
+		transform: translateY(30px);
+		transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+	}
+
+	.scroll-fade-in.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
 </style>
+
+<script>
+	// Scroll-triggered animations using Intersection Observer
+	const observerOptions = {
+		root: null,
+		rootMargin: '0px',
+		threshold: 0.1
+	};
+
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add('visible');
+			}
+		});
+	}, observerOptions);
+
+	// Observe all elements with scroll-fade-in class
+	document.querySelectorAll('.scroll-fade-in').forEach(el => {
+		observer.observe(el);
+	});
+</script>
