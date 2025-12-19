@@ -31,9 +31,9 @@ const containerClass = maxWidth === "6xl"
 	: "max-w-5xl";
 ---
 
-<section class={`relative ${sizeClass} flex items-center justify-center px-6 py-20 bg-gradient-to-br from-hero-bg-start via-hero-bg-mid to-hero-bg-end dark:from-hero-bg-start-dark dark:via-hero-bg-mid-dark dark:to-hero-bg-end-dark overflow-hidden`}>
+<section class={`relative ${sizeClass} flex items-center justify-center px-6 py-20 bg-linear-to-br from-hero-bg-start via-hero-bg-mid to-hero-bg-end dark:from-hero-bg-start-dark dark:via-hero-bg-mid-dark dark:to-hero-bg-end-dark overflow-hidden`}>
 	<!-- Animated gradient overlay -->
-	<div class="absolute inset-0 opacity-30 dark:opacity-40 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 animate-gradient"></div>
+	<div class="absolute inset-0 opacity-30 dark:opacity-40 bg-linear-to-br from-primary/5 via-transparent to-accent/5 animate-gradient"></div>
 
 	<!-- Mesh background pattern -->
 	<div class="absolute inset-0 opacity-5 dark:opacity-10">
@@ -62,7 +62,7 @@ const containerClass = maxWidth === "6xl"
 				{gradientText && (
 					<>
 						<br />
-						<span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent animate-gradient-text">
+						<span class="bg-linear-to-r from-primary to-accent bg-clip-text text-transparent animate-gradient-text">
 							{gradientText}
 						</span>
 					</>
@@ -100,7 +100,7 @@ const containerClass = maxWidth === "6xl"
 	/* Gradient text animation */
 	@keyframes gradient-text {
 		0%, 100% {
-			background-position: 0% 50%;
+			background-position: 0 50%;
 		}
 		50% {
 			background-position: 100% 50%;

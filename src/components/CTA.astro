@@ -19,9 +19,9 @@ const {
 const containerClass = maxWidth === "4xl" ? "max-w-4xl" : "max-w-5xl";
 ---
 
-<section class="py-32 bg-gradient-to-br from-primary/95 to-accent/95 relative overflow-hidden">
+<section class="py-32 bg-linear-to-br from-primary/95 to-accent/95 relative overflow-hidden">
 	<!-- Animated gradient overlay -->
-	<div class="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-90 animate-gradient"></div>
+	<div class="absolute inset-0 bg-linear-to-br from-primary to-accent opacity-90 animate-gradient"></div>
 
 	<!-- Subtle dot pattern -->
 	<div class="absolute inset-0 opacity-5">
@@ -46,7 +46,10 @@ const containerClass = maxWidth === "4xl" ? "max-w-4xl" : "max-w-5xl";
 
 		<!-- Email signup form -->
 		<div class="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto mb-8">
+			<label class="sr-only" for="email">Email</label>
 			<input
+				id="email"
+				name="email"
 				type="email"
 				placeholder="you@company.com"
 				class="flex-1 px-6 py-4 rounded-xl border-2 border-white/20 bg-white/10 backdrop-blur text-white placeholder-white/60 font-body text-lg focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all"
