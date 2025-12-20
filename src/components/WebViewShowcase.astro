@@ -197,135 +197,175 @@
 </style>
 
 <script>
-	// Only run animations if user hasn't enabled reduced motion
-	const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	// Wrap in function and add error handling
+	function initWebViewShowcase() {
+		try {
+			// Only run animations if user hasn't enabled reduced motion
+			const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-	if (!prefersReducedMotion) {
-		const questionText = "What are the rate limits for our API?";
-		const typedTextElement = document.querySelector('.demo-typed-text');
-		const cursorElement = document.querySelector('.demo-cursor');
-		const questionContainer = document.querySelector('.demo-question');
-		const searchingContainer = document.querySelector('.demo-searching');
-		const resultContainer = document.querySelector('.demo-result');
-		const sourcesContainer = document.querySelector('.demo-sources');
-		const metadataContainer = document.querySelector('.demo-metadata');
+			if (!prefersReducedMotion) {
+				const questionText = "What are the rate limits for our API?";
+				const typedTextElement = document.querySelector('.demo-typed-text');
+				const cursorElement = document.querySelector('.demo-cursor');
+				const questionContainer = document.querySelector('.demo-question');
+				const searchingContainer = document.querySelector('.demo-searching');
+				const resultContainer = document.querySelector('.demo-result');
+				const sourcesContainer = document.querySelector('.demo-sources');
+				const metadataContainer = document.querySelector('.demo-metadata');
 
-		let charIndex = 0;
-
-		// Typing animation function
-		function typeCharacter() {
-			if (charIndex < questionText.length) {
-				if (typedTextElement) {
-					typedTextElement.textContent += questionText[charIndex];
+				// If essential elements don't exist, bail out gracefully
+				if (!questionContainer || !typedTextElement) {
+					return;
 				}
-				charIndex++;
-				setTimeout(typeCharacter, 50); // 50ms per character
-			} else {
-				// Typing complete, hide cursor after a brief pause
-				setTimeout(() => {
-					if (cursorElement) {
-						cursorElement.classList.add('finished');
+
+				let charIndex = 0;
+
+				// Typing animation function
+				function typeCharacter() {
+					if (charIndex < questionText.length) {
+						if (typedTextElement) {
+							typedTextElement.textContent += questionText[charIndex];
+						}
+						charIndex++;
+						setTimeout(typeCharacter, 50); // 50ms per character
+					} else {
+						// Typing complete, hide cursor after a brief pause
+						setTimeout(() => {
+							if (cursorElement) {
+								cursorElement.classList.add('finished');
+							}
+							// Show searching status
+							setTimeout(showSearching, 300);
+						}, 500);
 					}
-					// Show searching status
-					setTimeout(showSearching, 300);
-				}, 500);
-			}
-		}
+				}
 
-		// Show searching status
-		function showSearching() {
-			if (searchingContainer) {
-				searchingContainer.classList.add('demo-fade-in');
-				searchingContainer.style.opacity = '1';
-			}
-			// Show results after searching
-			setTimeout(showResults, 1500);
-		}
+				// Show searching status
+				function showSearching() {
+					if (searchingContainer) {
+						searchingContainer.classList.add('demo-fade-in');
+						searchingContainer.style.opacity = '1';
+					}
+					// Show results after searching
+					setTimeout(showResults, 1500);
+				}
 
-		// Show results
-		function showResults() {
-			// Hide searching
-			if (searchingContainer) {
-				searchingContainer.style.opacity = '0';
-			}
-			// Show result
-			setTimeout(() => {
+				// Show results
+				function showResults() {
+					// Hide searching
+					if (searchingContainer) {
+						searchingContainer.style.opacity = '0';
+					}
+					// Show result
+					setTimeout(() => {
+						if (resultContainer) {
+							resultContainer.classList.add('demo-fade-in');
+							resultContainer.style.opacity = '1';
+						}
+						// Show sources after main result
+						setTimeout(showSources, 400);
+					}, 300);
+				}
+
+				// Show additional sources
+				function showSources() {
+					if (sourcesContainer) {
+						sourcesContainer.classList.add('demo-fade-in');
+						sourcesContainer.style.opacity = '1';
+					}
+					// Show metadata last
+					setTimeout(showMetadata, 300);
+				}
+
+				// Show metadata
+				function showMetadata() {
+					if (metadataContainer) {
+						metadataContainer.classList.add('demo-fade-in');
+						metadataContainer.style.opacity = '1';
+					}
+				}
+
+				// Start the animation sequence when component is in view
+				const observer = new IntersectionObserver((entries) => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting && questionContainer) {
+							// Show question container first
+							questionContainer.classList.add('demo-fade-in');
+							questionContainer.style.opacity = '1';
+							// Start typing after container fades in
+							setTimeout(typeCharacter, 400);
+							// Only run once
+							observer.disconnect();
+						}
+					});
+				}, { threshold: 0.5 });
+
+				if (questionContainer) {
+					observer.observe(questionContainer);
+				}
+			} else {
+				// For reduced motion, show everything immediately (no animations)
+				const typedTextElement = document.querySelector('.demo-typed-text');
+				const questionContainer = document.querySelector('.demo-question');
+				const searchingContainer = document.querySelector('.demo-searching');
+				const resultContainer = document.querySelector('.demo-result');
+				const sourcesContainer = document.querySelector('.demo-sources');
+				const metadataContainer = document.querySelector('.demo-metadata');
+				const cursorElement = document.querySelector('.demo-cursor');
+
+				if (typedTextElement) {
+					typedTextElement.textContent = "What are the rate limits for our API?";
+				}
+				if (cursorElement) {
+					cursorElement.style.display = 'none';
+				}
+				if (questionContainer) {
+					questionContainer.style.opacity = '1';
+				}
+				// Don't show searching indicator in reduced motion - go straight to results
+				if (searchingContainer) {
+					searchingContainer.style.display = 'none';
+				}
 				if (resultContainer) {
-					resultContainer.classList.add('demo-fade-in');
 					resultContainer.style.opacity = '1';
 				}
-				// Show sources after main result
-				setTimeout(showSources, 400);
-			}, 300);
-		}
-
-		// Show additional sources
-		function showSources() {
-			if (sourcesContainer) {
-				sourcesContainer.classList.add('demo-fade-in');
-				sourcesContainer.style.opacity = '1';
+				if (sourcesContainer) {
+					sourcesContainer.style.opacity = '1';
+				}
+				if (metadataContainer) {
+					metadataContainer.style.opacity = '1';
+				}
 			}
-			// Show metadata last
-			setTimeout(showMetadata, 300);
-		}
-
-		// Show metadata
-		function showMetadata() {
-			if (metadataContainer) {
-				metadataContainer.classList.add('demo-fade-in');
-				metadataContainer.style.opacity = '1';
-			}
-		}
-
-		// Start the animation sequence when component is in view
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting && questionContainer) {
-					// Show question container first
-					questionContainer.classList.add('demo-fade-in');
-					questionContainer.style.opacity = '1';
-					// Start typing after container fades in
-					setTimeout(typeCharacter, 400);
-					// Only run once
-					observer.disconnect();
+		} catch (error) {
+			console.error('Error initializing WebViewShowcase animation:', error);
+			// Fallback: show all elements immediately
+			const elements = [
+				'.demo-question',
+				'.demo-result',
+				'.demo-sources',
+				'.demo-metadata'
+			];
+			elements.forEach(selector => {
+				const el = document.querySelector(selector);
+				if (el) {
+					el.style.opacity = '1';
 				}
 			});
-		}, { threshold: 0.5 });
-
-		if (questionContainer) {
-			observer.observe(questionContainer);
+			// Hide searching and cursor
+			const searching = document.querySelector('.demo-searching');
+			const cursor = document.querySelector('.demo-cursor');
+			if (searching) searching.style.display = 'none';
+			if (cursor) cursor.style.display = 'none';
+			// Set text immediately
+			const typedText = document.querySelector('.demo-typed-text');
+			if (typedText) typedText.textContent = "What are the rate limits for our API?";
 		}
+	}
+
+	// Run after DOM is fully loaded
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initWebViewShowcase);
 	} else {
-		// For reduced motion, show everything immediately (no animations)
-		const typedTextElement = document.querySelector('.demo-typed-text');
-		const questionContainer = document.querySelector('.demo-question');
-		const searchingContainer = document.querySelector('.demo-searching');
-		const resultContainer = document.querySelector('.demo-result');
-		const sourcesContainer = document.querySelector('.demo-sources');
-		const metadataContainer = document.querySelector('.demo-metadata');
-		const cursorElement = document.querySelector('.demo-cursor');
-
-		if (typedTextElement) {
-			typedTextElement.textContent = "What are the rate limits for our API?";
-		}
-		if (cursorElement) {
-			cursorElement.style.display = 'none';
-		}
-		if (questionContainer) {
-			questionContainer.style.opacity = '1';
-		}
-		// Don't show searching indicator in reduced motion - go straight to results
-		if (searchingContainer) {
-			searchingContainer.style.display = 'none';
-		}
-		if (resultContainer) {
-			resultContainer.style.opacity = '1';
-		}
-		if (sourcesContainer) {
-			sourcesContainer.style.opacity = '1';
-		}
-		if (metadataContainer) {
-			metadataContainer.style.opacity = '1';
-		}
+		initWebViewShowcase();
 	}
 </script>
