@@ -31,8 +31,8 @@
 			<div class="space-y-4">
 				<!-- User question -->
 				<div class="flex items-start gap-3 demo-question opacity-0">
-					<div class="hidden md:flex w-8 h-8 rounded-full bg-accent/20 items-center justify-center shrink-0">
-						<span class="text-sm font-semibold text-accent">You</span>
+					<div class="hidden md:flex w-10 h-10 rounded-full bg-primary/10 items-center justify-center shrink-0">
+						<span class="text-sm font-semibold text-primary">You</span>
 					</div>
 					<div class="flex-1">
 						<div class="px-4 py-3 rounded-xl bg-surface border border-border shadow-sm">
@@ -197,8 +197,12 @@
 </style>
 
 <script>
+	let observer: IntersectionObserver | undefined = undefined;
+
 	// Wrap in function and add error handling
 	function initWebViewShowcase() {
+		observer?.disconnect();
+
 		try {
 			// Only run animations if user hasn't enabled reduced motion
 			const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -235,7 +239,7 @@
 								cursorElement.classList.add('finished');
 							}
 							// Show searching status
-							setTimeout(showSearching, 300);
+							setTimeout(showSearching, 50);
 						}, 500);
 					}
 				}
@@ -247,7 +251,7 @@
 						searchingContainer.style.opacity = '1';
 					}
 					// Show results after searching
-					setTimeout(showResults, 1500);
+					setTimeout(showResults, 250);
 				}
 
 				// Show results
@@ -286,7 +290,7 @@
 				}
 
 				// Start the animation sequence when component is in view
-				const observer = new IntersectionObserver((entries) => {
+				observer = new IntersectionObserver((entries) => {
 					entries.forEach(entry => {
 						if (entry.isIntersecting && questionContainer) {
 							// Show question container first
@@ -362,10 +366,5 @@
 		}
 	}
 
-	// Run after DOM is fully loaded
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', initWebViewShowcase);
-	} else {
-		initWebViewShowcase();
-	}
+	document.addEventListener('astro:page-load', initWebViewShowcase);
 </script>

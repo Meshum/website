@@ -601,9 +601,13 @@ import Layout from "../layouts/Layout.astro";
 </style>
 
 <script>
+	let observer: IntersectionObserver | undefined = undefined;
+
 	// Scroll-triggered animations using Intersection Observer
 	// Wrap in try-catch and wait for DOM to be ready
 	function initScrollAnimations() {
+		observer?.disconnect();
+
 		try {
 			const observerOptions = {
 				root: null,
@@ -611,7 +615,7 @@ import Layout from "../layouts/Layout.astro";
 				threshold: 0.1
 			};
 
-			const observer = new IntersectionObserver((entries) => {
+			observer = new IntersectionObserver((entries) => {
 				entries.forEach(entry => {
 					if (entry.isIntersecting) {
 						entry.target.classList.add('visible');
@@ -623,7 +627,7 @@ import Layout from "../layouts/Layout.astro";
 			const elements = document.querySelectorAll('.scroll-fade-in');
 			if (elements.length > 0) {
 				elements.forEach(el => {
-					observer.observe(el);
+					observer?.observe(el);
 				});
 			}
 		} catch (error) {
@@ -635,10 +639,5 @@ import Layout from "../layouts/Layout.astro";
 		}
 	}
 
-	// Run after DOM is fully loaded
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', initScrollAnimations);
-	} else {
-		initScrollAnimations();
-	}
+	document.addEventListener('astro:page-load', initScrollAnimations);
 </script>
