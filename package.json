@@ -2,9 +2,9 @@
 	"name": "website",
 	"version": "0.0.1",
 	"dependencies": {
-		"@astrojs/sitemap": "^3.6.0",
+		"@astrojs/sitemap": "3.6.1",
 		"@tailwindcss/vite": "^4.1.17",
-		"astro": "5.16.6",
+		"astro": "5.16.9",
 		"tailwindcss": "^4.1.17"
 	},
 	"scripts": {
