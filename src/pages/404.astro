@@ -6,22 +6,21 @@ import Layout from "../layouts/Layout.astro";
 	title="Page Not Found - Meshum"
 	description="The page you're looking for doesn't exist."
 >
-	<section class="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center">
-		<!-- Background gradient -->
-		<div class="absolute inset-0 overflow-hidden">
-			<div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl"></div>
-			<div class="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl"></div>
+	<section class="min-h-screen flex items-center justify-center px-6 bg-page">
+		<div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+			<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/8 rounded-full blur-3xl"></div>
+			<div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
 		</div>
 
-		<div class="relative max-w-2xl mx-auto text-center">
-			<h1 class="text-6xl sm:text-8xl font-bold gradient-text mb-4">404</h1>
-			<h2 class="text-2xl sm:text-3xl font-bold text-text-white mb-4">
+		<div class="relative z-10 text-center max-w-lg mx-auto">
+			<p class="font-heading text-8xl font-bold text-primary mb-4">404</p>
+			<h1 class="font-heading text-2xl font-bold text-foreground mb-4">
 				Page not found
-			</h2>
-			<p class="text-text-gray mb-8">
+			</h1>
+			<p class="font-body text-muted mb-8">
 				The page you're looking for doesn't exist or has been moved.
 			</p>
-			<a href="/" class="btn-primary inline-block">
+			<a href="/" class="inline-block px-6 py-3 rounded-lg bg-primary text-white font-heading font-semibold hover:opacity-90 transition-opacity">
 				Back to Home
 			</a>
 		</div>
