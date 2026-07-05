@@ -1,0 +1,38 @@
+---
+interface Props {
+	label: string;
+	class?: string;
+}
+
+const { label, class: className = "" } = Astro.props;
+---
+
+<div class={`code-block rounded-lg border border-code-border bg-code-bg ${className}`}>
+	<div class="flex items-center justify-between border-b border-code-border px-4 py-2.5">
+		<span class="font-technical text-xs text-subtle">{label}</span>
+		<button type="button" class="copy-btn font-technical text-xs text-subtle transition-colors hover:text-code-foreground" aria-live="polite">
+			copy
+		</button>
+	</div>
+	<pre class="code-content overflow-x-auto p-5 font-technical text-[0.875rem] leading-relaxed text-code-foreground"><slot /></pre>
+</div>
+
+<script is:inline>
+	document.addEventListener("astro:page-load", function () {
+		document.querySelectorAll(".code-block").forEach(function (block) {
+			var btn = block.querySelector(".copy-btn");
+			var content = block.querySelector(".code-content");
+			if (!btn || !content || btn.dataset.bound) return;
+			btn.dataset.bound = "true";
+			btn.addEventListener("click", function () {
+				navigator.clipboard.writeText(content.textContent || "").then(function () {
+					var original = btn.textContent;
+					btn.textContent = "copied";
+					setTimeout(function () {
+						btn.textContent = original;
+					}, 1500);
+				});
+			});
+		});
+	});
+</script>

@@ -2,7 +2,73 @@
 @import "./meshum.css";
 
 @layer base {
+	html {
+		color-scheme: light dark;
+	}
+
 	body {
 		@apply font-body bg-page text-foreground;
+	}
+
+	::selection {
+		@apply bg-primary/25 text-foreground;
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--color-primary);
+		outline-offset: 2px;
+	}
+}
+
+@layer utilities {
+	/* Motif A — faint mesh/grid substrate. See DESIGN_LANGUAGE.md #5. */
+	.mesh-bg {
+		background-image: linear-gradient(
+				to right,
+				var(--color-border-subtle) 1px,
+				transparent 1px
+			),
+			linear-gradient(to bottom, var(--color-border-subtle) 1px, transparent 1px);
+		background-size: 32px 32px;
+		-webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+		mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+	}
+
+	.text-gradient-brand {
+		background-image: var(--gradient-brand-text);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+	}
+
+	/* Pre-footer CTA band — brand gradient with a uniform dark scrim so white
+	   text clears AA contrast across the whole gradient, including the
+	   lighter teal end (raw gradient there is ~3.5:1 with white text). */
+	.gradient-cta {
+		background-image:
+			linear-gradient(oklch(20% 0.02 220 / 55%), oklch(20% 0.02 220 / 55%)),
+			var(--gradient-brand);
+	}
+
+	/* Scroll reveal — toggled by a tiny IntersectionObserver in Layout.astro */
+	.reveal {
+		opacity: 0;
+		transform: translateY(0.5rem);
+		transition:
+			opacity 500ms cubic-bezier(0.4, 0, 0.2, 1),
+			transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	.reveal.in-view {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.reveal {
+		opacity: 1;
+		transform: none;
+		transition: none;
 	}
 }

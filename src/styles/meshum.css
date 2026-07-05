@@ -25,6 +25,10 @@
 	/* Accent color - Used for contrast, secondary elements */
 	--color-accent: oklch(32% 0.02 220);
 
+	/* Text color guaranteed to meet AA contrast when placed on --color-primary
+	   (primary is a fixed mid-tone in both themes, so on-primary is too). */
+	--color-on-primary: oklch(15% 0.02 220);
+
 	/* === SEMANTIC UI COLORS (Light Mode) === */
 
 	/* Backgrounds - Layered from page → surface → elevated (increased contrast) */
@@ -35,34 +39,68 @@
 	/* Text - Hierarchical from foreground → muted → subtle */
 	--color-foreground: oklch(20% 0.02 220); /* Primary text */
 	--color-muted: oklch(48% 0.02 220); /* Secondary text */
-	--color-subtle: oklch(58% 0.025 220); /* Tertiary text, captions */
-	--color-accent-text: oklch(62% 0.08 165); /* Highlighted text using brand */
+	--color-subtle: oklch(50% 0.025 220); /* Tertiary text, captions — darkened from brand's 58% to clear AA (4.5:1) at normal text sizes */
+	--color-accent-text: oklch(46% 0.09 165); /* Highlighted text using brand — darkened from brand's 62% to clear AA on --color-page */
 
 	/* Borders - From prominent → subtle */
 	--color-border: oklch(90% 0.012 220); /* Standard borders */
 	--color-border-subtle: oklch(95% 0.006 220); /* Subtle dividers */
+
+	/* === EXTENSIONS (see DESIGN_LANGUAGE.md #2), Light Mode === */
+	--color-code-bg: oklch(24% 0.02 220);
+	--color-code-foreground: oklch(92% 0.01 165);
+	--color-code-border: oklch(30% 0.02 220);
+
+	--color-success: oklch(62% 0.08 165);
+	--color-danger: oklch(58% 0.13 25);
+	--color-warning: oklch(48% 0.12 65); /* darkened from 72% — the lighter amber failed AA/graphical-object contrast in light mode */
+	--color-info: oklch(60% 0.06 240);
+
+	--color-node-stroke: var(--color-border);
+	--color-edge: oklch(70% 0.03 220 / 25%);
+	--color-edge-active: var(--color-primary);
 }
 
-/* === DARK MODE === */
+/* Brand gradient — single source of truth (teal-green -> dark slate) */
+@theme {
+	--gradient-brand: linear-gradient(
+		45deg,
+		oklch(62% 0.08 165) 0%,
+		oklch(32% 0.02 220) 70%
+	);
+
+	/* Text-fill variant of the brand gradient (used by .text-gradient-brand).
+	   Same stops in light mode; dark mode lightens the slate stop so
+	   gradient text stays legible against the dark page background. */
+	--gradient-brand-text: var(--gradient-brand);
+}
+
+/* === DARK MODE (follows system prefers-color-scheme) === */
 @media (prefers-color-scheme: dark) {
 	:root {
-		/* Backgrounds - Subtle elevation hierarchy matching light mode's 2% range */
-		--color-page: oklch(19% 0.02 220); /* Base layer */
-		--color-surface: oklch(
-			21% 0.022 220
-		); /* Cards elevated +2% (matches light mode delta) */
-		--color-elevated: oklch(
-			20% 0.021 220
-		); /* Modals elevated +1% (matches light mode delta) */
+		--color-page: oklch(19% 0.02 220);
+		--color-surface: oklch(21% 0.022 220);
+		--color-elevated: oklch(20% 0.021 220);
 
-		/* Text - Inverted for dark backgrounds */
 		--color-foreground: oklch(97% 0.005 165);
 		--color-muted: oklch(66% 0.025 220);
 		--color-subtle: oklch(76% 0.03 220);
 		--color-accent-text: oklch(70% 0.08 165);
 
-		/* Borders - Darker for dark mode */
 		--color-border: oklch(23% 0.025 220);
 		--color-border-subtle: oklch(17% 0.02 220);
+
+		--color-code-bg: oklch(15% 0.015 220);
+		--color-code-border: oklch(26% 0.02 220);
+
+		--color-edge: oklch(70% 0.03 220 / 40%);
+
+		--color-warning: oklch(72% 0.1 75);
+
+		--gradient-brand-text: linear-gradient(
+			45deg,
+			oklch(70% 0.08 165) 0%,
+			oklch(55% 0.04 220) 70%
+		);
 	}
 }

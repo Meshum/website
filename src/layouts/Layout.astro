@@ -3,6 +3,8 @@ import Head from "../components/Head.astro";
 import "../styles/global.css";
 import { ClientRouter } from 'astro:transitions';
 import CookieBanner from "../components/CookieBanner.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
 	title?: string;
@@ -11,7 +13,7 @@ interface Props {
 
 const {
 	title = "Meshum",
-	description = "Coming soon",
+	description = "Meshum is a self-hosted governance and distribution platform for MCP servers, skills, and agents.",
 } = Astro.props;
 ---
 
@@ -26,9 +28,35 @@ const {
 		<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Lexend:wght@100..900&family=Syne:wght@400..800&display=swap" rel="stylesheet">
 	</head>
 	<body class="min-h-screen flex flex-col">
+		<Nav />
 		<main class="flex-1">
 			<slot />
 		</main>
+		<Footer />
 		<CookieBanner />
+
+		<script is:inline>
+			(function () {
+				function initReveal() {
+					var items = document.querySelectorAll(".reveal");
+					if (!items.length) return;
+					var observer = new IntersectionObserver(
+						function (entries) {
+							entries.forEach(function (entry) {
+								if (entry.isIntersecting) {
+									entry.target.classList.add("in-view");
+									observer.unobserve(entry.target);
+								}
+							});
+						},
+						{ threshold: 0.15 }
+					);
+					items.forEach(function (item) {
+						observer.observe(item);
+					});
+				}
+				document.addEventListener("astro:page-load", initReveal);
+			})();
+		</script>
 	</body>
 </html>

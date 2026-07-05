@@ -1,0 +1,121 @@
+---
+// Motif C — control-plane topology. Requests flow from people through the
+// Meshum control plane (policy / registry / telemetry) out to MCP servers,
+// with every call recorded back to the audit log.
+const people = [
+	{ label: "developers", x: 100, y: 139 },
+	{ label: "agents", x: 100, y: 259 },
+];
+const tools = [
+	{ label: "filesystem", x: 660, y: 99 },
+	{ label: "postgres", x: 660, y: 169 },
+	{ label: "github", x: 660, y: 239 },
+	{ label: "slack", x: 660, y: 309 },
+];
+const blocks = [
+	{ label: "policy engine", y: 139 },
+	{ label: "registry / catalog", y: 205 },
+	{ label: "telemetry & audit", y: 271 },
+];
+---
+
+<div class="rounded-xl border border-border bg-surface p-6">
+	<p class="mb-4 font-technical text-xs uppercase tracking-[0.08em] text-subtle">control plane</p>
+	<svg viewBox="0 0 760 380" class="w-full" role="img" aria-label="Requests from developers and agents pass through the Meshum control plane — its policy engine, registry, and telemetry — out to MCP servers like filesystem, postgres, github, and slack, with every call recorded to the audit log.">
+		<defs>
+			<linearGradient id="topo-brand" x1="0" y1="0" x2="1" y2="1">
+				<stop offset="0" stop-color="oklch(62% 0.08 165)" />
+				<stop offset="1" stop-color="oklch(32% 0.02 220)" />
+			</linearGradient>
+			<marker id="topo-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+				<path d="M0,0 L10,5 L0,10 z" fill="var(--color-primary)" />
+			</marker>
+		</defs>
+
+		<!-- lane labels -->
+		<text x="100" y="28" text-anchor="middle" font-family="var(--font-technical)" font-size="10" letter-spacing="0.08em" fill="var(--color-subtle)">YOUR PEOPLE</text>
+		<text x="380" y="28" text-anchor="middle" font-family="var(--font-technical)" font-size="10" letter-spacing="0.08em" fill="var(--color-subtle)">CONTROL PLANE</text>
+		<text x="660" y="28" text-anchor="middle" font-family="var(--font-technical)" font-size="10" letter-spacing="0.08em" fill="var(--color-subtle)">YOUR TOOLS</text>
+
+		<!-- lanes -->
+		<rect x="24" y="44" width="152" height="300" rx="12" fill="var(--color-surface)" stroke="var(--color-border-subtle)" />
+		<rect x="580" y="44" width="156" height="300" rx="12" fill="var(--color-surface)" stroke="var(--color-border-subtle)" />
+
+		<!-- people → plane (request) -->
+		{
+			people.map((p) => (
+				<line x1={p.x + 44} y1={p.y} x2="250" y2={p.y} stroke="var(--color-edge-active)" stroke-width="1.5" marker-end="url(#topo-arrow)" class="topology-edge" />
+			))
+		}
+		<text x="197" y="128" text-anchor="middle" font-family="var(--font-technical)" font-size="9" fill="var(--color-subtle)">request</text>
+
+		<!-- plane → tools (enforce) -->
+		<line x1="510" y1="120" x2="616" y2="99" stroke="var(--color-edge-active)" stroke-width="1.5" marker-end="url(#topo-arrow)" class="topology-edge" />
+		<line x1="510" y1="185" x2="616" y2="169" stroke="var(--color-edge-active)" stroke-width="1.5" marker-end="url(#topo-arrow)" class="topology-edge" />
+		<line x1="510" y1="225" x2="616" y2="239" stroke="var(--color-edge-active)" stroke-width="1.5" marker-end="url(#topo-arrow)" class="topology-edge" />
+		<line x1="510" y1="285" x2="616" y2="309" stroke="var(--color-edge-active)" stroke-width="1.5" marker-end="url(#topo-arrow)" class="topology-edge" />
+		<text x="563" y="86" text-anchor="middle" font-family="var(--font-technical)" font-size="9" fill="var(--color-subtle)">enforce policy</text>
+
+		<!-- control plane -->
+		<rect x="250" y="80" width="260" height="220" rx="14" fill="var(--color-elevated)" stroke="var(--color-primary)" stroke-width="1.5" />
+		<text x="380" y="108" text-anchor="middle" font-family="var(--font-technical)" font-size="13" font-weight="600" fill="var(--color-foreground)">meshum</text>
+		<rect x="340" y="116" width="80" height="3" rx="1.5" fill="url(#topo-brand)" />
+
+		{
+			blocks.map((b) => (
+				<g>
+					<rect x="280" y={b.y - 15} width="200" height="34" rx="7" fill="var(--color-surface)" stroke="var(--color-border)" />
+					<text x="380" y={b.y + 4} text-anchor="middle" font-family="var(--font-technical)" font-size="11" fill="var(--color-foreground)">{b.label}</text>
+				</g>
+			))
+		}
+
+		<!-- telemetry feedback -->
+		<path d="M 660 324 C 620 362, 520 332, 482 278" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-dasharray="3 4" marker-end="url(#topo-arrow)" class="topology-feedback" />
+		<text x="545" y="356" text-anchor="middle" font-family="var(--font-technical)" font-size="9" fill="var(--color-subtle)">record telemetry</text>
+
+		<!-- people nodes -->
+		{
+			people.map((p) => (
+				<g>
+					<rect x={p.x - 44} y={p.y - 15} width="88" height="30" rx="7" fill="var(--color-elevated)" stroke="var(--color-node-stroke)" />
+					<text x={p.x} y={p.y + 4} text-anchor="middle" font-family="var(--font-technical)" font-size="11" fill="var(--color-foreground)">{p.label}</text>
+				</g>
+			))
+		}
+
+		<!-- tool nodes -->
+		{
+			tools.map((t) => (
+				<g>
+					<rect x={t.x - 44} y={t.y - 15} width="88" height="30" rx="7" fill="var(--color-elevated)" stroke="var(--color-node-stroke)" />
+					<text x={t.x} y={t.y + 4} text-anchor="middle" font-family="var(--font-technical)" font-size="11" fill="var(--color-foreground)">{t.label}</text>
+				</g>
+			))
+		}
+	</svg>
+</div>
+
+<style>
+	.topology-edge {
+		stroke-dasharray: 5 4;
+	}
+	.topology-feedback {
+		opacity: 0.75;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		.topology-edge {
+			animation: dash-flow 2.5s linear infinite;
+		}
+		.topology-feedback {
+			animation: dash-flow 4s linear infinite;
+		}
+	}
+
+	@keyframes dash-flow {
+		to {
+			stroke-dashoffset: -18;
+		}
+	}
+</style>

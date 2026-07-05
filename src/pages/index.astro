@@ -1,32 +1,251 @@
 ---
-import Logo from '../../public/logo.svg';
 import Layout from "../layouts/Layout.astro";
+import PermissionMatrix from "../components/PermissionMatrix.astro";
+import TopologyDiagram from "../components/TopologyDiagram.astro";
+import { GITHUB_URL, VERSION } from "../constants";
+
+const pillars = [
+	{
+		label: "Governance",
+		title: "Tool-level permissions, not all-or-nothing access",
+		body: "Decide exactly which MCP servers your organization runs, and which tools within each server people can call. Approve a server without approving every tool it ships.",
+	},
+	{
+		label: "Distribution",
+		title: "Ship skills and agents like you ship code",
+		body: "Publish approved skills and agents to your organization from one place. People pull from a catalog you control, instead of copy-pasting configs between machines.",
+	},
+	{
+		label: "Telemetry",
+		title: "See what's actually being used",
+		body: "Every call through the control plane is logged: which tool, which server, which person. Know your real AI footprint before an audit asks you to find out.",
+	},
+];
+
+const facts = [
+	{ value: "10–500", label: "people, the size we're built for" },
+	{ value: "AGPL-3.0", label: "with a commercial license available" },
+];
 ---
 
-<Layout title="Meshum — Coming Soon" description="Something new is coming. Meshum is being rebuilt from the ground up.">
-	<section class="min-h-screen flex items-center justify-center px-6 bg-page">
-		<div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-			<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/8 rounded-full blur-3xl"></div>
-			<div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+<Layout
+	title="Meshum — Governance for AI tooling"
+	description="Meshum is a self-hosted governance and distribution platform for MCP servers, skills, and agents. The AI platform team, productized."
+>
+	<!-- Hero -->
+	<section class="mesh-bg relative overflow-hidden border-b border-border-subtle px-6 py-32">
+		<div class="relative mx-auto max-w-[1200px] text-center">
+			<p class="font-technical text-xs uppercase tracking-[0.08em] text-subtle">
+				// self-hosted · governance · distribution
+			</p>
+			<h1 class="mx-auto mt-6 max-w-[20ch] font-heading text-[clamp(2.75rem,5vw,4.5rem)] font-bold leading-[1.05] tracking-[-0.02em] text-foreground">
+				The AI platform team, <span class="text-gradient-brand">productized.</span>
+			</h1>
+			<p class="mx-auto mt-6 max-w-[50ch] font-body text-xl leading-[1.55] text-muted">
+				Meshum governs and distributes MCP servers, skills, and agents across your
+				organization — one self-hosted control plane, full visibility, tool-level
+				permissions.
+			</p>
+			<div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+				<a
+					href={GITHUB_URL}
+					class="rounded-lg bg-primary px-5 py-2.5 font-body font-medium text-on-primary transition-[filter] hover:brightness-110"
+				>
+					View on GitHub
+				</a>
+				<a
+					href={`${GITHUB_URL}#readme`}
+					class="rounded-lg border border-border px-5 py-2.5 font-body font-medium text-foreground transition-colors hover:bg-surface"
+				>
+					Read the docs
+				</a>
+			</div>
+			<div class="mt-6 flex flex-wrap items-center justify-center gap-2 font-technical text-xs text-subtle">
+				<span class="rounded-md border border-border px-2 py-0.5">v{VERSION}</span>
+				<span class="rounded-md border border-border px-2 py-0.5">AGPL-3.0-or-later</span>
+				<span class="rounded-md border border-border px-2 py-0.5">self-hosted</span>
+			</div>
 		</div>
+	</section>
 
-		<div class="relative z-10 text-center max-w-lg mx-auto">
-			<div class="flex items-center justify-center mb-10">
-				<Logo class="w-16 h-16" />
+	<!-- Problem -->
+	<section class="border-b border-border-subtle bg-page px-6 py-24">
+		<div class="mx-auto max-w-[1200px]">
+			<div class="reveal grid grid-cols-1 gap-12 md:grid-cols-12">
+				<div class="md:col-span-5">
+					<p class="font-technical text-xs uppercase tracking-[0.08em] text-subtle">The problem</p>
+					<h2 class="mt-4 font-heading text-[clamp(1.75rem,3vw,2.5rem)] font-semibold leading-[1.15] tracking-[-0.015em] text-foreground">
+						AI tooling grew faster than anyone's ability to govern it
+					</h2>
+					<p class="mt-4 max-w-[50ch] font-body text-lg leading-[1.55] text-muted">
+						Every team picked its own MCP servers, wired up its own skills, and gave
+						agents whatever access got the job done fastest. Nobody has a single
+						answer to "what can our AI tools actually touch?"
+					</p>
+				</div>
+				<div class="md:col-span-7 md:col-start-6">
+					<ul class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+						<li class="rounded-xl border border-border bg-surface p-6">
+							<p class="font-heading text-lg font-medium text-foreground">No inventory</p>
+							<p class="mt-2 font-body text-sm leading-[1.6] text-muted">
+								Nobody can list every MCP server running across the org, let alone who approved it.
+							</p>
+						</li>
+						<li class="rounded-xl border border-border bg-surface p-6">
+							<p class="font-heading text-lg font-medium text-foreground">All-or-nothing access</p>
+							<p class="mt-2 font-body text-sm leading-[1.6] text-muted">
+								Approving a server usually means approving every tool it exposes, including the destructive ones.
+							</p>
+						</li>
+						<li class="rounded-xl border border-border bg-surface p-6">
+							<p class="font-heading text-lg font-medium text-foreground">No audit trail</p>
+							<p class="mt-2 font-body text-sm leading-[1.6] text-muted">
+								When something goes wrong, there's no log of which tool ran, on whose behalf, with what result.
+							</p>
+						</li>
+						<li class="rounded-xl border border-border bg-surface p-6">
+							<p class="font-heading text-lg font-medium text-foreground">Copy-pasted skills</p>
+							<p class="mt-2 font-body text-sm leading-[1.6] text-muted">
+								Useful agents and skills spread by Slack message and gist link, not by anything you can version or revoke.
+							</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Solution / pillars -->
+	<section class="border-b border-border-subtle bg-surface px-6 py-24">
+		<div class="mx-auto max-w-[1200px]">
+			<div class="reveal mx-auto max-w-[60ch] text-center">
+				<p class="font-technical text-xs uppercase tracking-[0.08em] text-subtle">How it works</p>
+				<h2 class="mt-4 font-heading text-[clamp(1.75rem,3vw,2.5rem)] font-semibold leading-[1.15] tracking-[-0.015em] text-foreground">
+					One control plane. Three jobs.
+				</h2>
 			</div>
 
-			<h1 class="font-heading text-5xl md:text-6xl font-bold text-foreground mb-4 tracking-tight">
-				Meshum
-			</h1>
+			<div class="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
+				{
+					pillars.map((pillar) => (
+						<div class="reveal rounded-xl border border-border bg-page p-8">
+							<p class="font-technical text-xs uppercase tracking-[0.08em] text-primary">{pillar.label}</p>
+							<h3 class="mt-4 font-heading text-xl font-medium leading-[1.25] tracking-[-0.01em] text-foreground">
+								{pillar.title}
+							</h3>
+							<p class="mt-3 font-body text-[0.9375rem] leading-[1.55] text-muted">{pillar.body}</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
 
-			<p class="font-heading text-xl md:text-2xl font-medium text-primary mb-6">
-				Something new is coming.
-			</p>
+	<!-- Permission matrix + code -->
+	<section class="border-b border-border-subtle bg-page px-6 py-24">
+		<div class="mx-auto max-w-[1200px]">
+			<div class="grid grid-cols-1 gap-12 md:grid-cols-12 md:items-center">
+				<div class="reveal md:col-span-5">
+					<p class="font-technical text-xs uppercase tracking-[0.08em] text-subtle">Governance</p>
+					<h2 class="mt-4 font-heading text-[clamp(1.75rem,3vw,2.5rem)] font-semibold leading-[1.15] tracking-[-0.015em] text-foreground">
+						Approve the server. Choose the tools.
+					</h2>
+					<p class="mt-4 max-w-[50ch] font-body text-lg leading-[1.55] text-muted">
+						Every MCP server exposes a list of tools. Meshum lets you allow, block,
+						or flag each one individually, per server, per team — and change your
+						mind later without redeploying anything.
+					</p>
+				</div>
+				<div class="reveal md:col-span-7">
+					<PermissionMatrix />
+				</div>
+			</div>
+		</div>
+	</section>
 
-			<p class="font-body text-base text-muted leading-relaxed">
-				We're rebuilding Meshum from the ground up.<br />
-				Stay tuned.
+	<section class="border-b border-border-subtle bg-surface px-6 py-24">
+		<div class="mx-auto max-w-[1200px]">
+			<div class="reveal mx-auto max-w-[60ch] text-center">
+				<p class="font-technical text-xs uppercase tracking-[0.08em] text-subtle">Policy as code</p>
+				<h2 class="mt-4 font-heading text-[clamp(1.75rem,3vw,2.5rem)] font-semibold leading-[1.15] tracking-[-0.015em] text-foreground">
+					Policy changes go through review, not chat
+				</h2>
+				<p class="mt-4 font-body text-lg leading-[1.55] text-muted">
+					Write your access policy once, review it like any other code change,
+					and let the control plane enforce it. No tribal knowledge about who's
+					allowed to run what.
+				</p>
+			</div>
+			<ol class="reveal mx-auto mt-12 grid max-w-[900px] grid-cols-1 gap-4 sm:grid-cols-3">
+				<li class="rounded-xl border border-border bg-page p-6">
+					<p class="font-technical text-xs text-primary">01</p>
+					<p class="mt-2 font-heading text-base font-medium text-foreground">Propose</p>
+					<p class="mt-1.5 font-body text-sm leading-[1.55] text-muted">Someone requests a new server or a tool access change.</p>
+				</li>
+				<li class="rounded-xl border border-border bg-page p-6">
+					<p class="font-technical text-xs text-primary">02</p>
+					<p class="mt-2 font-heading text-base font-medium text-foreground">Review</p>
+					<p class="mt-1.5 font-body text-sm leading-[1.55] text-muted">The change is reviewed and approved in the open, with history.</p>
+				</li>
+				<li class="rounded-xl border border-border bg-page p-6">
+					<p class="font-technical text-xs text-primary">03</p>
+					<p class="mt-2 font-heading text-base font-medium text-foreground">Enforce</p>
+					<p class="mt-1.5 font-body text-sm leading-[1.55] text-muted">The control plane picks it up. Nothing gets redeployed by hand.</p>
+				</li>
+			</ol>
+		</div>
+	</section>
+
+	<!-- Topology / self-hosted -->
+	<section class="border-b border-border-subtle bg-page px-6 py-24">
+		<div class="mx-auto max-w-[1200px]">
+			<div class="grid grid-cols-1 gap-12 md:grid-cols-12 md:items-center">
+				<div class="reveal md:col-span-5">
+					<p class="font-technical text-xs uppercase tracking-[0.08em] text-subtle">Self-hosted</p>
+					<h2 class="mt-4 font-heading text-[clamp(1.75rem,3vw,2.5rem)] font-semibold leading-[1.15] tracking-[-0.015em] text-foreground">
+						Your data stays on your infrastructure
+					</h2>
+					<p class="mt-4 max-w-[50ch] font-body text-lg leading-[1.55] text-muted">
+						Deployed on your own infrastructure, where you already run everything
+						else. Meshum never sees your telemetry, your policies, or your
+						credentials.
+					</p>
+				</div>
+				<div class="reveal md:col-span-7">
+					<TopologyDiagram />
+				</div>
+			</div>
+
+			<dl class="reveal mx-auto mt-16 grid max-w-md grid-cols-1 gap-6 border-t border-border-subtle pt-12 sm:grid-cols-2">
+				{
+					facts.map((fact) => (
+						<div>
+							<dt class="font-heading text-3xl font-bold text-foreground">{fact.value}</dt>
+							<dd class="mt-1 font-body text-sm text-muted">{fact.label}</dd>
+						</div>
+					))
+				}
+			</dl>
+		</div>
+	</section>
+
+	<!-- Pre-footer CTA -->
+	<section class="gradient-cta relative overflow-hidden px-6 py-32">
+		<div class="relative mx-auto max-w-[1200px] text-center">
+			<h2 class="mx-auto max-w-[24ch] font-heading text-[clamp(2rem,4vw,3rem)] font-bold leading-[1.1] tracking-[-0.02em] text-white">
+				Self-host Meshum and see your AI footprint for the first time.
+			</h2>
+			<p class="mx-auto mt-4 max-w-[50ch] font-body text-lg text-white/80">
+				Open source under AGPL-3.0, with a commercial license available for teams that need it.
 			</p>
+			<div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+				<a
+					href={GITHUB_URL}
+					class="rounded-lg bg-white px-5 py-2.5 font-body font-medium text-accent transition-[filter] hover:brightness-95"
+				>
+					View on GitHub
+				</a>
+			</div>
 		</div>
 	</section>
 </Layout>

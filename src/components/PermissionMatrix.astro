@@ -1,0 +1,69 @@
+---
+// Motif B — permission matrix. Rows = MCP servers, columns = tools, cells = access state.
+type State = "allow" | "deny" | "review";
+
+interface Row {
+	label: string;
+	cells: State[];
+}
+
+const columns = ["read", "write", "exec", "delete"];
+
+const rows: Row[] = [
+	{ label: "filesystem", cells: ["allow", "allow", "deny", "deny"] },
+	{ label: "postgres", cells: ["allow", "review", "deny", "deny"] },
+	{ label: "github", cells: ["allow", "allow", "review", "deny"] },
+	{ label: "slack", cells: ["allow", "review", "deny", "deny"] },
+];
+
+const stateStyles: Record<State, string> = {
+	allow: "bg-success/10 text-success",
+	deny: "bg-danger/10 text-danger",
+	review: "bg-warning/10 text-warning",
+};
+
+const stateGlyph: Record<State, string> = {
+	allow: "✓",
+	deny: "–",
+	review: "•",
+};
+---
+
+<div class="overflow-x-auto rounded-xl border border-border bg-surface p-6">
+	<p class="mb-4 font-technical text-xs uppercase tracking-[0.08em] text-subtle">
+		~/meshum &middot; tool access
+	</p>
+	<table class="w-full min-w-[420px] border-collapse font-technical text-sm">
+		<thead>
+			<tr>
+				<th class="px-2 pb-3 text-left font-medium text-subtle"></th>
+				{
+					columns.map((col) => (
+						<th class="px-2 pb-3 text-left font-medium text-subtle">{col}</th>
+					))
+				}
+			</tr>
+		</thead>
+		<tbody>
+			{
+				rows.map((row) => (
+					<tr class="border-t border-border-subtle">
+						<th class="py-3 pr-2 text-left font-medium text-foreground">{row.label}</th>
+						{row.cells.map((state) => (
+							<td class="px-2 py-3">
+								<span class={`grid h-7 w-7 place-items-center rounded-md ${stateStyles[state]}`}>
+									{stateGlyph[state]}
+								</span>
+							</td>
+						))}
+					</tr>
+				))
+			}
+		</tbody>
+	</table>
+	<div class="mt-5 flex flex-wrap gap-4 font-technical text-xs text-subtle">
+		<span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-success"></span> allowed</span>
+		<span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-warning"></span> needs review</span>
+		<span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-danger"></span> blocked</span>
+	</div>
+</div>

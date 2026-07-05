@@ -1,0 +1,116 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { GITHUB_URL, VERSION } from "../constants";
+
+const principles = [
+	{
+		label: "Self-hosted first",
+		body: "Deployed on your own infrastructure. We built Meshum this way because governance tooling that can't be trusted with your data defeats its own purpose.",
+	},
+	{
+		label: "Source available",
+		body: "Meshum is licensed under AGPL-3.0-or-later. Read the code, audit it, run it, modify it. A commercial license is available for organizations that need terms AGPL doesn't provide.",
+	},
+	{
+		label: "Built for the platform team",
+		body: "We're building for the people who already carry the pager for internal tooling — not adding a new dashboard they have to convince anyone to use.",
+	},
+];
+---
+
+<Layout
+	title="About — Meshum"
+	description="Why Meshum is self-hosted, source-available, and built for platform and infra teams governing AI tooling at 10–500-person organizations."
+>
+	<section class="mesh-bg border-b border-border-subtle px-6 py-24">
+		<div class="mx-auto max-w-[1200px] text-center">
+			<p class="font-technical text-xs uppercase tracking-[0.08em] text-subtle">About</p>
+			<h1 class="mx-auto mt-6 max-w-[22ch] font-heading text-[clamp(2.25rem,4vw,3.25rem)] font-bold leading-[1.1] tracking-[-0.02em] text-foreground">
+				The AI platform team, productized.
+			</h1>
+			<p class="mx-auto mt-6 max-w-[60ch] font-body text-lg leading-[1.55] text-muted">
+				Meshum exists because AI tooling spread through organizations faster than
+				anyone's ability to govern it. We're building the control plane that
+				should have shipped alongside MCP servers, skills, and agents from the start.
+			</p>
+		</div>
+	</section>
+
+	<section class="border-b border-border-subtle bg-page px-6 py-24">
+		<div class="mx-auto max-w-[1200px]">
+			<div class="reveal mx-auto max-w-[60ch] text-center">
+				<p class="font-technical text-xs uppercase tracking-[0.08em] text-subtle">Why it's built this way</p>
+				<h2 class="mt-4 font-heading text-[clamp(1.75rem,3vw,2.5rem)] font-semibold leading-[1.15] tracking-[-0.015em] text-foreground">
+					What we committed to
+				</h2>
+			</div>
+			<div class="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
+				{
+					principles.map((p) => (
+						<div class="reveal rounded-xl border border-border bg-surface p-8">
+							<h3 class="font-heading text-xl font-medium leading-[1.25] tracking-[-0.01em] text-foreground">
+								{p.label}
+							</h3>
+							<p class="mt-3 font-body text-[0.9375rem] leading-[1.55] text-muted">{p.body}</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="border-b border-border-subtle bg-surface px-6 py-24">
+		<div class="mx-auto max-w-[1200px]">
+			<div class="reveal grid grid-cols-1 gap-12 md:grid-cols-12">
+				<div class="md:col-span-5">
+					<p class="font-technical text-xs uppercase tracking-[0.08em] text-subtle">Where we are</p>
+					<h2 class="mt-4 font-heading text-[clamp(1.75rem,3vw,2.5rem)] font-semibold leading-[1.15] tracking-[-0.015em] text-foreground">
+						Early, and we'd rather say so
+					</h2>
+				</div>
+				<div class="md:col-span-7 md:col-start-6">
+					<p class="max-w-[55ch] font-body text-lg leading-[1.6] text-muted">
+						Meshum is at <span class="font-technical text-[0.9375rem] text-subtle">v{VERSION}</span>.
+						Interfaces are still unstable and will change before a 1.0. If you're
+						evaluating Meshum for production governance today, read the source,
+						open an issue with what's missing, and expect rough edges — we'd
+						rather you know that going in than find out the hard way.
+					</p>
+					<div class="mt-8 flex flex-wrap gap-4">
+						<a
+							href={GITHUB_URL}
+							class="rounded-lg bg-primary px-5 py-2.5 font-body font-medium text-on-primary transition-[filter] hover:brightness-110"
+						>
+							View on GitHub
+						</a>
+						<a
+							href={`${GITHUB_URL}/issues`}
+							class="rounded-lg border border-border px-5 py-2.5 font-body font-medium text-foreground transition-colors hover:bg-page"
+						>
+							Open an issue
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="gradient-cta px-6 py-32">
+		<div class="mx-auto max-w-[1200px] text-center">
+			<h2 class="mx-auto max-w-[24ch] font-heading text-[clamp(2rem,4vw,3rem)] font-bold leading-[1.1] tracking-[-0.02em] text-white">
+				Questions about licensing or self-hosting?
+			</h2>
+			<p class="mx-auto mt-4 max-w-[50ch] font-body text-lg text-white/80">
+				Open a discussion on GitHub — that's where we're building this, in the open.
+			</p>
+			<div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+				<a
+					href={`${GITHUB_URL}/discussions`}
+					class="rounded-lg bg-white px-5 py-2.5 font-body font-medium text-accent transition-[filter] hover:brightness-95"
+				>
+					Start a discussion
+				</a>
+			</div>
+		</div>
+	</section>
+</Layout>
